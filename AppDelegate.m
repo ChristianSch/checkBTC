@@ -88,7 +88,6 @@
 
 - (void)savePreferences:(NSNotification *)notif
 {
-	/* TODO: validate dict */
 	// [notif userInfo][@"currency"] equals
 	// [[notif userInfo] objectForKey:@"currency"]
 	if (debug && [userDefs getPreferencesForKey:@"currency"] != [notif userInfo][@"currency"]) {
