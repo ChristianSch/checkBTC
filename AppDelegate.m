@@ -20,7 +20,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	@autoreleasepool {
-		debug = TRUE;
+		debug = FALSE;
 		
 		/* Get the last saved user defaults */
 		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

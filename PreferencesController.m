@@ -16,7 +16,7 @@
 
 -(id)init
 {
-	debug = TRUE;
+	debug = FALSE;
 	
 	self = [super initWithWindowNibName:@"Preferences"];
 	if (self) {
