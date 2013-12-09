@@ -5,12 +5,11 @@
 //  Created by Christian Schulze on 04.12.13.
 //  Copyright (c) 2013 Christian Schulze. All rights reserved.
 //
-#define APP_TITLE "BTC Checker"
-#define VERSION 0.8
+#define APP_TITLE @"CheckBTC"
+#define VERSION @0.8
 
 #import <Cocoa/Cocoa.h>
 #import "PreferencesController.h"
-#import "UserDefs.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 {
@@ -25,8 +24,6 @@
 	__weak NSMenuItem *_quit;
 	
 	/* Settings */
-	UserDefs *userDefs;
-	NSMutableDictionary *defaultPrefs;
 	NSString *currency;
 	NSNumber *refreshRate;
 	
@@ -77,7 +74,7 @@
 /*!
  @abstract Update the timer to the new refresh rate. This is done by invalidating the old timer and installing a new one.
  */
-- (void)refreshTimer;
+- (void)refreshTimer:(double)rate;
 
 @property (unsafe_unretained) IBOutlet NSWindow *prefWindow;
 @property (assign) IBOutlet NSWindow *window;

@@ -20,6 +20,12 @@
 	if (self) {
 		[self loadWindow];
 	}
+	
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	
+	[_refreshRate setStringValue:[[defaults objectForKey:@"rate"] stringValue]];
+	[_currencies setTitle:[[defaults objectForKey:@"currency"] stringValue]];
+
 	return (self);
 }
 
@@ -30,7 +36,26 @@
     if (self) {
         [self loadWindow];
     }
+	
     return self;
+}
+
+- (void)awakeFromNib
+{
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	NSString *rate = [defaults objectForKey:@"refreshRate"];
+	NSString *curr = [defaults objectForKey:@"currency"];
+	
+	if (rate != nil) {
+		NSLog(@"rate to set: %@", rate);
+		[_refreshRate setStringValue:rate];
+	}
+	
+	if (curr != nil) {
+		NSLog(@"curr to set: %@", curr);
+		[_currencies selectItemWithTitle:curr];
+	}
+	NSLog(@"fin.");
 }
 
 - (IBAction)savePrefs:(id)sender
