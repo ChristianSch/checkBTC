@@ -10,6 +10,7 @@
 
 @interface PreferencesController : NSWindowController
 {
+	BOOL debug;
 	__weak NSPopUpButton *_currencies;
 	__weak NSTextField *_refreshRate;
 }

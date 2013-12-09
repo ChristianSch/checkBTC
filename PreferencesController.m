@@ -16,6 +16,8 @@
 
 -(id)init
 {
+	debug = TRUE;
+	
 	self = [super initWithWindowNibName:@"Preferences"];
 	if (self) {
 		[self loadWindow];
@@ -38,19 +40,18 @@
 - (void)awakeFromNib
 {
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSString *rate = [defaults objectForKey:@"refreshRate"];
+	NSNumber *rate = [defaults objectForKey:@"refreshRate"];
 	NSString *curr = [defaults stringForKey:@"currency"];
 	
 	if (rate != nil) {
-		NSLog(@"rate to set: %@", rate);
-		[_refreshRate setStringValue:rate];
+		if (debug) NSLog(@"rate to set: %f", [rate doubleValue]);
+		[_refreshRate setStringValue:[rate stringValue]];
 	}
 	
 	if (curr != nil) {
-		NSLog(@"curr to set: %@", curr);
+		if (debug) NSLog(@"curr to set: %@", curr);
 		[_currencies selectItemWithTitle:curr];
 	}
-	NSLog(@"fin.");
 }
 
 - (IBAction)savePrefs:(id)sender
@@ -61,14 +62,13 @@
 	 */
 	
 	NSString *currency = [[[self currencies] selectedItem] title];
-	// equals [[NSNumber alloc] initWithDouble:[[self refreshRate] doubleValue]]
 	NSNumber *rRate = @([[self refreshRate] doubleValue]);
 
 	/* Check refresh rate for validity. */
 	if ([rRate doubleValue] < 10.0) {
-		NSLog(@"Setting refresh rate to 10.0 because of invalid input.");
-		
-		// equals [[NSNumber alloc] initWithDouble:10.0]
+		if (debug) {
+			NSLog(@"Setting refresh rate to 10.0 because of invalid input.");
+		}
 		rRate = @10.0;
 	}
 	

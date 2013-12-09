@@ -20,7 +20,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	@autoreleasepool {
-		debug = TRUE;
+		debug = FALSE;
 		
 		/* Get the last saved user defaults */
 		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -28,17 +28,19 @@
 		/* Check if currency and refreshRate were set. If not set defaults. */
 		currency = [defaults objectForKey:@"currency"];
 		
-		if (currency == nil || [currency length] <= 2) {
+		if (currency == nil && [currency length] <= 2) {
 			currency = CURRENCYDEF;
+			if (debug) NSLog(@"set default rate: %@", currency);
 		} else {
-			if (debug) NSLog(@"saved default currency: %@", currency);
+			if (debug) NSLog(@"set saved currency: %@", currency);
 		}
 		
 		refreshRate = [defaults objectForKey:@"refreshRate"];
-		if (refreshRate == nil || [refreshRate doubleValue] < 10.0) {
+		if (refreshRate == nil && [refreshRate doubleValue] < 10.0) {
 			refreshRate = REFRESHRATEDEF;
+			if (debug) NSLog(@"set default rate: %f", [refreshRate doubleValue]);
 		} else {
-			if (debug) NSLog(@"saved default rate: %f", [refreshRate doubleValue]);
+			if (debug) NSLog(@"set saved rate: %f", [refreshRate doubleValue]);
 		}
 		
 		menuItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
@@ -150,9 +152,7 @@
 
 - (void)refreshMenuItemText:(NSString *)newText
 {
-	
 	[menuItem setTitle:newText];
-	if (debug) NSLog(@"refreshed");
 }
 
 - (void)workerMethod:(NSTimer*)theTimer
