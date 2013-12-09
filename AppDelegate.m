@@ -15,6 +15,8 @@
 
 @implementation AppDelegate
 
+@synthesize window;
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	@autoreleasepool {
@@ -85,6 +87,9 @@
 - (IBAction)showAbout:(id)sender
 {
 	[NSApp orderFrontStandardAboutPanel:self];
+	[[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
+	[self.window orderFrontRegardless];
+
 }
 
 - (IBAction)showPreferences:(id)sender {
@@ -94,6 +99,8 @@
 		preferencesController = [[PreferencesController alloc] init];
 	}
 	
+	[[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
+	[self.window orderFrontRegardless];
 	[[preferencesController window] makeKeyAndOrderFront:self];
 }
 
@@ -143,6 +150,7 @@
 
 - (void)refreshMenuItemText:(NSString *)newText
 {
+	
 	[menuItem setTitle:newText];
 	if (debug) NSLog(@"refreshed");
 }
@@ -152,6 +160,12 @@
 	trackerData = [BlockChainAPI getTicker];
 	
 	NSDictionary *curr = trackerData[[[NSUserDefaults standardUserDefaults] stringForKey:@"currency"]];
-	[self refreshMenuItemText:[NSString stringWithFormat:@"BTC: %@ %@", curr[@"15m"],  curr[@"symbol"]]];
+	
+	NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+	[numberFormatter setPositiveFormat:@"####.####"];
+	
+	NSString *formattedCurr = [numberFormatter stringFromNumber:curr[@"15m"]];
+
+	[self refreshMenuItemText:[NSString stringWithFormat:@"BTC: %@ %@", formattedCurr,  curr[@"symbol"]]];
 }
 @end

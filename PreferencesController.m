@@ -20,11 +20,6 @@
 	if (self) {
 		[self loadWindow];
 	}
-	
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	
-	[_refreshRate setStringValue:[[defaults objectForKey:@"rate"] stringValue]];
-	[_currencies setTitle:[[defaults objectForKey:@"currency"] stringValue]];
 
 	return (self);
 }
@@ -44,7 +39,7 @@
 {
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	NSString *rate = [defaults objectForKey:@"refreshRate"];
-	NSString *curr = [defaults objectForKey:@"currency"];
+	NSString *curr = [defaults stringForKey:@"currency"];
 	
 	if (rate != nil) {
 		NSLog(@"rate to set: %@", rate);

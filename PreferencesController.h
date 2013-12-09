@@ -12,7 +12,6 @@
 {
 	__weak NSPopUpButton *_currencies;
 	__weak NSTextField *_refreshRate;
-	
 }
 
 /*!
