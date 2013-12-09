@@ -20,7 +20,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	@autoreleasepool {
-		debug = FALSE;
+		debug = TRUE;
 		
 		/* Get the last saved user defaults */
 		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -159,13 +159,17 @@
 {
 	trackerData = [BlockChainAPI getTicker];
 	
-	NSDictionary *curr = trackerData[[[NSUserDefaults standardUserDefaults] stringForKey:@"currency"]];
-	
-	NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-	[numberFormatter setPositiveFormat:@"####.####"];
-	
-	NSString *formattedCurr = [numberFormatter stringFromNumber:curr[@"15m"]];
-
-	[self refreshMenuItemText:[NSString stringWithFormat:@"BTC: %@ %@", formattedCurr,  curr[@"symbol"]]];
+	if (trackerData != nil) {
+		NSDictionary *curr = trackerData[[[NSUserDefaults standardUserDefaults] stringForKey:@"currency"]];
+		
+		NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+		[numberFormatter setPositiveFormat:@"####.####"];
+		
+		NSString *formattedCurr = [numberFormatter stringFromNumber:curr[@"15m"]];
+		
+		[self refreshMenuItemText:[NSString stringWithFormat:@"BTC: %@ %@", formattedCurr,  curr[@"symbol"]]];
+	} else {
+		if (debug) NSLog(@"No data recieved!");
+	}
 }
 @end
