@@ -28,7 +28,7 @@
 		/* Check if currency and refreshRate were set. If not set defaults. */
 		currency = [defaults objectForKey:@"currency"];
 		
-		if (currency == nil) {
+		if (currency == nil || [currency length] <= 2) {
 			currency = CURRENCYDEF;
 		} else {
 			if (debug) NSLog(@"saved default currency: %@", currency);
