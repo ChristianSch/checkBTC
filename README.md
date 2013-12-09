@@ -5,6 +5,17 @@ Display the Bitcoin course in the status bar of OS X. Version 1.0.
 
 TODO
 ----
+* Version 1.0.1
+	* redo the icons and prevent noise at the circle edge
+	* credits for the png of the bitcoin
+	
+	=> RELEASE
 * Version 1.1
 	* get currencies from tracker, not pre-coded
 	* preferences: use real user defaults, not the last entered (neccessary because of the 10.0 minimum of the refresh rate)
+	
+FAQ
+---
+
+Q: The app does not show any course, instead it only displays "CheckBTC".
+A: This behavior is typical if the app could not get data from the internet. Either the internet connection is down (or blocked from a firewall like Little Snitch) or blockchain.info is temporarly down. If there is no update available feel free to contact me at <foo@bar.com>.
