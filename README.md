@@ -27,4 +27,4 @@ FAQ
 
 Q: The app does not show any course, instead it only displays "CheckBTC"!?
 ---------------------------------------------------------------------------
-**A**: This behavior is typical if the app could not get data from the internet. Either the internet connection is down (or blocked from a firewall like Little Snitch) or blockchain.info is temporarly down. If there is no update available feel free to contact me at <christian.schulze  -at-  mni.thm.de>.
+**A**: This behavior is typical if the app could not get data from the internet. Either the internet connection is down (or blocked from a firewall like Little Snitch) or blockchain.info is temporarly down. If there is no update available feel free to contact me at <christian.schulze@mni.thm.de>.
