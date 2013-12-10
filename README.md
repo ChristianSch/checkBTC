@@ -7,7 +7,7 @@ TODO
 ====
 * Version 1.0.1
 	* redo the icons and prevent noise at the circle edge
-	* credits for the png of the bitcoin
+	* credits for the png of the bitcoin (aboutPane!)
 	* add sparkle for updating
 	=> RELEASE
 
