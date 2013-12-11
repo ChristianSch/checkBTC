@@ -11,7 +11,7 @@
 #import "PreferencesController.h"
 
 #define CURRENCYDEF @"EUR"
-#define REFRESHRATEDEF @30.0
+#define REFRESHRATEDEF @90.0
 
 @implementation AppDelegate
 
