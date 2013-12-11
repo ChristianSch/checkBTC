@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13A598" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment defaultVersion="1070" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
     </dependencies>
     <objects>
@@ -20,12 +21,19 @@
             </connections>
         </customObject>
         <customObject id="420" customClass="NSFontManager"/>
+        <customObject id="mqo-pq-ez4" customClass="SUUpdater"/>
         <menu id="uWx-CR-igI">
             <items>
                 <menuItem title="About" id="Z6W-hr-Dpe">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="showAbout:" target="494" id="V3j-HO-B6X"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Check for updates" id="zBB-Uc-fK3">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="checkForUpdates:" target="mqo-pq-ez4" id="9hL-Vt-eib"/>
                     </connections>
                 </menuItem>
                 <menuItem title="Preferences ..." id="q0R-8S-RYc">
