@@ -46,7 +46,7 @@
                                         <font key="font" metaFont="menu"/>
                                         <menu key="menu" title="OtherViews" id="hVc-xZ-aJc">
                                             <items>
-                                                <menuItem title="EUR" state="on" id="65N-01-8a5">
+                                                <menuItem title="EUR" id="65N-01-8a5">
                                                     <modifierMask key="keyEquivalentModifierMask"/>
                                                 </menuItem>
                                                 <menuItem title="USD" id="N8I-K2-ZUu">
