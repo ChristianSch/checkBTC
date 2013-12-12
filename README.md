@@ -8,6 +8,7 @@ TODO
 * Version 1.1
 	* get currencies from tracker, not pre-coded
 	* preferences: use real user defaults, not the last entered (neccessary because of the 10.0 minimum of the refresh rate)
+	* show warning icon besides the course (add menu item to show the exact error, i.e. "no internet connection available")
 
 * Perspectives:
 	* https://www.plcrashreporter.org - crash reporter
