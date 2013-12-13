@@ -1,0 +1,8 @@
+//
+//  versioning.xcconfig
+//  CheckBTC
+//
+//  Created by X on 13.12.13.
+//  Copyright (c) 2013 X. All rights reserved.
+//
+CURRENT_PROJECT_VERSION = 1

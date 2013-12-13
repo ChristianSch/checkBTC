@@ -16,21 +16,21 @@
         <customObject id="-3" userLabel="Application"/>
         <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" wantsToBeColor="NO" animationBehavior="default" id="1">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
-            <rect key="contentRect" x="196" y="240" width="305" height="164"/>
+            <rect key="contentRect" x="196" y="240" width="356" height="257"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
             <view key="contentView" autoresizesSubviews="NO" id="2">
-                <rect key="frame" x="0.0" y="0.0" width="305" height="164"/>
+                <rect key="frame" x="0.0" y="0.0" width="356" height="257"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <box autoresizesSubviews="NO" fixedFrame="YES" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="6Dj-Ye-kqj">
-                        <rect key="frame" x="17" y="55" width="271" height="109"/>
+                    <box autoresizesSubviews="NO" fixedFrame="YES" title="Data" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="6Dj-Ye-kqj">
+                        <rect key="frame" x="17" y="57" width="322" height="97"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView">
-                            <rect key="frame" x="1" y="1" width="269" height="93"/>
+                            <rect key="frame" x="1" y="1" width="320" height="81"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wh7-sb-Nvd">
-                                    <rect key="frame" x="16" y="25" width="143" height="17"/>
+                                    <rect key="frame" x="16" y="24" width="143" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Refresh rate (seconds)" id="lmn-yu-P9R">
                                         <font key="font" metaFont="system"/>
@@ -39,7 +39,7 @@
                                     </textFieldCell>
                                 </textField>
                                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tuy-IN-LDX">
-                                    <rect key="frame" x="163" y="60" width="99" height="26"/>
+                                    <rect key="frame" x="186" y="48" width="119" height="26"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="YWM-jf-ql8">
                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -99,7 +99,7 @@
                                     </popUpButtonCell>
                                 </popUpButton>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rrI-qm-SEq">
-                                    <rect key="frame" x="98" y="65" width="61" height="17"/>
+                                    <rect key="frame" x="16" y="54" width="61" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Currency" id="eG0-m6-CLn">
                                         <font key="font" metaFont="system"/>
@@ -108,7 +108,7 @@
                                     </textFieldCell>
                                 </textField>
                                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="erd-uF-oq2">
-                                    <rect key="frame" x="165" y="20" width="94" height="22"/>
+                                    <rect key="frame" x="188" y="19" width="114" height="22"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" drawsBackground="YES" id="TaP-si-3Zz">
                                         <font key="font" metaFont="system"/>
@@ -122,7 +122,7 @@
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Stq-J8-69h">
-                        <rect key="frame" x="222" y="11" width="69" height="32"/>
+                        <rect key="frame" x="273" y="13" width="69" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ta1-mX-8OT">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -132,9 +132,84 @@
                             <action selector="savePrefs:" target="-2" id="TCc-KR-AJm"/>
                         </connections>
                     </button>
+                    <box autoresizesSubviews="NO" fixedFrame="YES" title="Updates" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="jdt-XW-YDo">
+                        <rect key="frame" x="17" y="158" width="322" height="99"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <view key="contentView">
+                            <rect key="frame" x="1" y="1" width="320" height="83"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gNF-sy-Wv1">
+                                    <rect key="frame" x="16" y="57" width="225" height="18"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="check" title="Automatically check for updates" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="H4Q-li-YDA">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                        <connections>
+                                            <binding destination="4Xi-NY-n8Q" name="value" keyPath="automaticallyChecksForUpdates" id="aUK-bx-VWV"/>
+                                        </connections>
+                                    </buttonCell>
+                                </button>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c8j-pc-XOd">
+                                    <rect key="frame" x="16" y="34" width="100" height="17"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Update interval" id="DnX-Jq-31s">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V6n-uV-5y4">
+                                    <rect key="frame" x="186" y="29" width="119" height="26"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <popUpButtonCell key="cell" type="push" title="Daily" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" tag="86400" imageScaling="proportionallyDown" inset="2" selectedItem="fiP-Ah-H0t" id="gY6-Af-4av">
+                                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                        <menu key="menu" title="OtherViews" id="PgA-gB-AZA">
+                                            <items>
+                                                <menuItem title="Daily" tag="86400" id="fiP-Ah-H0t"/>
+                                                <menuItem title="Weekly" tag="604800" id="Elh-jc-pmk"/>
+                                                <menuItem title="Hourly" state="on" tag="2629800" id="td8-U8-w5E"/>
+                                            </items>
+                                        </menu>
+                                        <connections>
+                                            <binding destination="4Xi-NY-n8Q" name="enabled" keyPath="automaticallyChecksForUpdates" id="yfR-Od-dAv"/>
+                                            <binding destination="4Xi-NY-n8Q" name="selectedTag" keyPath="updateCheckInterval" id="Qxi-WP-K5x"/>
+                                        </connections>
+                                    </popUpButtonCell>
+                                </popUpButton>
+                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UQY-cJ-ARa">
+                                    <rect key="frame" x="16" y="10" width="228" height="18"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="check" title="Automatically download updates" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Bi2-Wd-PPD">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                        <connections>
+                                            <binding destination="4Xi-NY-n8Q" name="value" keyPath="automaticallyDownloadsUpdates" id="1sH-Xt-emL"/>
+                                        </connections>
+                                    </buttonCell>
+                                </button>
+                            </subviews>
+                        </view>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </box>
                 </subviews>
             </view>
             <contentBorderThickness minY="0.0"/>
+            <connections>
+                <outlet property="initialFirstResponder" destination="gNF-sy-Wv1" id="XJU-aT-Q4F"/>
+            </connections>
         </window>
+        <customObject id="4Xi-NY-n8Q" customClass="SUUpdater"/>
+        <button id="srT-AR-UVX">
+            <rect key="frame" x="0.0" y="0.0" width="61" height="18"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <buttonCell key="cell" type="check" title="Check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Eb9-1J-Gfj">
+                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                <font key="font" metaFont="system"/>
+            </buttonCell>
+        </button>
+        <userDefaultsController representsSharedInstance="YES" id="PWq-jc-FeQ"/>
     </objects>
 </document>

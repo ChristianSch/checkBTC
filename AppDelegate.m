@@ -168,6 +168,12 @@
 		NSString *formattedCurr = [numberFormatter stringFromNumber:curr[@"15m"]];
 		
 		[self refreshMenuItemText:[NSString stringWithFormat:@"BTC: %@ %@", formattedCurr,  curr[@"symbol"]]];
+		
+		/* Set tooltip with refresh time */
+		NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+		dateFormatter.dateFormat = @"HH:mm:ss";
+		
+		[menuItem setToolTip:[@"Refreshed exchange rate on " stringByAppendingString:[dateFormatter stringFromDate:[NSDate date]]]];
 	} else {
 		if (debug) NSLog(@"No data recieved!");
 	}
