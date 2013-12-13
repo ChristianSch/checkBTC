@@ -9,11 +9,11 @@ TODO
 	* get currencies from tracker, not pre-coded
 	* preferences: use real user defaults, not the last entered (neccessary because of the 10.0 minimum of the refresh rate)
 	* show warning icon besides the course (add menu item to show the exact error, i.e. "no internet connection available")
+	* preferences: add possibility to choose formating
 
 * Perspectives:
 	* https://www.plcrashreporter.org - crash reporter
 		* MIT license compatible?
-	* sign releases without dev account (pem?)
 	* HUD with graph (hour/day/week/month?) and extended information
 		* http://blog.dreamcss.com/dev-tools/charts/core-plot-cocoa-plotting-framework/ (BSD License!)
 
