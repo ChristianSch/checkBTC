@@ -1,11 +1,11 @@
 checkBTC
 ========
 
-Display the Bitcoin course in the status bar of OS X. Version 1.0.
+Display the Bitcoin course in the status bar of OS X. Version 1.1
 
 TODO
 ====
-* Version 1.1
+* Version 1.2
 	* get currencies from tracker, not pre-coded
 	* preferences: use real user defaults, not the last entered (neccessary because of the 10.0 minimum of the refresh rate)
 	* show warning icon besides the course (add menu item to show the exact error, i.e. "no internet connection available")

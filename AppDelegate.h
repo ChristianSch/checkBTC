@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Christian Schulze. All rights reserved.
 //
 #define APP_TITLE @"CheckBTC"
-#define VERSION @0.8
+#define VERSION @1.1
 
 #import <Cocoa/Cocoa.h>
 #import "PreferencesController.h"
