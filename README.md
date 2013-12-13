@@ -6,6 +6,7 @@ Display the Bitcoin course in the status bar of OS X. Version 1.0
 TODO
 ====
 * Version 1.1
+	* Set timestamp for tooltip of menuItem (DONE)
 	* get currencies from tracker, not pre-coded
 	* preferences: use real user defaults, not the last entered (neccessary because of the 10.0 minimum of the refresh rate)
 	* show warning icon besides the course (add menu item to show the exact error, i.e. "no internet connection available")
@@ -16,6 +17,7 @@ TODO
 		* MIT license compatible?
 	* HUD with graph (hour/day/week/month?) and extended information
 		* http://blog.dreamcss.com/dev-tools/charts/core-plot-cocoa-plotting-framework/ (BSD License!)
+	* anonymous system stats
 
 FAQ
 ===
