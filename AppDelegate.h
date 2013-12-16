@@ -28,9 +28,6 @@
 	NSNumber *refreshRate;
 	
 	IBOutlet PreferencesController *preferencesController;
-	
-	/* Data */
-	NSDictionary *trackerData;
 }
 
 /*!

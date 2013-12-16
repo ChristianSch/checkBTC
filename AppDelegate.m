@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "BlockChainAPI.h"
+#import "MtgoxAPI.h"
 #import "PreferencesController.h"
 
 #define CURRENCYDEF @"EUR"
@@ -157,17 +157,16 @@
 
 - (void)workerMethod:(NSTimer*)theTimer
 {
-	trackerData = [BlockChainAPI getTicker];
+	NSNumber *avg = [MtgoxAPI getAvgForCurrency:[[NSUserDefaults standardUserDefaults] stringForKey:@"currency"]];
+	NSString *sym = [MtgoxAPI getCurrencySymbol:[[NSUserDefaults standardUserDefaults] stringForKey:@"currency"]];
 	
-	if (trackerData != nil) {
-		NSDictionary *curr = trackerData[[[NSUserDefaults standardUserDefaults] stringForKey:@"currency"]];
-		
+	if (avg != nil) {
 		NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
 		[numberFormatter setPositiveFormat:@"####.####"];
 		
-		NSString *formattedCurr = [numberFormatter stringFromNumber:curr[@"15m"]];
-		
-		[self refreshMenuItemText:[NSString stringWithFormat:@"BTC: %@ %@", formattedCurr,  curr[@"symbol"]]];
+		NSLog(@"Avg: %@", avg);
+		NSString *formattedAvg = [numberFormatter stringFromNumber:avg];
+		[self refreshMenuItemText:[NSString stringWithFormat:@"BTC: %@ %@", formattedAvg,  sym]];
 		
 		/* Set tooltip with refresh time */
 		NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
