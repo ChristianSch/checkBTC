@@ -46,52 +46,55 @@
                                         <font key="font" metaFont="menu"/>
                                         <menu key="menu" title="OtherViews" id="hVc-xZ-aJc">
                                             <items>
-                                                <menuItem title="EUR" id="65N-01-8a5">
-                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                </menuItem>
                                                 <menuItem title="USD" id="N8I-K2-ZUu">
-                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                </menuItem>
-                                                <menuItem title="CNY" id="fuJ-MU-XLw">
-                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                </menuItem>
-                                                <menuItem title="JPY" id="bQq-Yi-lsF">
-                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                </menuItem>
-                                                <menuItem title="SGD" id="JUM-E7-b4p">
-                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                </menuItem>
-                                                <menuItem title="HKD" id="7og-SE-hlf">
-                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                </menuItem>
-                                                <menuItem title="CAD" id="8Ir-qz-osb">
-                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                </menuItem>
-                                                <menuItem title="AUD" id="MkG-Nb-vNJ">
-                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                </menuItem>
-                                                <menuItem title="NZD" id="ItE-I5-aqB">
                                                     <modifierMask key="keyEquivalentModifierMask"/>
                                                 </menuItem>
                                                 <menuItem title="GBP" id="01S-Bq-mN3">
                                                     <modifierMask key="keyEquivalentModifierMask"/>
                                                 </menuItem>
-                                                <menuItem title="DKK" id="yTo-Te-PBi">
+                                                <menuItem title="EUR" id="65N-01-8a5">
                                                     <modifierMask key="keyEquivalentModifierMask"/>
                                                 </menuItem>
-                                                <menuItem title="SEK" id="tRA-hv-Jnq">
+                                                <menuItem title="JPY" id="bQq-Yi-lsF">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                </menuItem>
+                                                <menuItem title="AUD" id="MkG-Nb-vNJ">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                </menuItem>
+                                                <menuItem title="CAD" id="8Ir-qz-osb">
                                                     <modifierMask key="keyEquivalentModifierMask"/>
                                                 </menuItem>
                                                 <menuItem title="CHF" id="GcB-fJ-R7x">
                                                     <modifierMask key="keyEquivalentModifierMask"/>
                                                 </menuItem>
-                                                <menuItem title="RUB" id="xRv-kb-8CW">
+                                                <menuItem title="CNY" id="fuJ-MU-XLw">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                </menuItem>
+                                                <menuItem title="DKK" id="yTo-Te-PBi">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                </menuItem>
+                                                <menuItem title="HKD" id="7og-SE-hlf">
                                                     <modifierMask key="keyEquivalentModifierMask"/>
                                                 </menuItem>
                                                 <menuItem title="PLN" id="atw-aV-tAr">
                                                     <modifierMask key="keyEquivalentModifierMask"/>
                                                 </menuItem>
+                                                <menuItem title="RUB" id="xRv-kb-8CW">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                </menuItem>
+                                                <menuItem title="SEK" id="tRA-hv-Jnq">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                </menuItem>
+                                                <menuItem title="SGD" id="JUM-E7-b4p">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                </menuItem>
                                                 <menuItem title="THB" id="IaS-kI-3DJ">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                </menuItem>
+                                                <menuItem title="NOK" id="ItE-I5-aqB">
+                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                </menuItem>
+                                                <menuItem title="CZK" id="ejS-Ff-u2T">
                                                     <modifierMask key="keyEquivalentModifierMask"/>
                                                 </menuItem>
                                             </items>
@@ -162,14 +165,14 @@
                                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V6n-uV-5y4">
                                     <rect key="frame" x="186" y="29" width="119" height="26"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <popUpButtonCell key="cell" type="push" title="Daily" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" tag="86400" imageScaling="proportionallyDown" inset="2" selectedItem="fiP-Ah-H0t" id="gY6-Af-4av">
+                                    <popUpButtonCell key="cell" type="push" title="Daily" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="86400" imageScaling="proportionallyDown" inset="2" selectedItem="fiP-Ah-H0t" id="gY6-Af-4av">
                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="system"/>
+                                        <font key="font" metaFont="menu"/>
                                         <menu key="menu" title="OtherViews" id="PgA-gB-AZA">
                                             <items>
-                                                <menuItem title="Daily" tag="86400" id="fiP-Ah-H0t"/>
+                                                <menuItem title="Daily" state="on" tag="86400" id="fiP-Ah-H0t"/>
                                                 <menuItem title="Weekly" tag="604800" id="Elh-jc-pmk"/>
-                                                <menuItem title="Hourly" state="on" tag="2629800" id="td8-U8-w5E"/>
+                                                <menuItem title="Hourly" tag="2629800" id="td8-U8-w5E"/>
                                             </items>
                                         </menu>
                                         <connections>
