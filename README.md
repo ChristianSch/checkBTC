@@ -19,6 +19,9 @@ TODO
 	* get data from MtGox
 		* adapt currencies in preferences (with full name)
 	* show warning icon (add menu item to show the exact error, i.e. "no internet connection available") and add menu item on top (like the network symbol in OSX does)
+	* start at login
+	* clean up preferences.xib
+		* build up the popUpButtons programaticly
 
 * Version 1.2
 	* preferences: use real user defaults, not the last entered (neccessary because of the 10.0 minimum of the refresh rate)
