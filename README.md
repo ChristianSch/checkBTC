@@ -1,15 +1,27 @@
 checkBTC
 ========
 
-Display the Bitcoin course in the status bar of OS X. Version 1.0
+Display the Bitcoin course in the status bar of OS X. Version 1.0.1
+
+Changelog
+=========
+Version 1.1
+-----------
+* A timestamp of the last data refresh is shown as a tooltip of the menuItem
+
+Version 1.0.1
+--------------
+Initial release.
 
 TODO
 ====
 * Version 1.1
-	* Set timestamp for tooltip of menuItem (DONE)
-	* get currencies from tracker, not pre-coded
+	* get data from MtGox
+		* adapt currencies in preferences (with full name)
+	* show warning icon (add menu item to show the exact error, i.e. "no internet connection available") and add menu item on top (like the network symbol in OSX does)
+
+* Version 1.2
 	* preferences: use real user defaults, not the last entered (neccessary because of the 10.0 minimum of the refresh rate)
-	* show warning icon besides the course (add menu item to show the exact error, i.e. "no internet connection available")
 	* preferences: add possibility to choose formating
 
 * Perspectives:
