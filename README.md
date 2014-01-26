@@ -9,7 +9,7 @@ Version 1.1
 -----------
 * A timestamp of the last data refresh is shown as a tooltip of the menuItem
 * data is now retrieved from MtGox
-* animation of course is now available
+* animation of course change is now available
 
 
 Version 1.0.1
