@@ -19,15 +19,15 @@ Initial release.
 TODO
 ====
 * Version 1.1
-x	* get data from MtGox
-x		* adapt currencies in preferences (with full name)
+	* get data from MtGox
+		* adapt currencies in preferences (with full name)
 	* show warning icon (add menu item to show the exact error, i.e. "no internet connection available") and add menu item on top (like the network symbol in OSX does)
-?	* start at login
+	* start at login
 		* should make own controller for that because of syncing. maybe a **user defaults controller** in general? (https://github.com/Mozketo/LaunchAtLoginController)
 			* make controller
 	* clean up preferences.xib
 		* build up the popUpButtons programaticly
-x	* animate course
+	* animate course
 		* implement abillity to switch between animation/no animation
 	* show actual bitcoin icon instead of "BTC"
 		* maybe optional: XBT or BTC or logo
