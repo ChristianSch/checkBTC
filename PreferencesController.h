@@ -18,8 +18,14 @@
 /*!
  @abstract Act on pushing the save button by making up a notification savePreferences with the given input saved in the userInfo dictionary
  */
-- (IBAction)savePrefs:(id)sender;
+- (IBAction) savePrefs:(id)sender;
+
+- (void) enableLoginItemWithURL:(NSString *)itemURL;
+
+- (void) disableLoginItemWithURL:(NSString *)itemURL;
 
 @property (weak) IBOutlet NSPopUpButton *currencies;
 @property (weak) IBOutlet NSTextField *refreshRate;
+
+@property BOOL startAtLogin;
 @end
