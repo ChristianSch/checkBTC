@@ -10,6 +10,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "PreferencesController.h"
+#import "StatusBarItemController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 {
@@ -17,7 +18,6 @@
 	NSTimer *theTimer;
 	NSRunLoop *runLoop;
 	
-	NSStatusItem *menuItem;
 	__weak NSMenu *_appMenu;
 	__weak NSMenuItem *_openAboutItem;
 	__weak NSMenuItem *_openPrefItem;
@@ -27,7 +27,12 @@
 	NSString *currency;
 	NSNumber *refreshRate;
 	
+	/* Controllers */
 	IBOutlet PreferencesController *preferencesController;
+	StatusBarItemController *statusBarItemController;
+	
+	/* status item */
+	NSNumber *last;
 }
 
 /*!
@@ -63,15 +68,11 @@
 - (void)workerMethod:(NSTimer*)theTimer;
 
 /*!
- @abstract Update the text displayed in the status bar.
- @param newText text to display
- */
-- (void)refreshMenuItemText:(NSString *)newText;
-
-/*!
  @abstract Update the timer to the new refresh rate. This is done by invalidating the old timer and installing a new one.
  */
 - (void)refreshTimer:(double)rate;
+
+- (BOOL)isLoginItem;
 
 @property (unsafe_unretained) IBOutlet NSWindow *prefWindow;
 @property (assign) IBOutlet NSWindow *window;
