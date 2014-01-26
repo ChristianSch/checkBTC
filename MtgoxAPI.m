@@ -12,6 +12,8 @@ NSDictionary *const currencies = nil;
 
 @implementation MtgoxAPI
 
+#pragma mark - Data setup
+
 + (NSString *) getBaseURLForCurrency:(NSString *)curr
 {
 	/* set up the string consisting of the given currency and BTC,
@@ -22,6 +24,8 @@ NSDictionary *const currencies = nil;
 	NSString *url = [BASE_URL stringByAppendingString:currencyPair];
 	return url;
 }
+
+#pragma mark - Data retrieval
 
 + (NSDictionary *) getJSONFromURL:(NSURL *)url
 {
@@ -41,6 +45,7 @@ NSDictionary *const currencies = nil;
 	
 }
 
+# pragma mark - Access to processed Data
 + (NSDictionary *) getTickerForCurrency:(NSString *)curr
 {
 	/* set up the url, i.e. http://data.mtgox.com/api/2/BTCEUR/money/ticker */
@@ -57,10 +62,12 @@ NSDictionary *const currencies = nil;
 		NSString *num = tickerData[@"data"][@"avg"][@"value"];
 		return [[NSNumber alloc] initWithDouble:[num doubleValue]];
 	}
-	NSLog(@"no wavg returned");
+	NSLog(@"An error occured while retrieving the data.");
 	/* No data returned */
 	return nil;
 }
+
+#pragma mark - Access to meta data
 
 + (NSString *) getCurrencySymbol:(NSString *)curr
 {
