@@ -2,8 +2,8 @@
 //  StatusBarItemController.h
 //  CheckBTC
 //
-//  Created by X on 26.01.14.
-//  Copyright (c) 2014 X. All rights reserved.
+//  Created by Christian Schulze on 26.01.14.
+//  Copyright (c) 2014 Christian Schulze. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -80,7 +80,7 @@
  @param steps Number of steps the animation does (framerate)
  @param duration Duration of animation
  */
-- (void) animateColorToNSColor:(NSColor *)targetColor animSteps:(int)steps animDuration:(float)duration;
+- (void) animateTransitionFromToNSColor:(NSColor *)targetColor animSteps:(int)steps animDuration:(float)duration;
 
 /*
  @abstract Execute animation

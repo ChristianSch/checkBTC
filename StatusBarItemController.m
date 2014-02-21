@@ -2,15 +2,12 @@
 //  StatusBarItemController.m
 //  CheckBTC
 //
-//  Created by X on 26.01.14.
-//  Copyright (c) 2014 X. All rights reserved.
+//  Created by Christian Schulze on 26.01.14.
+//  Copyright (c) 2014 Christian Schulze. All rights reserved.
 //
 
 #import "StatusBarItemController.h"
 
-/*
- TODO: make names consistent: setTextOfStatusBarItem etc.
- */
 @implementation StatusBarItemController
 
 - (StatusBarItemController *) init
@@ -100,7 +97,7 @@
 }
 
 #pragma mark - Animation
-- (void) animateColorToNSColor:(NSColor *)targetColor animSteps:(int)steps animDuration:(float)duration
+- (void) animateTransitionFromToNSColor:(NSColor *)targetColor animSteps:(int)steps animDuration:(float)duration
 {
 	NSTimeInterval aFrameRate = duration/steps;
 	
@@ -169,7 +166,7 @@
 {
 	// red color by https://github.com/CaptainRedmuff/NSColor-Crayola
 	[self setColor:[NSColor colorWithRed:0.933 green:0.125 blue:0.302 alpha:1.0]];
-	[self animateColorToNSColor:[NSColor blackColor] animSteps:32 animDuration:5.0];
+	[self animateTransitionFromToNSColor:[NSColor blackColor] animSteps:32 animDuration:5.0];
 }
 
 - (void) defaultRedToBlackAnimationWithNSString:(NSString *)text
@@ -182,7 +179,7 @@
 {
 	// green color by https://github.com/CaptainRedmuff/NSColor-Crayola
 	[self setColor:[NSColor colorWithRed:0.110 green:0.675 blue:0.471 alpha:1.0]];
-	[self animateColorToNSColor:[NSColor blackColor] animSteps:32 animDuration:5.0];
+	[self animateTransitionFromToNSColor:[NSColor blackColor] animSteps:32 animDuration:5.0];
 }
 
 - (void) defaultGreenToBlackAnimationWithNSString:(NSString *)text
