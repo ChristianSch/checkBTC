@@ -35,7 +35,7 @@
 	[connection start];
 }
 
-- (void)makeRequestWithURL:(NSURL *)url
+- (void)makeConnectionWithURL:(NSURL *)url
 {
 	[self makeConnectionWithReqest:[[NSURLRequest alloc] initWithURL:url]];
 }
