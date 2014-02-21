@@ -2,8 +2,8 @@
 //  AIConnectionController.m
 //  CheckBTC
 //
-//  Created by X on 20.02.14.
-//  Copyright (c) 2014 X. All rights reserved.
+//  Created by Christian Schulze on 20.02.14.
+//  Copyright (c) 2014 Christian Schulze. All rights reserved.
 //
 
 #import "AIConnectionController.h"
@@ -27,12 +27,17 @@
 
 #pragma mark - interface selectors
 
-- (void)makeRequestWithURLReqest:(NSURLRequest *)request
+- (void)makeConnectionWithReqest:(NSURLRequest *)request
 {
 	NSURLConnection* connection = [[NSURLConnection alloc]
 								   initWithRequest:request
 								   delegate:self];
 	[connection start];
+}
+
+- (void)makeRequestWithURL:(NSURL *)url
+{
+	[self makeConnectionWithReqest:[[NSURLRequest alloc] initWithURL:url]];
 }
 
 # pragma mark - connection handling
