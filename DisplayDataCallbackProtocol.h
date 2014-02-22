@@ -25,18 +25,18 @@
  */
 - (void)setText:(NSString *)text;
 
+@optional
+
 /*!
  @abstract Display parts, the whole, or a sum of the data with animation of changes (if any)
  @param text to display
  */
-@optional
 - (void)setTextWithAnimation:(NSString *)text;
 
 /*!
  @abstract Display parts or the whole of the error in case the data could not be obtained
  @param text to display
  */
-@optional
 - (void)setTextFromError:(NSError*)error;
 
 @end
