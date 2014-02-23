@@ -23,20 +23,18 @@ NSDictionary *const currencies = nil;
 	return self;
 }
 
-#pragma mark - Data setup
+#pragma mark - protocol implementations
 
-+ (NSString *) getBaseURLForCurrency:(NSString *)currency
+- (NSURL *)dataURLForCurrency:(NSString*)currency
 {
 	/* set up the string consisting of the given currency and BTC,
 	 i.e. BTCEUR or BTCUSD */
 	NSString *currencyPair = [@"BTC" stringByAppendingString:currency];
 	
 	/* set up the url, i.e. http://data.mtgox.com/api/2/BTCEUR/money/ticker */
-	NSString *url = [BASE_URL stringByAppendingString:currencyPair];
-	return url;
+	return [NSURL fileURLWithPath:[BASE_URL stringByAppendingString:currencyPair]];
 }
 
-#pragma mark - protocol implementations
 - (void)handleData:(NSData*)data
 {
 	self->json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
