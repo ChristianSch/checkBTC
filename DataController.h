@@ -28,11 +28,10 @@
 	NSNumber *lastAvg;
 	
 	/* modells */
-	MtgoxAPI *api;
+	MtgoxAPI *mtgoxAPI;
 	
 	/* controllers */
 	AIConnectionController *connectionController;
-	id<DataSourceProtocol> dataSource;
 	
 	/* delegates */
 	id<UserDefaultsControllerDelegateProtocol> userDefaultsControllerDelegate;

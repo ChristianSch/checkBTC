@@ -7,6 +7,7 @@
 //
 
 #import "DataController.h"
+#import "MtgoxAPI.h"
 
 @implementation DataController
 
@@ -16,6 +17,10 @@
 	
 	if (self != nil)
 	{
+		/* init models */
+		mtgoxAPI = [[MtgoxAPI alloc] init];
+		
+		/* init controllers and delegates */
 		connectionController = [[AIConnectionController alloc] init];
 		[connectionController setCallbackDelegate:self];
 		userDefaultsControllerDelegate = nil;
@@ -37,6 +42,10 @@
 	
 	if (self != nil)
 	{
+		/* init models */
+		mtgoxAPI = [[MtgoxAPI alloc] init];
+		
+		/* init controllers and delegates */
 		connectionController = [[AIConnectionController alloc] init];
 		[connectionController setCallbackDelegate:self];
 		userDefaultsControllerDelegate = delegate;
@@ -70,7 +79,8 @@
 
 - (void)didFinishLoading:(NSData *)data
 {
-	[api handleData:data];
+	[mtgoxAPI handleData:data];
+	[self updateDisplay];
 }
 
 - (void)didFailWithError:(NSError *)error
@@ -100,56 +110,76 @@
 	theTimer = newTimer;
 }
 
-- (void)workerMethod:(NSTimer*)theTimer
+- (void)updateDisplay
 {
-	NSString *currency = nil;
-	NSNumber *avg = nil;
-	
 	if (userDefaultsControllerDelegate != nil)
 	{
-		currency = [userDefaultsControllerDelegate currency];
-		avg = [dataSource getAvgForCurrency:currency];
-		
-	} else {
-		NSLog(@"No such delegate");
-		return;
-	}
-	
-	if (avg != nil)
-	{
-		// btc sign: B⃦
-		NSString *displayTitle = [NSString stringWithFormat:@"BTC: %@ %@",
-								  [self formatNumber:avg],
-								  [dataSource getCurrencySymbol:currency]];
-		
-		if (displayDataCallbackDelegate != nil)
+		if (displayDataCallbackDelegate == nil)
 		{
-			if ([displayDataCallbackDelegate respondsToSelector:@selector(setTextWithAscAnimation:)]
+			NSLog(@"No displayDataCallbackDelegate");
+			return;
+		}
+		
+		NSString *currency = [userDefaultsControllerDelegate currency];
+		NSNumber *avg = [mtgoxAPI getAvgForCurrency:currency];
+		
+		if (avg != nil && currency != nil)
+		{
+			/* TODO: this should be executed as a callback to received data */
+			[connectionController
+			 makeConnectionWithURL:[mtgoxAPI dataURLForCurrency:currency]];
+			
+			// btc sign: B⃦
+			NSString *displayTitle = [NSString stringWithFormat:@"BTC: %@ %@",
+									  [self formatNumber:avg],
+									  [mtgoxAPI getCurrencySymbol:currency]];
+			
+			/* these needs to be checked because those selectors are declared as optional
+			 in the protocol */
+			if ([displayDataCallbackDelegate
+				 respondsToSelector:@selector(setTextWithAscAnimation:)]
 				&&
-				[displayDataCallbackDelegate respondsToSelector:@selector(setTextWithDescAnimation:)])
+				[displayDataCallbackDelegate
+				 respondsToSelector:@selector(setTextWithDescAnimation:)])
 			{
 				if ([userDefaultsControllerDelegate animateVisualRepresentation])
 				{
 					if ([self->lastAvg isGreaterThan:avg])
 					{
-						[displayDataCallbackDelegate setTextWithAscAnimation:displayTitle];
+						[displayDataCallbackDelegate
+						 setTextWithAscAnimation:displayTitle];
 						
 					} else {
-						[displayDataCallbackDelegate setTextWithDescAnimation:displayTitle];
+						[displayDataCallbackDelegate
+						 setTextWithDescAnimation:displayTitle];
 					}
 				}
 				
 			} else {
+				/* this one is requires, thus this is the fall back */
 				[displayDataCallbackDelegate setText:displayTitle];
 			}
-		} else {
-			NSLog(@"No such delegate");
+			
+			self->lastAvg = avg;
 		}
-		
-		self->lastAvg = avg;
+	} else {
+		NSLog(@"No userDefaultsControllerDelegate");
+	}
+}
+
+- (void)workerMethod:(NSTimer*)theTimer
+{
+	if (userDefaultsControllerDelegate != nil)
+	{
+		NSString *currency = [userDefaultsControllerDelegate currency];
+		NSLog(@"currency: %@", currency);
+		/* TODO: this should be executed as a callback to received data */
+		NSURL *url = [mtgoxAPI dataURLForCurrency:currency];
+		NSLog(@"url from api: %@", [url absoluteString]);
+		[connectionController makeConnectionWithURL:url];
 		
 	} else {
-		NSLog(@"No data recieved!");
+		NSLog(@"No userDefaultsControllerDelegate!");
 	}
 }
 
