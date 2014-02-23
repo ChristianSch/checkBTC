@@ -34,6 +34,12 @@
     return self;
 }
 
+#pragma mark - delegates
+- (void)setUserDefaultsDelegate:(id<UserDefaultsControllerDelegateProtocol>)delegate
+{
+	userDefaultsDelegate = delegate;
+}
+
 #pragma mark - Event handling
 - (void)awakeFromNib
 {
@@ -53,49 +59,34 @@
 	}
 }
 
-#pragma mark - API to preferences
+#pragma mark - API to user defaults
 
 - (IBAction)savePrefs:(id)sender
 {
 	/*
 	 TODO:
-	 * get preferences and set TextField and PopUpButton accordingly
-	 * act on selector call. this should not be done in appDelegate!
+	 * act on selector call of nib button "save". this should not be done in appDelegate!
+	 * save defaults
 	 */
 	
-	NSString *currency = [[[self currencies] selectedItem] title];
-	NSNumber *rRate = @([[self refreshRate] doubleValue]);
-	
-	/* Check refresh rate for validity. */
-	if ([rRate doubleValue] < 10.0) {
-		if (debug) NSLog(@"Setting refresh rate to 10.0 because of invalid input.");
-		rRate = @10.0;
+	if (userDefaultsDelegate != nil)
+	{
+		NSString *currency = [[[self currencies] selectedItem] title];
+		NSNumber *rRate = @([[self refreshRate] doubleValue]);
+		// TODO: validate values
+		
+		/* Make up the dictionary */
+		NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+		[dict setValue:currency forKey:@"currency"];
+		[dict setValue:rRate forKey:@"refreshRate"];
+		[dict setValue:[[NSNumber alloc] initWithBool:[self startAtLogin]] forKey:@"startAtLogin"];
+		
+		NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+		
+	} else {
+		NSLog(@"No user defaults delegate! No settings saved.");
 	}
 	
-	/* Make up the dictionary */
-	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-	[dict setValue:currency forKey:@"currency"];
-	[dict setValue:rRate forKey:@"refreshRate"];
-	[dict setValue:[[NSNumber alloc] initWithBool:[self startAtLogin]] forKey:@"startAtLogin"];
-	
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	BOOL oldStatus = [defaults boolForKey:@"startAtLogin"];
-	
-	if (debug) NSLog(@"oldStatus: %hhd", oldStatus);
-	if (debug) NSLog(@"startAtLogin: %hhd", self->_startAtLogin);
-	
-	if (oldStatus != self->_startAtLogin) {
-		if (self->_startAtLogin) {
-			
-		} else {
-			
-		}
-	}
-	
-	/* Send notification to all objects listening to the savePreferences method (That'd be only the AppDelegate) for saving. */
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"savePreferences"
-														object:self
-													  userInfo:dict];
 	/* Hide window */
 	[[self window] orderOut:self];
 }
