@@ -5,12 +5,12 @@
 //  Created by Christian Schulze on 04.12.13.
 //  Copyright (c) 2013 Christian Schulze. All rights reserved.
 //
-#define APP_TITLE @"CheckBTC"
-#define VERSION @1.0
 
 #import <Cocoa/Cocoa.h>
-#import "PreferencesController.h"
-#import "StatusBarItemController.h"
+#import "PreferencesWindowController.h"
+#import "StatusBarController.h"
+#import "DataController.h"
+#import "UserDefaultsController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 {
@@ -28,11 +28,9 @@
 	NSNumber *refreshRate;
 	
 	/* Controllers */
-	IBOutlet PreferencesController *preferencesController;
-	StatusBarItemController *statusBarItemController;
-	
-	/* status item */
-	NSNumber *last;
+	IBOutlet PreferencesWindowController *preferencesWindowController;
+	DataController *dataController;
+	UserDefaultsController *userDefaultsController;
 }
 
 /*!
@@ -53,26 +51,6 @@
  @param sender TODO
  */
 - (IBAction)showPreferences:(id)sender;
-
-/*!
- @abstract Handle the savePreferences notification and save the dict to user defaults.
- @param dict NSDictionary to write
- */
-- (void)savePreferences:(NSDictionary *)dict;
-
-/* Update relevant methods */
-/*!
- @abstract Get the value of one BTC and refresh the menu bar item.
- @discussion This is executed by a NSTimer.
- */
-- (void)workerMethod:(NSTimer*)theTimer;
-
-/*!
- @abstract Update the timer to the new refresh rate. This is done by invalidating the old timer and installing a new one.
- */
-- (void)refreshTimer:(double)rate;
-
-- (BOOL)isLoginItem;
 
 @property (unsafe_unretained) IBOutlet NSWindow *prefWindow;
 @property (assign) IBOutlet NSWindow *window;
