@@ -32,7 +32,7 @@ NSDictionary *const currencies = nil;
 	NSString *currencyPair = [@"BTC" stringByAppendingString:currency];
 	
 	/* set up the url, i.e. http://data.mtgox.com/api/2/BTCEUR/money/ticker */
-	return [NSURL fileURLWithPath:[BASE_URL stringByAppendingString:currencyPair]];
+	return [NSURL URLWithString:[API_BASE_URL stringByAppendingString:currencyPair]];
 }
 
 - (void)handleData:(NSData*)data

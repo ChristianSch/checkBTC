@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Christian Schulze. All rights reserved.
 //
 
-#define BASE_URL @"https://data.mtgox.com/api/2/"
+#define API_BASE_URL @"https://data.mtgox.com/api/2/"
 #define USER_AGENT @"CheckBTC MtGox API"
 
 #import <Foundation/Foundation.h>
