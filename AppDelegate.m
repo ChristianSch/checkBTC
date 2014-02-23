@@ -33,7 +33,7 @@
 	}
 }
 
-- (IBAction)terminate:(id)sende
+- (IBAction)terminate:(id)sender
 {
 	[theTimer invalidate];
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
