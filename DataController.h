@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "AIConnectionController.h"
-#import "StatusBarController.h"
 #import "DataSourceProtocol.h"
 #import "DisplayDataCallbackProtocol.h"
 #import "UserDefaultsControllerDelegateProtocol.h"
@@ -33,11 +32,11 @@
 	
 	/* controllers */
 	AIConnectionController *connectionController;
-	StatusBarController *statusBarController;
 	id<DataSourceProtocol> dataSource;
 	
 	/* delegates */
 	id<UserDefaultsControllerDelegateProtocol> userDefaultsControllerDelegate;
+	id<DisplayDataCallbackProtocol> displayDataCallbackDelegate;
 }
 
 - (id)initWithUserDefaultsControllerDelegate:
@@ -47,6 +46,13 @@
  @abstract Set delegate to handle setting and getting of user defaults
  @param delegate actual handler
  */
-- (void)setUserDefaultsControllerDelegate:(id)delegate;
+- (void)setUserDefaultsControllerDelegate:
+(id<UserDefaultsControllerDelegateProtocol>)delegate;
+
+/*!
+ @abstract Set the delegate handling the visual representation of the aggregated data
+ @param delegate actual handler
+ */
+- (void)setDisplayDataCallbackDelegate:(id<DisplayDataCallbackProtocol>)delegate;
 
 @end

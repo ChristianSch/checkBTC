@@ -8,7 +8,6 @@
 
 #import "DataController.h"
 #import "AIConnectionController.h"
-#import "StatusBarController.h"
 #import "DataSourceProtocol.h"
 #import "DisplayDataCallbackProtocol.h"
 #import "UserDefaultsControllerDelegateProtocol.h"
@@ -21,7 +20,6 @@
 	
 	if (self != nil)
 	{
-		statusBarController = [[StatusBarController alloc] init];
 		connectionController = [[AIConnectionController alloc] init];
 		[connectionController setCallbackDelegate:self];
 		userDefaultsControllerDelegate = nil;
@@ -43,7 +41,6 @@
 	
 	if (self != nil)
 	{
-		statusBarController = [[StatusBarController alloc] init];
 		connectionController = [[AIConnectionController alloc] init];
 		[connectionController setCallbackDelegate:self];
 		userDefaultsControllerDelegate = delegate;
@@ -64,17 +61,16 @@
 	return self;
 }
 
-- (void)setUserDefaultsControllerDelegate:(id)delegate
+- (void)setUserDefaultsControllerDelegate:
+(id<UserDefaultsControllerDelegateProtocol>)delegate
 {
-	if ([delegate conformsToProtocol:@protocol(UserDefaultsControllerDelegateProtocol)])
-	{
-		self->userDefaultsControllerDelegate = delegate;
-		
-	} else {
-		NSLog(@"Delegate does not conform to the appropriate protocol!");
-	}
+	self->userDefaultsControllerDelegate = delegate;
 }
 
+- (void)setDisplayDataCallbackDelegate:(id<DisplayDataCallbackProtocol>)delegate
+{
+	displayDataCallbackDelegate = delegate;
+}
 
 - (void)didFinishLoading:(NSData *)data
 {
@@ -83,7 +79,11 @@
 
 - (void)didFailWithError:(NSError *)error
 {
-	[statusBarController setTextFromError:error];
+	if (displayDataCallbackDelegate != nil)
+		[displayDataCallbackDelegate setTextFromError:error];
+	
+	else
+		NSLog(@"No such delegate");
 }
 
 - (void)refreshTimer:(double)rate
@@ -106,8 +106,18 @@
 
 - (void)workerMethod:(NSTimer*)theTimer
 {
-	NSString *currency = [userDefaultsControllerDelegate currency];
-	NSNumber *avg = [dataSource getAvgForCurrency:currency];
+	NSString *currency = nil;
+	NSNumber *avg = nil;
+	
+	if (userDefaultsControllerDelegate != nil)
+	{
+		currency = [userDefaultsControllerDelegate currency];
+		avg = [dataSource getAvgForCurrency:currency];
+		
+	} else {
+		NSLog(@"No such delegate");
+		return;
+	}
 	
 	if (avg != nil)
 	{
@@ -116,23 +126,28 @@
 								  [self formatNumber:avg],
 								  [dataSource getCurrencySymbol:currency]];
 		
-		if ([statusBarController respondsToSelector:@selector(setTextWithAscAnimation:)]
-			&&
-			[statusBarController respondsToSelector:@selector(setTextWithDescAnimation:)])
+		if (displayDataCallbackDelegate != nil)
 		{
-			if ([userDefaultsControllerDelegate animateVisualRepresentation])
+			if ([displayDataCallbackDelegate respondsToSelector:@selector(setTextWithAscAnimation:)]
+				&&
+				[displayDataCallbackDelegate respondsToSelector:@selector(setTextWithDescAnimation:)])
 			{
-				if ([self->lastAvg isGreaterThan:avg])
+				if ([userDefaultsControllerDelegate animateVisualRepresentation])
 				{
-					[statusBarController setTextWithAscAnimation:displayTitle];
-					
-				} else {
-					[statusBarController setTextWithDescAnimation:displayTitle];
+					if ([self->lastAvg isGreaterThan:avg])
+					{
+						[displayDataCallbackDelegate setTextWithAscAnimation:displayTitle];
+						
+					} else {
+						[displayDataCallbackDelegate setTextWithDescAnimation:displayTitle];
+					}
 				}
+				
+			} else {
+				[displayDataCallbackDelegate setText:displayTitle];
 			}
-			
 		} else {
-			[statusBarController setText:displayTitle];
+			NSLog(@"No such delegate");
 		}
 		
 		self->lastAvg = avg;
