@@ -15,14 +15,14 @@
 - (void)setDelegate:(id)delegate
 {
 	if ([[delegate class]
-		 conformsToProtocol:@protocol(AIConnectionControllerDelegateProtocol)]) {
+		 conformsToProtocol:@protocol(AIConnectionControllerDelegateProtocol)])
+	{
 		_callbackDelegate = delegate;
 		
 	} else {
 		NSLog(@"Cannot set delegate: needs to conform to \
 			  AIConnectionControllerDelegateProtocol!");
 	}
-	
 }
 
 #pragma mark - interface selectors
@@ -54,7 +54,8 @@
 
 -(void)connection:(NSURLConnection*)connection didFailWithError:(NSError*)error
 {
-    if (_callbackDelegate != nil) {
+    if (_callbackDelegate != nil)
+	{
 		[_callbackDelegate didFailWithError:error];
 		
 	} else {
@@ -64,7 +65,8 @@
 
 -(void)connectionDidFinishLoading:(NSURLConnection*)connection
 {
-	if (_callbackDelegate != nil) {
+	if (_callbackDelegate != nil)
+	{
 		[_callbackDelegate didFinishLoading:_data];
 		
 	} else {
