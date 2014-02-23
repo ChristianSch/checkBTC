@@ -16,6 +16,9 @@
  @copyright Christian Schulze, andinfinity
  @version 0.2
  @updated 23.02.14
+ @discussion Maybe this should be renamed because something like dataSoure already
+ exists. If the plugin API (and controllers) are implemented fast enough this is
+ obsolete in any case.
  */
 @protocol DataSourceProtocol <NSObject>
 
