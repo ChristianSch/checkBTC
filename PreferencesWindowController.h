@@ -21,12 +21,8 @@
  */
 - (IBAction) savePrefs:(id)sender;
 
-- (void) enableLoginItemWithURL:(NSString *)itemURL;
-
-- (void) disableLoginItemWithURL:(NSString *)itemURL;
-
 @property (weak) IBOutlet NSPopUpButton *currencies;
 @property (weak) IBOutlet NSTextField *refreshRate;
-
 @property BOOL startAtLogin;
+
 @end

@@ -82,16 +82,13 @@
 	BOOL oldStatus = [defaults boolForKey:@"startAtLogin"];
 	
 	if (debug) NSLog(@"oldStatus: %hhd", oldStatus);
-	if (debug) NSLog(@"startAtLogin: %hhd", self.startAtLogin);
+	if (debug) NSLog(@"startAtLogin: %hhd", self->_startAtLogin);
 	
-	if (oldStatus != self.startAtLogin) {
-		if (self.startAtLogin) {
-			NSString *appPath = [[NSBundle mainBundle] bundlePath];
+	if (oldStatus != self->_startAtLogin) {
+		if (self->_startAtLogin) {
 			
-			[self enableLoginItemWithURL:appPath];
 		} else {
-			NSString *appPath = [[NSBundle mainBundle] bundlePath];
-			[self disableLoginItemWithURL:appPath];
+			
 		}
 	}
 	
