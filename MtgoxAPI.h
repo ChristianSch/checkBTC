@@ -17,5 +17,4 @@
 	NSDictionary *json;
 }
 
-extern NSDictionary *const currencies;
 @end
