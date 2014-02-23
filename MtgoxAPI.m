@@ -37,7 +37,10 @@ NSDictionary *const currencies = nil;
 
 - (void)handleData:(NSData*)data
 {
-	self->json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+	self->json = [NSJSONSerialization
+				  JSONObjectWithData:data
+				  options:NSJSONReadingMutableContainers
+				  error:nil];
 }
 
 - (NSNumber*)getAvgForCurrency:(NSString*)currency
