@@ -31,6 +31,7 @@
 	IBOutlet PreferencesWindowController *preferencesWindowController;
 	DataController *dataController;
 	UserDefaultsController *userDefaultsController;
+	StatusBarController *statusBarController;
 }
 
 /*!

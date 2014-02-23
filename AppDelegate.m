@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "MtgoxAPI.h"
 
 @implementation AppDelegate
 
@@ -17,25 +16,25 @@
 {
 	@autoreleasepool
 	{
-		debug = FALSE;
-		
 		// >>> set up controllers <<<
-		dataController = [[DataController alloc] init];
 		userDefaultsController = [[UserDefaultsController alloc] init];
 		preferencesWindowController = [[PreferencesWindowController alloc] init];
+		statusBarController = [[StatusBarController alloc] init];
+		
+		dataController = [[DataController alloc] initWithUserDefaultsControllerDelegate:userDefaultsController];
 		
 		// >>> set up delegation <<<
+		[dataController setDisplayDataCallbackDelegate:statusBarController];
 		[preferencesWindowController setUserDefaultsDelegate:userDefaultsController];
-		[dataController setUserDefaultsControllerDelegate:userDefaultsController];
 		
 		/* testing */
+		
 		// TODO: display warning
 	}
 }
 
 - (IBAction)terminate:(id)sende
 {
-	if (debug) NSLog(@"terminate");
 	[theTimer invalidate];
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	
@@ -47,14 +46,14 @@
 {
 	[NSApp orderFrontStandardAboutPanel:self];
 	[[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
-	[self.window orderFrontRegardless];
+	[window orderFrontRegardless];
 	
 }
 
 - (IBAction)showPreferences:(id)sender
 {
 	[[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
-	[self.window orderFrontRegardless];
+	[window orderFrontRegardless];
 	[[preferencesWindowController window] makeKeyAndOrderFront:self];
 }
 
