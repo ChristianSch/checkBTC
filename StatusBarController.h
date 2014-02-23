@@ -23,8 +23,9 @@
 	NSMenu *_appMenu;
 	StatusBarItemController *itemController;
 	NSNumber *lastUsedValue;
-	NSMenuItem *warningItem;
 }
+
+- (id)initWithMenu:(NSMenu *)appMenu;
 
 #pragma mark - warnings
 

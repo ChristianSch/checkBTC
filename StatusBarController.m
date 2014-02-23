@@ -12,7 +12,7 @@
 
 @implementation StatusBarController
 
-- (id)init:(NSMenu *)appMenu
+- (id)initWithMenu:(NSMenu *)appMenu
 {
 	self = [super init];
 	
@@ -22,33 +22,58 @@
 		itemController = [[StatusBarItemController alloc] init];
 		
 		[itemController initStatusBarItemWithNSString:self->_appMenu textToSet:APP_TITLE];
-		
-		warningItem = [[NSMenuItem alloc] init];
 	}
 	
 	return self;
 }
 
+- (void)setTextFromError:(NSError*)error
+{
+	if ([error code] == NSURLErrorNotConnectedToInternet)
+	{
+		[self showWarningWithMessage:@"No internet connection"];
+		
+	} else {
+		[self showWarningWithMessage:@"Connection failed"];
+	}
+	
+	/*
+	 } else {
+		[self showWarningWithMessage:[error localizedDescription]];
+	}
+	 */
+}
+
 - (void)showWarningWithMessage:(NSString *)message
 {
-	/* Set up the image */
-	NSImage *warningImage = [NSImage imageNamed:NSImageNameCaution];
-	[warningImage setScalesWhenResized: YES];
-    [warningImage setSize: NSMakeSize(16, 16)];
-
-	if (warningItem == nil)
-		warningItem = [[NSMenuItem alloc] init];
-
-	/* add to menu */
-	[warningItem setImage:warningImage];
-	[warningItem setTitle:message];
-	[_appMenu insertItem:warningItem atIndex:0];
+	NSMenuItem *item = [_appMenu itemWithTag:1337];
+	
+	if ([_appMenu itemWithTag:1337] == nil)
+	{
+		/* Set up the image */
+		NSImage *warningImage = [NSImage imageNamed:NSImageNameCaution];
+		[warningImage setScalesWhenResized: YES];
+		[warningImage setSize: NSMakeSize(16, 16)];
+		
+		/* add to menu */
+		NSMenuItem *warningItem = [[NSMenuItem alloc] init];
+		[warningItem setImage:warningImage];
+		[warningItem setTitle:message];
+		[warningItem setTag:1337];
+		
+		[_appMenu insertItem:warningItem atIndex:0];
+		[_appMenu insertItem:[NSMenuItem separatorItem] atIndex:1];
+		
+	} else {
+		[item setTitle:message];
+	}
 }
 
 - (void)clearWarning
 {
-	if ([_appMenu itemAtIndex:0] == warningItem)
-		[_appMenu removeItem:warningItem];
+	NSMenuItem *item = [_appMenu itemWithTag:1337];
+	[_appMenu removeItem:item];
+	
 }
 
 #pragma mark - update contents of the status item
