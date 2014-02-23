@@ -172,10 +172,8 @@
 	if (userDefaultsControllerDelegate != nil)
 	{
 		NSString *currency = [userDefaultsControllerDelegate currency];
-		NSLog(@"currency: %@", currency);
 		/* TODO: this should be executed as a callback to received data */
 		NSURL *url = [mtgoxAPI dataURLForCurrency:currency];
-		NSLog(@"url from api: %@", [url absoluteString]);
 		[connectionController makeConnectionWithURL:url];
 		
 	} else {
