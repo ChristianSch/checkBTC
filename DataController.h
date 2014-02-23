@@ -40,6 +40,9 @@
 	id<UserDefaultsControllerDelegateProtocol> userDefaultsControllerDelegate;
 }
 
+- (id)initWithUserDefaultsControllerDelegate:
+(id<UserDefaultsControllerDelegateProtocol>)delegate;
+
 /*!
  @abstract Set delegate to handle setting and getting of user defaults
  @param delegate actual handler
