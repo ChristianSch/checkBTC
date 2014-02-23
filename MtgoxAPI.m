@@ -30,9 +30,9 @@ NSDictionary *const currencies = nil;
 	/* set up the string consisting of the given currency and BTC,
 	 i.e. BTCEUR or BTCUSD */
 	NSString *currencyPair = [@"BTC" stringByAppendingString:currency];
-	
+	NSString *baseURL = [API_BASE_URL stringByAppendingString:currencyPair];
 	/* set up the url, i.e. http://data.mtgox.com/api/2/BTCEUR/money/ticker */
-	return [NSURL URLWithString:[API_BASE_URL stringByAppendingString:currencyPair]];
+	return [NSURL URLWithString:[baseURL stringByAppendingString:@"/money/ticker"]];
 }
 
 - (void)handleData:(NSData*)data
