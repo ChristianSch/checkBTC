@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="PreferencesController">
+        <customObject id="-2" userLabel="File's Owner" customClass="PreferencesWindowController">
             <connections>
                 <outlet property="currencies" destination="Tuy-IN-LDX" id="krt-qP-LNy"/>
                 <outlet property="refreshRate" destination="erd-uF-oq2" id="Fqw-WB-JLp"/>
