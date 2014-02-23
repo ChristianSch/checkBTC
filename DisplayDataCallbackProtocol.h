@@ -14,7 +14,7 @@
  the DataController and the data display delegate that handles the visual presentation.
  @author Christian Schulze
  @copyright Christian Schulze, andinfinity
- @version 0.1
+ @version 0.2
  @updated 21.02.14
  */
 @protocol DisplayDataCallbackProtocol <NSObject>
@@ -26,6 +26,18 @@
 - (void)setText:(NSString *)text;
 
 @optional
+
+/*!
+ @abstract Set text visualizing that the value decreased
+ @param text to set
+ */
+- (void)setTextWithDescAnimation:(NSString *)text;
+ 
+/*!
+ @abstract Set text visualizing that the value increased
+ @param text to set
+ */
+- (void)setTextWithAscAnimation:(NSString *)text;
 
 /*!
  @abstract Display parts, the whole, or a sum of the data with animation of changes (if any)
