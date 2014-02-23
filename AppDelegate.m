@@ -19,25 +19,19 @@
 		// >>> set up controllers <<<
 		userDefaultsController = [[UserDefaultsController alloc] init];
 		preferencesWindowController = [[PreferencesWindowController alloc] init];
-		statusBarController = [[StatusBarController alloc] init];
+		statusBarController = [[StatusBarController alloc] initWithMenu:self->_appMenu];
 		
 		dataController = [[DataController alloc] initWithUserDefaultsControllerDelegate:userDefaultsController];
 		
 		// >>> set up delegation <<<
 		[dataController setDisplayDataCallbackDelegate:statusBarController];
 		[preferencesWindowController setUserDefaultsDelegate:userDefaultsController];
-		
-		/* testing */
-		
-		// TODO: display warning
 	}
 }
 
 - (IBAction)terminate:(id)sender
 {
 	[theTimer invalidate];
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	
 	exit(EXIT_SUCCESS);
 }
 
@@ -46,14 +40,13 @@
 {
 	[NSApp orderFrontStandardAboutPanel:self];
 	[[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
-	[window orderFrontRegardless];
-	
+	[self.window orderFrontRegardless];
 }
 
 - (IBAction)showPreferences:(id)sender
 {
 	[[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
-	[window orderFrontRegardless];
+	[self.window orderFrontRegardless];
 	[[preferencesWindowController window] makeKeyAndOrderFront:self];
 }
 
