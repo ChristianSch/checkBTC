@@ -33,7 +33,7 @@
 }
 
 /*!
- @abstract Check every key value pair of integrity/validity.
+ @abstract Check every key value pair of integrity/validity. (only at start)
  */
 - (void) checkIntegrityOfSettings
 {
@@ -55,15 +55,12 @@
 		[userDefaults setObject:REFRESHRATEDEF forKey:refreshRateKey];
 }
 
-- (void) initiateUserDefaultsWithDefaultSettings
-{
-	/* TODO */
-}
-
 -(BOOL)doesStartAtLogin
 {
 	return [launchAtLoginController launchAtLogin];
 }
+
+# pragma mark - UserDefaultsControllerDelegateProtocol implementations
 
 - (double)dataRefreshRate
 {
@@ -80,5 +77,16 @@
 	return [userDefaults objectForKey:currencyKey];
 }
 
-/* TODO: setting defaults */
+- (void)setUserDefaultsWithDict:(NSDictionary*)dict
+{
+	/* TODO */
+}
+
+#pragma mark - interface selectors
+
+- (void) initiateUserDefaultsWithDefaultSettings
+{
+	/* TODO */
+}
+
 @end

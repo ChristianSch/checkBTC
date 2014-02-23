@@ -14,7 +14,7 @@
  the DataController and the data display delegate that handles the visual presentation.
  @author Christian Schulze
  @copyright Christian Schulze, andinfinity
- @version 0.1
+ @version 0.2
  @updated 21.02.14
  */
 @protocol UserDefaultsControllerDelegateProtocol <NSObject>
@@ -28,5 +28,16 @@
  @abstract Whether displaying of the data be animated or not.
  */
 - (BOOL)animateVisualRepresentation;
+
+/*!
+ @abstract The currency the user wants to be used.+
+ */
+- (NSString*)currency;
+
+/*!
+ @abstract Set user defaults with values from dictionary
+ @param dict that holds the new values
+ */
+- (void)setUserDefaultsWithDict:(NSDictionary*)dict;
 
 @end

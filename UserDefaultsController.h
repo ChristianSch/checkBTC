@@ -14,8 +14,8 @@
  @header Control saving and retrieving user defaults
  @author Christian Schulze
  @copyright Christian Schulze, andinfinity
- @version 0.1
- @updated 21.02.14
+ @version 0.2
+ @updated 23.02.14
  */
 
 #define currencyKey @"currency"
@@ -29,6 +29,9 @@
 	LaunchAtLoginController *launchAtLoginController;
 }
 
+/*!
+ @abstract Restore defaults user defaults
+ */
 - (void)initiateUserDefaultsWithDefaultSettings;
 
 @end
