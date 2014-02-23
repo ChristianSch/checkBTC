@@ -19,7 +19,6 @@
  */
 @interface PreferencesWindowController : NSWindowController
 {
-	BOOL debug;
 	__weak NSPopUpButton *_currencies;
 	__weak NSTextField *_refreshRate;
 	id<UserDefaultsControllerDelegateProtocol> userDefaultsDelegate;
@@ -30,7 +29,7 @@
  savePreferences with
  the given input saved in the userInfo dictionary
  */
-- (IBAction) savePrefs:(id)sender;
+- (IBAction)savePrefs:(id)sender;
 
 /*!
  @abstract Set the delegate to handle changes made to the user defaults

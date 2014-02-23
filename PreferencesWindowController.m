@@ -13,8 +13,6 @@
 #pragma mark - Lifecycle
 -(id)init
 {
-	debug = YES;
-	
 	self = [super initWithWindowNibName:@"Preferences"];
 	if (self) {
 		[self loadWindow];
@@ -48,15 +46,11 @@
 	NSString *curr = [defaults stringForKey:@"currency"];
 	self.startAtLogin = [defaults boolForKey:@"startAtLogin"];
 	
-	if (rate != nil) {
-		if (debug) NSLog(@"rate to set: %f", [rate doubleValue]);
+	if (rate != nil)
 		[_refreshRate setStringValue:[rate stringValue]];
-	}
 	
-	if (curr != nil) {
-		if (debug) NSLog(@"curr to set: %@", curr);
+	if (curr != nil)
 		[_currencies selectItemWithTitle:curr];
-	}
 }
 
 #pragma mark - API to user defaults
@@ -94,23 +88,21 @@
 	NSString *rate = [notif userInfo][@"refreshRate"];
 	BOOL startAtLogin = [[[notif userInfo] objectForKey:@"startAtLogin"] boolValue];
 	
-	if (![curr isEqualToString:[defaults stringForKey:@"currency"]]) {
+	if (![curr isEqualToString:[defaults stringForKey:@"currency"]])
+	{
 		[defaults removeObjectForKey:@"currency"];
 		[defaults setObject:curr forKey:@"currency"];
 		
 		changed = YES;
-		if (debug) NSLog(@"updated currency: %@", curr);
 		
 	} else if ([rate doubleValue] != [[defaults objectForKey:@"refreshRate"] doubleValue]) {
 		[defaults removeObjectForKey:@"refreshRate"];
 		[defaults setObject:rate forKey:@"refreshRate"];
 		
 		changed = YES;
-		if (debug) NSLog(@"updated rate: %f", [rate doubleValue]);
 		
 	} else if (startAtLogin) {
 		[defaults setBool:YES forKey:@"startAtLogin"];
-		if (debug) NSLog(@"start at login");
 	}
 }
 @end
