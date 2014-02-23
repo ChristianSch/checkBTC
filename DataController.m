@@ -7,10 +7,6 @@
 //
 
 #import "DataController.h"
-#import "AIConnectionController.h"
-#import "DataSourceProtocol.h"
-#import "DisplayDataCallbackProtocol.h"
-#import "UserDefaultsControllerDelegateProtocol.h"
 
 @implementation DataController
 
