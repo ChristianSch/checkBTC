@@ -69,7 +69,6 @@
 
 - (void)refreshTooltip
 {
-	
 	/* Set tooltip with refresh time */
 	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 	dateFormatter.dateFormat = @"HH:mm:ss";
