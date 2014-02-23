@@ -23,7 +23,7 @@
 		
 		[itemController initStatusBarItemWithNSString:self->_appMenu textToSet:APP_TITLE];
 		
-		warningItem = nil;
+		warningItem = [[NSMenuItem alloc] init];
 	}
 	
 	return self;
@@ -47,7 +47,7 @@
 
 - (void)clearWarning
 {
-	if (warningItem != nil && [_appMenu itemAtIndex:0] == warningItem)
+	if ([_appMenu itemAtIndex:0] == warningItem)
 		[_appMenu removeItem:warningItem];
 }
 
