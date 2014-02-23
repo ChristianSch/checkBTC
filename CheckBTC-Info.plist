@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>SUShowReleaseNotes</key>
-	<false/>
+	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -45,5 +45,7 @@
 	<string>http://checkbtc.andinfinity.de/appcast.xml</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
+	<key>SUShowReleaseNotes</key>
+	<false/>
 </dict>
 </plist>
