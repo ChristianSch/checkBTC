@@ -5,6 +5,7 @@
 //  Created by Christian Schulze on 26.01.14.
 //  Copyright (c) 2014 Christian Schulze. All rights reserved.
 //
+#define defFontSize 14.0
 
 #import "StatusBarItemController.h"
 
@@ -38,9 +39,17 @@
 	menu = appMenu;
 	menuItem = [[NSStatusBar systemStatusBar]
 					  statusItemWithLength:NSVariableStatusItemLength];
-	
 	[menuItem setMenu:menu];
-	[menuItem setAttributedTitle:[[NSAttributedString alloc] initWithString:text]];
+
+	NSMutableAttributedString *astring = [[NSMutableAttributedString alloc]
+										  initWithString:text];
+	
+	/* set font size */
+	[astring addAttribute:NSFontAttributeName
+					value:[NSFont systemFontOfSize:defFontSize]
+					range:NSMakeRange(0, [text length])];
+	
+	[menuItem setAttributedTitle:astring];
 	[menuItem setHighlightMode:YES];
 }
 
@@ -57,9 +66,13 @@
 	NSDictionary *titleAttributes = [NSDictionary
 									 dictionaryWithObject:color
 									 forKey:NSForegroundColorAttributeName];
-	NSAttributedString *astring = [[NSAttributedString alloc]
+	NSMutableAttributedString *astring = [[NSMutableAttributedString alloc]
 								   initWithString:text
 								   attributes:titleAttributes];
+	/* set font size */
+	[astring addAttribute:NSFontAttributeName
+					value:[NSFont systemFontOfSize:defFontSize]
+					range:NSMakeRange(0, [text length])];
 	
 	[menuItem setAttributedTitle:astring];
 	[menuItem setHighlightMode:YES];
@@ -83,9 +96,14 @@
 	NSDictionary *titleAttributes = [NSDictionary
 									 dictionaryWithObject:self->defaultColor
 									 forKey:NSForegroundColorAttributeName];
-	NSAttributedString *astring = [[NSAttributedString alloc]
+	NSMutableAttributedString *astring = [[NSMutableAttributedString alloc]
 								   initWithString:text
 								   attributes:titleAttributes];
+	
+	/* set font size */
+	[astring addAttribute:NSFontAttributeName
+					value:[NSFont systemFontOfSize:defFontSize]
+					range:NSMakeRange(0, [text length])];
 	
 	[menuItem setAttributedTitle:astring];
 }
@@ -99,9 +117,11 @@
 										  initWithString:text attributes:titleAttributes];
 	
 	
+	/* set font size */
 	[astring addAttribute:NSFontAttributeName
-					value:[NSFont systemFontOfSize:14.0]
+					value:[NSFont systemFontOfSize:defFontSize]
 					range:NSMakeRange(0, [text length])];
+	
 	[menuItem setAttributedTitle:astring];
 	[menuItem setHighlightMode:YES];
 }
