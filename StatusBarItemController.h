@@ -27,20 +27,20 @@
 /*!
  @abstract Initiate the status bar item without any text
  */
-- (void) initStatusBarItem:(NSMenu *)appMenu;
+- (void)initStatusBarItem:(NSMenu *)appMenu;
 
 /*!
  @abstract Initiate the status bar item with the given text using the default color
  @param text Text to set
  */
-- (void) initStatusBarItemWithNSString:(NSMenu*)appMenu textToSet:(NSString *)text;
+- (void)initStatusBarItemWithNSString:(NSMenu*)appMenu textToSet:(NSString *)text;
 
 /*!
  @abstract Initiate status bar item with text and color
  @param text Text to set
  @param color Color to set the text in
  */
-- (void) initStatusBarItemWithNSStringAndNSColor:(NSMenu*)appMenu textToSet:(NSString *)text colorToSet:(NSColor *)color;
+- (void)initStatusBarItemWithNSStringAndNSColor:(NSMenu*)appMenu textToSet:(NSString *)text colorToSet:(NSColor *)color;
 
 /*!
  @abstract Set the text displayed in the status bar. The used color is the default color
@@ -53,26 +53,26 @@
  @param text Text to set
  @param color Color to set the text in
  */
-- (void) setTextWithNSColorAndNSString:(NSString *)text setToColor:(NSColor *)color;
+- (void)setTextWithNSColorAndNSString:(NSString *)text setToColor:(NSColor *)color;
 
 /*!
  @abstract Set tool tip of statusBarItem
  @param toolTip Tool tip to display
  */
-- (void) setToolTip:(NSString *)toolTip;
+- (void)setToolTip:(NSString *)toolTip;
 
 /*
  @abstract Set color of text
  @param color Color to set the text in
  */
-- (void) setColor:(NSColor *)color;
+- (void)setColor:(NSColor *)color;
 
 /*!
  @abstract Retrieve the color of the statusItem if set with NSAttributedString
  @return color
  @discussion returns Nil if there is no color set. (Could happen if the string is set with MenuItem.setText())
  */
-- (NSColor *) getColor;
+- (NSColor *)color;
 
 /*!
  @abstract Fade the color of the statusItem to targetColor
@@ -80,7 +80,7 @@
  @param steps Number of steps the animation does (framerate)
  @param duration Duration of animation
  */
-- (void) animateTransitionFromToNSColor:(NSColor *)targetColor animSteps:(int)steps animDuration:(float)duration;
+- (void)animateTransitionFromToNSColor:(NSColor *)targetColor animSteps:(int)steps animDuration:(float)duration;
 
 /*
  @abstract Execute animation
@@ -88,28 +88,28 @@
  @param frameRate Time to wait untill the next change of color
  @discussion frameRate should be something like 0.15s to look smooth. After $frameRate seconds have elapsed, the next color (or frame) will be set.
  */
-- (void) doAnimation:(NSArray *)colorFrames animFrameRate:(NSTimeInterval)aFrameRate;
+- (void)doAnimation:(NSArray *)colorFrames animFrameRate:(NSTimeInterval)aFrameRate;
 
 /*
  @abstract Fade the color of the statusItem from the default red to black
  */
-- (void) defaultRedToBlackAnimation;
+- (void)defaultRedToBlackAnimation;
 
 /*
  @abstract Set the statusItem text to `text` and call [self defaultRedToBlackAnimation];
  @param text Text to set the statusItem to
  */
-- (void) defaultRedToBlackAnimationWithNSString:(NSString *)text;
+- (void)defaultRedToBlackAnimationWithNSString:(NSString *)text;
 
 /*
  @abstract Fade the color of the statusItem from the default green to black
  */
-- (void) defaultGreenToBlackAnimation;
+- (void)defaultGreenToBlackAnimation;
 
 /*
  @abstract Set the statusItem text to `text` and call [self defaultGreenToBlackAnimation];
  @param text Text to set the statusItem to
  */
-- (void) defaultGreenToBlackAnimationWithNSString:(NSString *)text;
+- (void)defaultGreenToBlackAnimationWithNSString:(NSString *)text;
 
 @end

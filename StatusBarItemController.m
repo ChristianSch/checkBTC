@@ -11,20 +11,19 @@
 
 @implementation StatusBarItemController
 
-- (StatusBarItemController *) init
+- (StatusBarItemController *)init
 {
 	self = [super init];
 	
-	if (self != nil) {
+	if (self != nil)
 		defaultColor = [NSColor blackColor];
-	}
 	
 	return self;
 }
 
 #pragma mark - Lifecycle of statusBarItem
 
-- (void) initStatusBarItem:(NSMenu*)appMenu
+- (void)initStatusBarItem:(NSMenu*)appMenu
 {
 	menu = appMenu;
 	menuItem = [[NSStatusBar systemStatusBar]
@@ -34,7 +33,7 @@
 	[menuItem setHighlightMode:YES];
 }
 
-- (void) initStatusBarItemWithNSString:(NSMenu*)appMenu textToSet:(NSString *)text
+- (void)initStatusBarItemWithNSString:(NSMenu*)appMenu textToSet:(NSString *)text
 {
 	menu = appMenu;
 	menuItem = [[NSStatusBar systemStatusBar]
@@ -53,7 +52,7 @@
 	[menuItem setHighlightMode:YES];
 }
 
-- (void) initStatusBarItemWithNSStringAndNSColor:(NSMenu*)appMenu
+- (void)initStatusBarItemWithNSStringAndNSColor:(NSMenu*)appMenu
 									   textToSet:(NSString *)text
 									  colorToSet:(NSColor *)color
 {
@@ -91,7 +90,7 @@
 											   stringFromDate:[NSDate date]]]];
 }
 
-- (void) setText:(NSString *)text
+- (void)setText:(NSString *)text
 {
 	NSDictionary *titleAttributes = [NSDictionary
 									 dictionaryWithObject:self->defaultColor
@@ -108,7 +107,7 @@
 	[menuItem setAttributedTitle:astring];
 }
 
-- (void) setTextWithNSColorAndNSString:(NSString *)text setToColor:(NSColor *)color
+- (void)setTextWithNSColorAndNSString:(NSString *)text setToColor:(NSColor *)color
 {
 	NSDictionary *titleAttributes = [NSDictionary
 									 dictionaryWithObject:color
@@ -126,19 +125,19 @@
 	[menuItem setHighlightMode:YES];
 }
 
-- (void) setToolTip:(NSString *)toolTip
+- (void)setToolTip:(NSString *)toolTip
 {
 	[menuItem setToolTip:toolTip];
 }
 
-- (void) setColor:(NSColor *)color
+- (void)setColor:(NSColor *)color
 {
 	[self setTextWithNSColorAndNSString:[[menuItem attributedTitle] string]
 							 setToColor:color];
 }
 
 #pragma mark - Getters
-- (NSColor *) getColor
+- (NSColor *)color
 {
 	NSDictionary *attributes = [[menuItem attributedTitle]
 								attributesAtIndex:0
@@ -149,14 +148,14 @@
 }
 
 #pragma mark - Animation
-- (void) animateTransitionFromToNSColor:(NSColor *)targetColor
+- (void)animateTransitionFromToNSColor:(NSColor *)targetColor
 							  animSteps:(int)steps
 						   animDuration:(float)duration
 {
 	NSTimeInterval aFrameRate = duration/steps;
 	
 	/* Set color space to RGB to prevent exceptions */
-	NSColor *fColor = [[self getColor] colorUsingColorSpace:[NSColorSpace
+	NSColor *fColor = [[self color] colorUsingColorSpace:[NSColorSpace
 															 genericRGBColorSpace]];
 	NSColor *tColor = [targetColor colorUsingColorSpace:[NSColorSpace
 														 genericRGBColorSpace]];
@@ -173,7 +172,8 @@
 	float blueStep = blueDiff / steps;
 	
 	int i = 0;
-	while (i < steps) {
+	while (i < steps)
+	{
 		[frameArray addObject:[NSColor
 						   colorWithCalibratedRed:[fColor redComponent] + i * redStep
 						   green:[fColor greenComponent] + i * greenStep
@@ -186,7 +186,7 @@
 	[self doAnimation:frameArray animFrameRate:aFrameRate];
 }
 
-- (void) doAnimation:(NSArray *)colorFrames animFrameRate:(NSTimeInterval)aFrameRate
+- (void)doAnimation:(NSArray *)colorFrames animFrameRate:(NSTimeInterval)aFrameRate
 {
 	frames = colorFrames;
 	execCount = 0;
@@ -198,11 +198,12 @@
 					  selector:@selector(animateFrame:) userInfo:nil repeats:NO];
 }
 
-- (void) animateFrame:(NSTimer *)timer
+- (void)animateFrame:(NSTimer *)timer
 {
 	NSUInteger frameCnt = [frames count];
 	
-	if (execCount < frameCnt) {
+	if (execCount < frameCnt)
+	{
 		NSColor *col = [frames objectAtIndex:self->execCount];
 		[self setColor:col];
 		execCount++;
@@ -222,7 +223,7 @@
 
 #pragma mark - Default animations
 
-- (void) defaultRedToBlackAnimation
+- (void)defaultRedToBlackAnimation
 {
 	// red color by https://github.com/CaptainRedmuff/NSColor-Crayola
 	[self setColor:[NSColor colorWithRed:0.933 green:0.125 blue:0.302 alpha:1.0]];
@@ -231,13 +232,13 @@
 							animDuration:5.0];
 }
 
-- (void) defaultRedToBlackAnimationWithNSString:(NSString *)text
+- (void)defaultRedToBlackAnimationWithNSString:(NSString *)text
 {
 	[self setText:text];
 	[self defaultRedToBlackAnimation];
 }
 
-- (void) defaultGreenToBlackAnimation
+- (void)defaultGreenToBlackAnimation
 {
 	// green color by https://github.com/CaptainRedmuff/NSColor-Crayola
 	[self setColor:[NSColor colorWithRed:0.110 green:0.675 blue:0.471 alpha:1.0]];
@@ -246,7 +247,7 @@
 							animDuration:5.0];
 }
 
-- (void) defaultGreenToBlackAnimationWithNSString:(NSString *)text
+- (void)defaultGreenToBlackAnimationWithNSString:(NSString *)text
 {
 	[self setText:text];
 	[self defaultGreenToBlackAnimation];
