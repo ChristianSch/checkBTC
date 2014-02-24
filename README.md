@@ -34,14 +34,15 @@ x	* animate course
 (?)		* the menuItem should have a fixed space because of nasty redraws when the
 		animation starts
 x	* connection manager
-(x)		* warning if no connection is available
+x		* warning if no connection is available
 x	* clean up appDelegate
 
 * Version 1.2
 (x)	* in general: expand the preferencescontroller to a full "user defaults manager",
 	providing a default set of user defaults, managing access, aggregation/generation of
 	preferences interface etc. (should create the whole thing programaticly)
-	* preferences: provide app with default user defaults
+	* preferences: provide app with default user defaults as file and initiate them
+	correctly
 x	* preferences: use real user defaults, not the last entered
 	(neccessary because of the 10.0 minimum of the refresh rate)
 	* clean up preferences.xib
@@ -54,7 +55,8 @@ x	* preferences: use real user defaults, not the last entered
 * Version 1.3
 	* custom about window (the default is such an ugly one)
 	* the data source (market place) can be chosen
-	* API should provide methods of validation for key/value pairs (i.e. minimal refresh rate the api needs). these must be available globally!
+	* API should provide methods of validation for key/value pairs (i.e. minimal refresh rate the api needs, valid currency values for user defaults etc.). these must be available globally!
+		* API protocol and controller
 
 * Perspectives:
 	* https://www.plcrashreporter.org - crash reporter
