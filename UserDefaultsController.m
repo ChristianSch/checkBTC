@@ -46,13 +46,18 @@
 	/* Check if currency and refreshRate were set. If not set defaults. */
 	// >>> currency <<<
 	NSString *_currency = [self currency];
-	if (_currency == nil && [_currency length] <= 2)
+	/* note: currency should be validated by api! */
+	if (_currency == nil || [_currency length] != 3)
 		[userDefaults setObject:CURRENCYDEF forKey:currencyKey];
 	
 	// >>> refresh rate <<<
 	double refreshRate = [self dataRefreshRate];
 	if (refreshRate < 10.0)
 		[userDefaults setObject:REFRESHRATEDEF forKey:refreshRateKey];
+	
+	// >>> animate visualization of data <<<
+	if ([userDefaults objectForKey:animationKey] == nil)
+		[userDefaults setObject:@1 forKey:animationKey];
 }
 
 -(BOOL)doesStartAtLogin
@@ -69,7 +74,7 @@
 
 - (BOOL)animateVisualRepresentation
 {
-	return (int) [userDefaults objectForKey:animationKey];
+	return (BOOL) [[userDefaults objectForKey:animationKey] integerValue];
 }
 
 - (NSString*)currency
