@@ -33,11 +33,12 @@
 	{
 		[self showWarningWithMessage:@"No internet connection"];
 		
+		// regular
 	} else {
 		[self showWarningWithMessage:@"Connection failed"];
 	}
 	
-	/*
+	/*	// debug
 	 } else {
 		[self showWarningWithMessage:[error localizedDescription]];
 	}
