@@ -47,6 +47,7 @@ NSDictionary *const currencies = nil;
 {
 	if (self->json != nil && [self->json[@"result"] isEqualToString:@"success"]) {
 		NSString *num = self->json[@"data"][@"avg"][@"value"];
+		
 		return [[NSNumber alloc] initWithDouble:[num doubleValue]];
 	}
 	
