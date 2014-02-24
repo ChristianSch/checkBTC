@@ -23,7 +23,7 @@
 		/* init controllers and delegates */
 		connectionController = [[AIConnectionController alloc] init];
 		[connectionController setCallbackDelegate:self];
-		userDefaultsControllerDelegate = nil;
+		_userDefaultsControllerDelegate = nil;
 		
 		/*
 		 The controller does nothing until a userDefaultsControllerDelegate is provided
@@ -48,12 +48,12 @@
 		/* init controllers and delegates */
 		connectionController = [[AIConnectionController alloc] init];
 		[connectionController setCallbackDelegate:self];
-		userDefaultsControllerDelegate = delegate;
+		_userDefaultsControllerDelegate = delegate;
 		
 		/* Set up the timer that causes the refresh of the course */
 		NSDate *fireDate = [NSDate dateWithTimeIntervalSinceNow:1.0];
 		theTimer = [[NSTimer alloc] initWithFireDate:fireDate
-											interval:[userDefaultsControllerDelegate
+											interval:[_userDefaultsControllerDelegate
 													  dataRefreshRate]
 											  target:self
 											selector:@selector(workerMethod:)
@@ -66,19 +66,6 @@
 	return self;
 }
 
-#pragma mark - delegations
-
-- (void)setUserDefaultsControllerDelegate:
-(id<UserDefaultsControllerDelegateProtocol>)delegate
-{
-	self->userDefaultsControllerDelegate = delegate;
-}
-
-- (void)setDisplayDataCallbackDelegate:(id<DisplayDataCallbackProtocol>)delegate
-{
-	displayDataCallbackDelegate = delegate;
-}
-
 #pragma mark - AIConnectionControllerDelegateProtocol implementations
 
 - (void)didFinishLoading:(NSData *)data
@@ -89,11 +76,13 @@
 
 - (void)didFailWithError:(NSError *)error
 {
-	if (displayDataCallbackDelegate != nil)
-		[displayDataCallbackDelegate setTextFromError:error];
-	
-	else
+	if (_displayDataCallbackDelegate != nil)
+	{
+		[_displayDataCallbackDelegate setTextFromError:error];
+		
+	} else {
 		NSLog(@"No such delegate");
+	}
 }
 
 #pragma mark - timer methods
@@ -118,9 +107,9 @@
 
 - (void)workerMethod:(NSTimer*)theTimer
 {
-	if (userDefaultsControllerDelegate != nil)
+	if (_userDefaultsControllerDelegate != nil)
 	{
-		NSString *currency = [userDefaultsControllerDelegate currency];
+		NSString *currency = [_userDefaultsControllerDelegate currency];
 		/* TODO: this should be executed as a callback to received data */
 		NSURL *url = [mtgoxAPI dataURLForCurrency:currency];
 		[connectionController makeConnectionWithURL:url];
@@ -134,15 +123,15 @@
 
 - (void)updateDisplay
 {
-	if (userDefaultsControllerDelegate != nil)
+	if (_userDefaultsControllerDelegate != nil)
 	{
-		if (displayDataCallbackDelegate == nil)
+		if (_displayDataCallbackDelegate == nil)
 		{
 			NSLog(@"No displayDataCallbackDelegate");
 			return;
 		}
 		
-		NSString *currency = [userDefaultsControllerDelegate currency];
+		NSString *currency = [_userDefaultsControllerDelegate currency];
 		NSNumber *avg = [mtgoxAPI getAvgForCurrency:currency];
 		
 		if (avg != nil && currency != nil)
@@ -154,28 +143,33 @@
 			
 			/* these needs to be checked because those selectors are declared as optional
 			 in the protocol */
-			if ([displayDataCallbackDelegate
+			if ([_displayDataCallbackDelegate
 				 respondsToSelector:@selector(setTextWithAscAnimation:)]
 				&&
-				[displayDataCallbackDelegate
+				[_displayDataCallbackDelegate
 				 respondsToSelector:@selector(setTextWithDescAnimation:)])
 			{
-				if ([userDefaultsControllerDelegate animateVisualRepresentation])
+				if ([_userDefaultsControllerDelegate animateVisualRepresentation])
 				{
+					NSLog(@"update with animation");
 					if ([self->lastAvg isGreaterThan:avg])
 					{
-						[displayDataCallbackDelegate
+						[_displayDataCallbackDelegate
 						 setTextWithAscAnimation:displayTitle];
 						
 					} else {
-						[displayDataCallbackDelegate
+						[_displayDataCallbackDelegate
 						 setTextWithDescAnimation:displayTitle];
 					}
+					
+				} else {
+					/* this one is requires, thus this is the fall back */
+					[_displayDataCallbackDelegate setText:displayTitle];
 				}
 				
 			} else {
 				/* this one is requires, thus this is the fall back */
-				[displayDataCallbackDelegate setText:displayTitle];
+				[_displayDataCallbackDelegate setText:displayTitle];
 			}
 			
 			self->lastAvg = avg;

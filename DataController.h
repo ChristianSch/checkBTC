@@ -32,10 +32,6 @@
 	
 	/* controllers */
 	AIConnectionController *connectionController;
-	
-	/* delegates */
-	id<UserDefaultsControllerDelegateProtocol> userDefaultsControllerDelegate;
-	id<DisplayDataCallbackProtocol> displayDataCallbackDelegate;
 }
 
 - (id)initWithUserDefaultsControllerDelegate:
@@ -54,4 +50,9 @@
  */
 - (void)setDisplayDataCallbackDelegate:(id<DisplayDataCallbackProtocol>)delegate;
 
+@property (nonatomic, assign) id<UserDefaultsControllerDelegateProtocol>
+userDefaultsControllerDelegate;
+
+@property (nonatomic, assign) id<DisplayDataCallbackProtocol>
+displayDataCallbackDelegate;
 @end
