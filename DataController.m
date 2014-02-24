@@ -66,6 +66,8 @@
 	return self;
 }
 
+#pragma mark - delegations
+
 - (void)setUserDefaultsControllerDelegate:
 (id<UserDefaultsControllerDelegateProtocol>)delegate
 {
@@ -76,6 +78,8 @@
 {
 	displayDataCallbackDelegate = delegate;
 }
+
+#pragma mark - AIConnectionControllerDelegateProtocol implementations
 
 - (void)didFinishLoading:(NSData *)data
 {
@@ -91,6 +95,8 @@
 	else
 		NSLog(@"No such delegate");
 }
+
+#pragma mark - timer methods
 
 - (void)refreshTimer:(double)rate
 {
@@ -110,6 +116,22 @@
 	theTimer = newTimer;
 }
 
+- (void)workerMethod:(NSTimer*)theTimer
+{
+	if (userDefaultsControllerDelegate != nil)
+	{
+		NSString *currency = [userDefaultsControllerDelegate currency];
+		/* TODO: this should be executed as a callback to received data */
+		NSURL *url = [mtgoxAPI dataURLForCurrency:currency];
+		[connectionController makeConnectionWithURL:url];
+		
+	} else {
+		NSLog(@"No userDefaultsControllerDelegate!");
+	}
+}
+
+#pragma mark - display retrieved data
+
 - (void)updateDisplay
 {
 	if (userDefaultsControllerDelegate != nil)
@@ -125,10 +147,6 @@
 		
 		if (avg != nil && currency != nil)
 		{
-			/* TODO: this should be executed as a callback to received data */
-			[connectionController
-			 makeConnectionWithURL:[mtgoxAPI dataURLForCurrency:currency]];
-			
 			// btc sign: B⃦
 			NSString *displayTitle = [NSString stringWithFormat:@"BTC: %@ %@",
 									  [self formatNumber:avg],
@@ -167,19 +185,7 @@
 	}
 }
 
-- (void)workerMethod:(NSTimer*)theTimer
-{
-	if (userDefaultsControllerDelegate != nil)
-	{
-		NSString *currency = [userDefaultsControllerDelegate currency];
-		/* TODO: this should be executed as a callback to received data */
-		NSURL *url = [mtgoxAPI dataURLForCurrency:currency];
-		[connectionController makeConnectionWithURL:url];
-		
-	} else {
-		NSLog(@"No userDefaultsControllerDelegate!");
-	}
-}
+#pragma mark - helper methods
 
 - (NSString*)formatNumber:(NSNumber*)number
 {
