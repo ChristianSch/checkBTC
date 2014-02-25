@@ -14,18 +14,10 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 {
-	BOOL debug;
-	NSTimer *theTimer;
-	NSRunLoop *runLoop;
-	
 	__weak NSMenu *_appMenu;
 	__weak NSMenuItem *_openAboutItem;
 	__weak NSMenuItem *_openPrefItem;
 	__weak NSMenuItem *_quit;
-	
-	/* Settings */
-	NSString *currency;
-	NSNumber *refreshRate;
 	
 	/* Controllers */
 	IBOutlet PreferencesWindowController *preferencesWindowController;
@@ -36,16 +28,17 @@
 
 - (void)applicationWillTerminate:(NSNotification *)notification;
 
-/* Method for showing the about pane */
 /*!
- @abstract Show about pane
+ This called causes the "About CheckBTC" window to be shown.
+ 
+ @param sender Typically the sender of the message.
  */
 - (IBAction)showAbout:(id)sender;
 
-/* Methods relevant to showing the preferences pane or saving them */
 /*!
- @abstract Open preferences window
- @param sender TODO
+ This called causes the "Preferences" window to be shown. Handling of the window is done by the PreferencesWindowController.
+
+ @param sender Typically the sender of the message.
  */
 - (IBAction)showPreferences:(id)sender;
 
@@ -55,6 +48,5 @@
 @property (weak) IBOutlet NSMenuItem *openAboutItem;
 @property (weak) IBOutlet NSMenuItem *openPrefItem;
 @property (weak) IBOutlet NSMenuItem *quit;
-@property (weak) NSTimer *repeatingTimer;
 
 @end
