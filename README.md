@@ -38,6 +38,7 @@ x		* warning if no connection is available
 x	* clean up appDelegate
 	* streamline attribues: @property? { ... } in interface?
 	* check for possible memory leaks
+	* add -cleanup to DataManager that gets called on applicationWillTerminate to invalidate timer
 
 * Version 1.2
 (x)	* in general: expand the preferencescontroller to a full "user defaults manager",
