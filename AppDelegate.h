@@ -26,8 +26,6 @@
 	StatusBarController *statusBarController;
 }
 
-- (void)applicationWillTerminate:(NSNotification *)notification;
-
 /*!
  This called causes the "About CheckBTC" window to be shown.
  

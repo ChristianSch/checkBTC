@@ -29,11 +29,6 @@
 	}
 }
 
-- (void)applicationWillTerminate:(NSNotification *)notification;
-{
-	[theTimer invalidate];
-}
-
 #pragma mark - window management
 - (IBAction)showAbout:(id)sender
 {
