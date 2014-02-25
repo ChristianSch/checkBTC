@@ -23,6 +23,8 @@ TODO
 	* streamline attribues: @property? { ... } in interface?
 	* check for possible memory leaks
 	* add -cleanup to DataManager that gets called on applicationWillTerminate to invalidate timer
+	* update the documentaion (remove @abstract etc.)
+		* example of good doc: https://github.com/AFNetworking/AFNetworking/blob/master/AFNetworking/AFHTTPSessionManager.h
 
 * Version 1.2
 	* in general: expand the preferencescontroller to a full "user defaults manager" (done),
