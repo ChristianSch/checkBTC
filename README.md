@@ -25,8 +25,6 @@ TODO
 	* add -cleanup to DataManager that gets called on applicationWillTerminate to invalidate timer
 	* update the documentaion (remove @abstract etc.)
 		* example of good doc: https://github.com/AFNetworking/AFNetworking/blob/master/AFNetworking/AFHTTPSessionManager.h
-
-* Version 1.2
 	* in general: expand the preferencescontroller to a full "user defaults manager" (done),
 	providing a default set of user defaults, managing access, aggregation/generation of
 	preferences interface etc. (should create the whole thing programaticly)
@@ -36,10 +34,11 @@ TODO
 		* build up the popUpButtons programmatically
 	* add prossibility to choose between XBT/BTC/Bitcoin icon, "." or ",", various numbers of decimal places
 	* preferences: switch off animation
+	* generate documentation and maintain github page
+	* 
+* Version 1.2
 	* API plugin system (!!!)
 		-> https://developer.apple.com/library/mac/documentation/cocoa/Conceptual/LoadingCode/Tasks/UsingPlugins.html#//apple_ref/doc/uid/20001276-CJBDDCAB
-		
-* Version 1.3
 	* custom about window (the default is such an ugly one)
 	* the data source (market place) can be chosen
 	* API should provide methods of validation for key/value pairs (i.e. minimal refresh rate the api needs, valid currency values for user defaults etc.). these must be available globally!
