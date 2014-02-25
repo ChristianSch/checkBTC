@@ -34,11 +34,7 @@
 	StatusBarController *statusBarController;
 }
 
-/*!
- @abstract Act on exit.
- @param sender TODO
- */
-- (IBAction)terminate:(id)sender;
+- (void)applicationWillTerminate:(NSNotification *)notification;
 
 /* Method for showing the about pane */
 /*!

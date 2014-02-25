@@ -48,9 +48,9 @@
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="tj7-NO-0tH"/>
                 <menuItem title="Quit" toolTip="Quit" id="ut9-Z3-dvD">
-                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <modifierMask key="keyEquivalentModifierMask" option="YES"/>
                     <connections>
-                        <action selector="terminate:" target="494" id="DF0-tf-c6v"/>
+                        <action selector="terminate:" target="-3" id="uzm-4K-cUH"/>
                     </connections>
                 </menuItem>
             </items>

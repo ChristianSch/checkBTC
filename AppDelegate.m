@@ -29,10 +29,9 @@
 	}
 }
 
-- (IBAction)terminate:(id)sender
+- (void)applicationWillTerminate:(NSNotification *)notification;
 {
 	[theTimer invalidate];
-	exit(EXIT_SUCCESS);
 }
 
 #pragma mark - window management
