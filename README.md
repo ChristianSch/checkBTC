@@ -19,40 +19,22 @@ Initial release.
 TODO
 ====
 * Version 1.1
-x	* get data from MtGox
-	x	* adapt currencies in preferences (with full name)
-x		* implement dataManager that holds the connectionManager and has the
-		statusbaritemcontroller as a delegate for refreshing the course and displaying
-		errors
-x			* implement statusBarController
-x	* start at login
-x		* should make own controller for that because of syncing. maybe a
-x		**user defaults controller** in general?
-x			* distinguish userDefaultsController and preferencesController (merge? diverse?)
-x		(https://github.com/Mozketo/LaunchAtLoginController)
-x	* animate course
-(?)		* the menuItem should have a fixed space because of nasty redraws when the
-		animation starts
-x	* connection manager
-x		* warning if no connection is available
-x	* clean up appDelegate
+	* the menuItem should have a fixed space because of nasty redraws when the animation starts
 	* streamline attribues: @property? { ... } in interface?
 	* check for possible memory leaks
 	* add -cleanup to DataManager that gets called on applicationWillTerminate to invalidate timer
 
 * Version 1.2
-(x)	* in general: expand the preferencescontroller to a full "user defaults manager",
+	* in general: expand the preferencescontroller to a full "user defaults manager" (done),
 	providing a default set of user defaults, managing access, aggregation/generation of
 	preferences interface etc. (should create the whole thing programaticly)
 	* preferences: provide app with default user defaults as file and initiate them
 	correctly
-x	* preferences: use real user defaults, not the last entered
-	(neccessary because of the 10.0 minimum of the refresh rate)
 	* clean up preferences.xib
-		* build up the popUpButtons programaticly
+		* build up the popUpButtons programmatically
 	* add prossibility to choose between XBT/BTC/Bitcoin icon, "." or ",", various numbers of decimal places
 	* preferences: switch off animation
-!!!	* API plugin system
+	* API plugin system (!!!)
 		-> https://developer.apple.com/library/mac/documentation/cocoa/Conceptual/LoadingCode/Tasks/UsingPlugins.html#//apple_ref/doc/uid/20001276-CJBDDCAB
 		
 * Version 1.3
