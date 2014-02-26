@@ -14,11 +14,13 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 {
-	__weak NSMenu *_appMenu;
-	__weak NSMenuItem *_openAboutItem;
-	__weak NSMenuItem *_openPrefItem;
-	__weak NSMenuItem *_quit;
-	
+	IBOutlet NSWindow *prefWindow;
+	IBOutlet NSWindow *window;
+	IBOutlet NSMenu *appMenu;
+	IBOutlet NSMenuItem *openAboutItem;
+	IBOutlet NSMenuItem *openPrefItem;
+	IBOutlet NSMenuItem *quit;
+
 	/* Controllers */
 	IBOutlet PreferencesWindowController *preferencesWindowController;
 	DataController *dataController;
@@ -39,12 +41,5 @@
  @param sender Typically the sender of the message.
  */
 - (IBAction)showPreferences:(id)sender;
-
-@property (unsafe_unretained) IBOutlet NSWindow *prefWindow;
-@property (assign) IBOutlet NSWindow *window;
-@property (weak) IBOutlet NSMenu *appMenu;
-@property (weak) IBOutlet NSMenuItem *openAboutItem;
-@property (weak) IBOutlet NSMenuItem *openPrefItem;
-@property (weak) IBOutlet NSMenuItem *quit;
 
 @end

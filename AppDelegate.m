@@ -10,8 +10,6 @@
 
 @implementation AppDelegate
 
-@synthesize window;
-
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	@autoreleasepool
@@ -19,7 +17,7 @@
 		// >>> set up controllers <<<
 		userDefaultsController = [[UserDefaultsController alloc] init];
 		preferencesWindowController = [[PreferencesWindowController alloc] init];
-		statusBarController = [[StatusBarController alloc] initWithMenu:self->_appMenu];
+		statusBarController = [[StatusBarController alloc] initWithMenu:self->appMenu];
 		
 		dataController = [[DataController alloc] initWithUserDefaultsControllerDelegate:userDefaultsController];
 		
@@ -34,13 +32,13 @@
 {
 	[NSApp orderFrontStandardAboutPanel:self];
 	[[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
-	[self.window orderFrontRegardless];
+	[window orderFrontRegardless];
 }
 
 - (IBAction)showPreferences:(id)sender
 {
 	[[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
-	[self.window orderFrontRegardless];
+	[window orderFrontRegardless];
 	[[preferencesWindowController window] makeKeyAndOrderFront:self];
 }
 
