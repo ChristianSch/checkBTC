@@ -28,6 +28,7 @@ TODO
 	* in general: expand the preferencescontroller to a full "user defaults manager" (done),
 	providing a default set of user defaults, managing access, aggregation/generation of
 	preferences interface etc. (should create the whole thing programaticly)
+		* really save the preferences (UserDefaultsController -setUserDefaults:data !!!)
 	* preferences: provide app with default user defaults as file and initiate them
 	correctly
 	* clean up preferences.xib
