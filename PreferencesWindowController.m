@@ -104,5 +104,9 @@
 	} else if (startAtLogin) {
 		[defaults setBool:YES forKey:@"startAtLogin"];
 	}
+	
+	/* TODO: really save them */
+	// placeholder:
+	if (changed) NSLog(@"New preferences will be ignored due to missing implementaitons");
 }
 @end
