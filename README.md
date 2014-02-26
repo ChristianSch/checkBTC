@@ -46,16 +46,15 @@ x	* clean up appDelegate
 	preferences interface etc. (should create the whole thing programaticly)
 	* preferences: provide app with default user defaults as file and initiate them
 	correctly
-x	* preferences: use real user defaults, not the last entered
-	(neccessary because of the 10.0 minimum of the refresh rate)
 	* clean up preferences.xib
-		* build up the popUpButtons programaticly
+		* build up the popUpButtons programmatically
 	* add prossibility to choose between XBT/BTC/Bitcoin icon, "." or ",", various numbers of decimal places
 	* preferences: switch off animation
-!!!	* API plugin system
+	* generate documentation and maintain github page
+	* 
+* Version 1.2
+	* API plugin system (!!!)
 		-> https://developer.apple.com/library/mac/documentation/cocoa/Conceptual/LoadingCode/Tasks/UsingPlugins.html#//apple_ref/doc/uid/20001276-CJBDDCAB
-		
-* Version 1.3
 	* custom about window (the default is such an ugly one)
 	* the data source (market place) can be chosen
 	* API should provide methods of validation for key/value pairs (i.e. minimal refresh rate the api needs, valid currency values for user defaults etc.). these must be available globally!
