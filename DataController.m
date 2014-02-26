@@ -151,7 +151,6 @@
 			{
 				if ([_userDefaultsControllerDelegate animateVisualRepresentation])
 				{
-					NSLog(@"update with animation");
 					if ([self->lastAvg isGreaterThan:avg])
 					{
 						[_displayDataCallbackDelegate
