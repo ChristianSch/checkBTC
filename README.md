@@ -1,7 +1,7 @@
 checkBTC
 ========
 
-Display the Bitcoin course in the status bar of OS X. Version 1.0.1
+Display the current market price of Bitcoins in the status bar of OS X. 
 
 Changelog
 =========
@@ -19,6 +19,10 @@ Initial release.
 TODO
 ====
 * Version 1.1
+ 	* plugin system (!!!)
+		-> https://developer.apple.com/library/mac/documentation/cocoa/Conceptual/LoadingCode/Tasks/UsingPlugins.html#//apple_ref/doc/uid/20001276-CJBDDCAB
+		* plugin controller
+		* kraken as default plugin -> https://www.kraken.com/help/api#general-usage
 	* the menuItem should have a fixed space because of nasty redraws when the animation
 	starts
 	* -color: as property, overwriting the getter/setter in StatusBarItemController
@@ -38,8 +42,6 @@ TODO
 	* generate documentation and maintain github page
 
 * Version 1.2
-	* API plugin system (!!!)
-		-> https://developer.apple.com/library/mac/documentation/cocoa/Conceptual/LoadingCode/Tasks/UsingPlugins.html#//apple_ref/doc/uid/20001276-CJBDDCAB
 	* custom about window (the default is such an ugly one)
 	* the data source (market place) can be chosen
 	* API should provide methods of validation for key/value pairs (i.e. minimal refresh rate the api needs, valid currency values for user defaults etc.). these must be available globally!
