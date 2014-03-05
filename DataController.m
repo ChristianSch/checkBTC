@@ -182,8 +182,14 @@
 
 - (NSString*)formatNumber:(NSNumber*)number
 {
-	NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-	[numberFormatter setPositiveFormat:@"####.####"];
-	return [numberFormatter stringFromNumber:number];
+	/*
+	 TODO: does it work? (plugins have to be implemented)
+	 */
+	NSNumberFormatter * formatter =  [[NSNumberFormatter alloc] init];
+	[formatter setNumberStyle:(NSNumberFormatterStyle) kCFNumberFormatterDecimalStyle];
+	[formatter setMaximumFractionDigits:4];
+	[formatter setLocale:[NSLocale currentLocale]];
+	
+	return [formatter stringFromNumber:number];
 }
 @end
