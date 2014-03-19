@@ -22,6 +22,7 @@ TODO
  	* plugin system (!!!)
 		-> https://developer.apple.com/library/mac/documentation/cocoa/Conceptual/LoadingCode/Tasks/UsingPlugins.html#//apple_ref/doc/uid/20001276-CJBDDCAB
 		* plugin controller
+			* delegation
 		* kraken as default plugin -> https://www.kraken.com/help/api#general-usage
 	* the menuItem should have a fixed space because of nasty redraws when the animation
 	starts
