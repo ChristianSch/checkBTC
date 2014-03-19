@@ -1,0 +1,286 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1718063E18DA07F600B6F5AA /* AIKrakenExchangeAPIController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1718063D18DA07F600B6F5AA /* AIKrakenExchangeAPIController.m */; };
+		17E2108E18DA01AF000D93E4 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17E2108D18DA01AF000D93E4 /* CoreFoundation.framework */; };
+		17E2109418DA01B0000D93E4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17E2109218DA01B0000D93E4 /* InfoPlist.strings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1718063B18DA07A300B6F5AA /* DataSourceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataSourceProtocol.h; sourceTree = "<group>"; };
+		1718063C18DA07F600B6F5AA /* AIKrakenExchangeAPIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIKrakenExchangeAPIController.h; sourceTree = "<group>"; };
+		1718063D18DA07F600B6F5AA /* AIKrakenExchangeAPIController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIKrakenExchangeAPIController.m; sourceTree = "<group>"; };
+		17E2108A18DA01AF000D93E4 /* AIKrakenExchangeAPIController.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AIKrakenExchangeAPIController.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		17E2108D18DA01AF000D93E4 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		17E2109118DA01AF000D93E4 /* AIKrakenExchangeAPIController-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AIKrakenExchangeAPIController-Info.plist"; sourceTree = "<group>"; };
+		17E2109318DA01B0000D93E4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		17E2109518DA01B0000D93E4 /* AIKrakenExchangeAPIController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AIKrakenExchangeAPIController-Prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		17E2108718DA01AF000D93E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17E2108E18DA01AF000D93E4 /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		17E2108118DA01AF000D93E4 = {
+			isa = PBXGroup;
+			children = (
+				17E2108F18DA01AF000D93E4 /* AIKrakenExchangeAPIController */,
+				17E2108C18DA01AF000D93E4 /* Frameworks */,
+				17E2108B18DA01AF000D93E4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		17E2108B18DA01AF000D93E4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				17E2108A18DA01AF000D93E4 /* AIKrakenExchangeAPIController.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		17E2108C18DA01AF000D93E4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				17E2108D18DA01AF000D93E4 /* CoreFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		17E2108F18DA01AF000D93E4 /* AIKrakenExchangeAPIController */ = {
+			isa = PBXGroup;
+			children = (
+				1718063B18DA07A300B6F5AA /* DataSourceProtocol.h */,
+				1718063C18DA07F600B6F5AA /* AIKrakenExchangeAPIController.h */,
+				1718063D18DA07F600B6F5AA /* AIKrakenExchangeAPIController.m */,
+				17E2109018DA01AF000D93E4 /* Supporting Files */,
+			);
+			path = AIKrakenExchangeAPIController;
+			sourceTree = "<group>";
+		};
+		17E2109018DA01AF000D93E4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				17E2109118DA01AF000D93E4 /* AIKrakenExchangeAPIController-Info.plist */,
+				17E2109218DA01B0000D93E4 /* InfoPlist.strings */,
+				17E2109518DA01B0000D93E4 /* AIKrakenExchangeAPIController-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		17E2108918DA01AF000D93E4 /* AIKrakenExchangeAPIController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17E2109818DA01B0000D93E4 /* Build configuration list for PBXNativeTarget "AIKrakenExchangeAPIController" */;
+			buildPhases = (
+				17E2108618DA01AF000D93E4 /* Sources */,
+				17E2108718DA01AF000D93E4 /* Frameworks */,
+				17E2108818DA01AF000D93E4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AIKrakenExchangeAPIController;
+			productName = AIKrakenExchangeAPIController;
+			productReference = 17E2108A18DA01AF000D93E4 /* AIKrakenExchangeAPIController.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		17E2108218DA01AF000D93E4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = andinfinity;
+			};
+			buildConfigurationList = 17E2108518DA01AF000D93E4 /* Build configuration list for PBXProject "AIKrakenExchangeAPIController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 17E2108118DA01AF000D93E4;
+			productRefGroup = 17E2108B18DA01AF000D93E4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				17E2108918DA01AF000D93E4 /* AIKrakenExchangeAPIController */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		17E2108818DA01AF000D93E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17E2109418DA01B0000D93E4 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		17E2108618DA01AF000D93E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1718063E18DA07F600B6F5AA /* AIKrakenExchangeAPIController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		17E2109218DA01B0000D93E4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17E2109318DA01B0000D93E4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		17E2109618DA01B0000D93E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEPLOYMENT_LOCATION = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		17E2109718DA01B0000D93E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEPLOYMENT_LOCATION = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		17E2109918DA01B0000D93E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AIKrakenExchangeAPIController/AIKrakenExchangeAPIController-Prefix.pch";
+				INFOPLIST_FILE = "AIKrakenExchangeAPIController/AIKrakenExchangeAPIController-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		17E2109A18DA01B0000D93E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AIKrakenExchangeAPIController/AIKrakenExchangeAPIController-Prefix.pch";
+				INFOPLIST_FILE = "AIKrakenExchangeAPIController/AIKrakenExchangeAPIController-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		17E2108518DA01AF000D93E4 /* Build configuration list for PBXProject "AIKrakenExchangeAPIController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17E2109618DA01B0000D93E4 /* Debug */,
+				17E2109718DA01B0000D93E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		17E2109818DA01B0000D93E4 /* Build configuration list for PBXNativeTarget "AIKrakenExchangeAPIController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17E2109918DA01B0000D93E4 /* Debug */,
+				17E2109A18DA01B0000D93E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 17E2108218DA01AF000D93E4 /* Project object */;
+}
