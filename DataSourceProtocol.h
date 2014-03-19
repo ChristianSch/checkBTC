@@ -14,13 +14,30 @@
  implementation.
  @author Christian Schulze
  @copyright Christian Schulze, andinfinity
- @version 0.2
- @updated 23.02.14
+ @version 0.2.3
+ @updated 19.03.14
  @discussion Maybe this should be renamed because something like dataSoure already
  exists. If the plugin API (and controllers) are implemented fast enough this is
  obsolete in any case.
  */
 @protocol DataSourceProtocol <NSObject>
+/*!
+ Protocol version formatted like 0.1
+ @return version
+ */
+- (NSNumber *)protocolVersion;
+
+/*!
+ Metadata about the data source.
+ @return data
+ @discussion
+ Metadata format:
+ {
+ name: name of source
+ url: base url of source (main site, not api url)
+ }
+ */
+- (NSDictionary *)metadata;
 
 /*!
  @abstract Analyze the retrieved data
@@ -40,13 +57,22 @@
  @param currency
  @return average
  */
-- (NSNumber*)getAvgForCurrency:(NSString*)currency;
+- (NSNumber*)avgForCurrency:(NSString*)currency;
 
 /*!
  @abstract Get symbolic representation of a currency
  @param currency
  @return string representation of symbol
  */
-- (NSString*)getCurrencySymbol:(NSString*)currency;
+- (NSString*)currencySymbol:(NSString*)currency;
+
+/*!
+ Supported currencies.
+ @return currencies
+ @discussion
+ Format: Short name : long name. For example:
+ @"USD": @"US Dollar"
+ */
+- (NSDictionary *)currencies;
 
 @end
