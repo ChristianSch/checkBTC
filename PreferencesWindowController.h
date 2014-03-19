@@ -19,9 +19,14 @@
  */
 @interface PreferencesWindowController : NSWindowController
 {
+	__weak NSPopUpButton *_marketplaces;
 	__weak NSPopUpButton *_currencies;
 	__weak NSTextField *_refreshRate;
+	__weak NSTextField *_formatting;
+	
 	id<UserDefaultsControllerDelegateProtocol> userDefaultsDelegate;
+	NSPopover *_popover;
+	NSViewController *_PluginHelpPopover;
 }
 
 /*!
@@ -37,8 +42,16 @@
  */
 - (void)setUserDefaultsDelegate:(id<UserDefaultsControllerDelegateProtocol>)delegate;
 
+- (IBAction)showPluginHelp:(id)sender;
+
+- (IBAction)showPluginFolderInFinder:(id)sender;
+
 @property (weak) IBOutlet NSPopUpButton *currencies;
 @property (weak) IBOutlet NSTextField *refreshRate;
 @property BOOL startAtLogin;
 
+@property (strong) IBOutlet NSViewController *PluginHelpPopoverController;
+@property (strong) IBOutlet NSPopover *popover;
+@property (weak) IBOutlet NSPopUpButton *marketplaces;
+@property (weak) IBOutlet NSTextField *formatting;
 @end

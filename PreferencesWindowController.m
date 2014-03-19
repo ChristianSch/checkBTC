@@ -10,6 +10,8 @@
 
 @implementation PreferencesWindowController
 
+@synthesize PluginHelpPopoverController;
+
 #pragma mark - Lifecycle
 -(id)init
 {
@@ -67,7 +69,8 @@
 		NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
 		[dict setValue:currency forKey:@"currency"];
 		[dict setValue:rRate forKey:@"refreshRate"];
-		[dict setValue:[[NSNumber alloc] initWithBool:[self startAtLogin]] forKey:@"startAtLogin"];
+		[dict setValue:[[NSNumber alloc] initWithBool:[self startAtLogin]]
+				forKey:@"startAtLogin"];
 		
 		[userDefaultsDelegate setUserDefaultsWithDict:dict];
 		
@@ -95,7 +98,8 @@
 		
 		changed = YES;
 		
-	} else if ([rate doubleValue] != [[defaults objectForKey:@"refreshRate"] doubleValue]) {
+	} else if ([rate doubleValue] != [[defaults objectForKey:@"refreshRate"] doubleValue])
+	{
 		[defaults removeObjectForKey:@"refreshRate"];
 		[defaults setObject:rate forKey:@"refreshRate"];
 		
@@ -108,5 +112,18 @@
 	/* TODO: really save them */
 	// placeholder:
 	if (changed) NSLog(@"New preferences will be ignored due to missing implementaitons");
+}
+
+- (IBAction)showPluginHelp:(id)sender
+{
+	[[self popover] showRelativeToRect:[sender bounds]
+								ofView:sender
+						 preferredEdge:NSMaxYEdge];
+}
+
+- (IBAction)showPluginFolderInFinder:(id)sender
+{
+	NSURL * dirURL = [[NSURL alloc] initFileURLWithPath:@"/Applications"];
+	[[NSWorkspace sharedWorkspace] openURL: dirURL];
 }
 @end
