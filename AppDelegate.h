@@ -11,6 +11,7 @@
 #import "StatusBarController.h"
 #import "DataController.h"
 #import "UserDefaultsController.h"
+#import "PluginController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 {
@@ -26,6 +27,7 @@
 	DataController *dataController;
 	UserDefaultsController *userDefaultsController;
 	StatusBarController *statusBarController;
+	PluginController *pluginController;
 }
 
 /*!

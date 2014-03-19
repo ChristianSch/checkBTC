@@ -20,6 +20,7 @@
 		statusBarController = [[StatusBarController alloc] initWithMenu:self->appMenu];
 		
 		dataController = [[DataController alloc] initWithUserDefaultsControllerDelegate:userDefaultsController];
+		pluginController = [[PluginController alloc] init];
 		
 		// >>> set up delegation <<<
 		[dataController setDisplayDataCallbackDelegate:statusBarController];
