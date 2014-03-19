@@ -132,14 +132,14 @@
 		}
 		
 		NSString *currency = [_userDefaultsControllerDelegate currency];
-		NSNumber *avg = [mtgoxAPI getAvgForCurrency:currency];
+		NSNumber *avg = [mtgoxAPI avgForCurrency:currency];
 		
 		if (avg != nil && currency != nil)
 		{
 			// btc sign: B⃦
 			NSString *displayTitle = [NSString stringWithFormat:@"BTC: %@ %@",
 									  [self formatNumber:avg],
-									  [mtgoxAPI getCurrencySymbol:currency]];
+									  [mtgoxAPI currencySymbol:currency]];
 			
 			/* these needs to be checked because those selectors are declared as optional
 			 in the protocol */
