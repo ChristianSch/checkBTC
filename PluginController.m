@@ -12,6 +12,8 @@
 
 @implementation PluginController
 
+@synthesize pluginInstance;
+
 - (id)init
 {
 	self = [super init];
@@ -21,25 +23,51 @@
 		appBundle = [NSBundle mainBundle];
 	}
 	
-	// testing
-	NSArray *bundles = [self listBundles];
-	NSLog(@"%@", bundles);
-	NSLog(@"Found %lu bundles in total!", (unsigned long)[bundles count]);
-	
 	return self;
 }
 
-- (void)loadBundles
+- (NSDictionary*)availableBundles
 {
 	appBundle = [NSBundle mainBundle];
 	bundlePaths = [appBundle pathsForResourcesOfType:@"bundle"
 										 inDirectory:@"Resources/APIControllerBundles"];
+	
+	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+	// NSMutableArray *instances = [[NSMutableArray alloc] init];
+	NSBundle *currBundle;
+	
+	for (int i = 0; i < [bundlePaths count]; i++)
+	{
+		currBundle = [NSBundle bundleWithPath:bundlePaths[i]];
+		
+		if (currBundle)
+		{
+			if ([self plugInClassIsValid:[currBundle principalClass]])
+			{
+				[dict setObject:bundlePaths[i] forKey:[[[currBundle principalClass] metadata]
+												   objectForKey:@"name"]];
+				
+			} else {
+				NSLog(@"%@ is not a valid bundle", currBundle);
+			}
+			
+		}
+	}
+	
+	return dict;
 }
 
-- (NSArray *)listBundles
+- (void)loadBundleAsPlugin:(NSString*)path
 {
-	[self loadBundles];
-	return bundlePaths;
+	NSBundle *bundle = [NSBundle bundleWithPath:path];
+
+	if ([self plugInClassIsValid:[bundle principalClass]])
+	{
+		pluginInstance = [[[bundle principalClass] alloc] init];
+		
+	} else {
+		NSLog(@"%@ is not a valid bundle!", bundle);
+	}
 }
 
 - (BOOL)plugInClassIsValid:(Class)plugInClass
@@ -59,7 +87,9 @@
 		   [plugInClass instancesRespondToSelector:
 			@selector(handleData:)] &&
 		   [plugInClass instancesRespondToSelector:
-			@selector(protocolVersion)])
+			@selector(protocolVersion)] &&
+		   [plugInClass instancesRespondToSelector:
+			@selector(metadata)])
 		{
 			return YES;
 		}

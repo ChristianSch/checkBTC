@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DataSourceProtocol.h"
 
 @interface PluginController : NSObject
 {
@@ -14,7 +15,22 @@
 	NSArray *bundlePaths;
 }
 
-- (void)loadBundles;
-- (NSArray *)listBundles;
+/*!
+ List all available bundles that comply to the datasource protocol as a dictionary.
+ @return dictionary
+ @discussion
+ Dictionary format:
+	{ BundleName : BundlePath }
+*/
+- (NSDictionary*)availableBundles;
+
+/*!
+ Load the bundle found at `path` as the plugin to use.
+ @param path to bundle
+ */
+- (void)loadBundleAsPlugin:(NSString*)path;
+
+
+@property (nonatomic,readonly) id<DataSourceProtocol> pluginInstance;
 
 @end
