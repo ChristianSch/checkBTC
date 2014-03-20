@@ -28,7 +28,7 @@
 + (NSDictionary *)metadata
 {
 	return @{
-			 @"name": @"Kranken",
+			 @"name": @"Kraken",
 			 @"@url": @"kraken.com"
 			 };
 }
