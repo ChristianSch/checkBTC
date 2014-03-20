@@ -11,7 +11,6 @@
 #import "DataSourceProtocol.h"
 #import "DisplayDataCallbackProtocol.h"
 #import "UserDefaultsControllerDelegateProtocol.h"
-#import "MtgoxAPI.h"
 
 /*!
  @header DataController
@@ -26,9 +25,6 @@
 	NSTimer *theTimer;
 	NSRunLoop *runLoop;
 	NSNumber *lastAvg;
-	
-	/* modells */
-	MtgoxAPI *mtgoxAPI;
 	
 	/* controllers */
 	AIConnectionController *connectionController;
@@ -55,4 +51,7 @@ userDefaultsControllerDelegate;
 
 @property (nonatomic, assign) id<DisplayDataCallbackProtocol>
 displayDataCallbackDelegate;
+
+@property (nonatomic) id<DataSourceProtocol> dataSource;
+
 @end

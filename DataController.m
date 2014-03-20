@@ -11,15 +11,14 @@
 
 @implementation DataController
 
+@synthesize dataSource;
+
 - (id)init
 {
 	self = [super init];
 	
 	if (self != nil)
 	{
-		/* init models */
-		mtgoxAPI = [[MtgoxAPI alloc] init];
-		
 		/* init controllers and delegates */
 		connectionController = [[AIConnectionController alloc] init];
 		[connectionController setCallbackDelegate:self];
@@ -42,9 +41,6 @@
 	
 	if (self != nil)
 	{
-		/* init models */
-		mtgoxAPI = [[MtgoxAPI alloc] init];
-		
 		/* init controllers and delegates */
 		connectionController = [[AIConnectionController alloc] init];
 		[connectionController setCallbackDelegate:self];
@@ -70,7 +66,7 @@
 
 - (void)didFinishLoading:(NSData *)data
 {
-	[mtgoxAPI handleData:data];
+	[dataSource handleData:data];
 	[self updateDisplay];
 }
 
@@ -111,7 +107,7 @@
 	{
 		NSString *currency = [_userDefaultsControllerDelegate currency];
 		/* TODO: this should be executed as a callback to received data */
-		NSURL *url = [mtgoxAPI dataURLForCurrency:currency];
+		NSURL *url = [dataSource dataURLForCurrency:currency];
 		[connectionController makeConnectionWithURL:url];
 		
 	} else {
@@ -132,14 +128,14 @@
 		}
 		
 		NSString *currency = [_userDefaultsControllerDelegate currency];
-		NSNumber *avg = [mtgoxAPI avgForCurrency:currency];
+		NSNumber *avg = [dataSource avgForCurrency:currency];
 		
 		if (avg != nil && currency != nil)
 		{
 			// btc sign: B⃦
 			NSString *displayTitle = [NSString stringWithFormat:@"BTC: %@ %@",
 									  [self formatNumber:avg],
-									  [mtgoxAPI currencySymbol:currency]];
+									  [dataSource currencySymbol:currency]];
 			
 			/* these needs to be checked because those selectors are declared as optional
 			 in the protocol */
