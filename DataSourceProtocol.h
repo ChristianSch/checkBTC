@@ -14,7 +14,7 @@
  implementation.
  @author Christian Schulze
  @copyright Christian Schulze, andinfinity
- @version 0.2.3
+ @version 0.3
  @updated 19.03.14
  @discussion Maybe this should be renamed because something like dataSoure already
  exists. If the plugin API (and controllers) are implemented fast enough this is
@@ -33,11 +33,11 @@
  @discussion
  Metadata format:
  {
- name: name of source
- url: base url of source (main site, not api url)
+	name: name of source
+	url: base url of source (main site, not api url)
  }
  */
-- (NSDictionary *)metadata;
++ (NSDictionary *)metadata;
 
 /*!
  @abstract Analyze the retrieved data

@@ -37,7 +37,7 @@
 	url: base url of source (main site, not api url)
  }
  */
-- (NSDictionary *)metadata;
++ (NSDictionary *)metadata;
 
 /*!
  @abstract Analyze the retrieved data

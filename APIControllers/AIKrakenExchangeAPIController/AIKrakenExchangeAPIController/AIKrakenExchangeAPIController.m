@@ -25,7 +25,7 @@
 	return self;
 }
 
-- (NSDictionary *)metadata
++ (NSDictionary *)metadata
 {
 	return @{
 			 @"name": @"Kranken",
