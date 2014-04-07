@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "DataSourceProtocol.h"
 
-@interface PluginController : NSObject
+@interface PluginController : NSObject<PluginControllerDelegateProtocol>
 {
 	NSBundle *appBundle;
 	NSArray *bundlePaths;
