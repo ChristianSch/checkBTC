@@ -12,6 +12,7 @@
 #import "DataController.h"
 #import "UserDefaultsController.h"
 #import "PluginController.h"
+#import "PluginControllerDelegateProtocol.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 {

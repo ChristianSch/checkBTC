@@ -19,12 +19,14 @@
 		preferencesWindowController = [[PreferencesWindowController alloc] init];
 		statusBarController = [[StatusBarController alloc] initWithMenu:self->appMenu];
 		
-		dataController = [[DataController alloc] initWithUserDefaultsControllerDelegate:userDefaultsController];
+		dataController = [[DataController alloc]
+						  initWithUserDefaultsControllerDelegate:userDefaultsController];
 		pluginController = [[PluginController alloc] init];
 		
 		// >>> set up delegation <<<
 		[dataController setDisplayDataCallbackDelegate:statusBarController];
 		[preferencesWindowController setUserDefaultsDelegate:userDefaultsController];
+		[preferencesWindowController setPluginControllerDelegate:pluginController];
 	}
 }
 
