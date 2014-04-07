@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "UserDefaultsControllerDelegateProtocol.h"
+#import "PluginControllerDelegateProtocol.h"
 
 /*!
  @header PreferencesWindowController
@@ -25,6 +26,8 @@
 	__weak NSTextField *_formatting;
 	
 	id<UserDefaultsControllerDelegateProtocol> userDefaultsDelegate;
+	id<PluginControllerDelegateProtocol> pluginControllerDelegate;
+	
 	NSPopover *_popover;
 	NSViewController *_PluginHelpPopover;
 }
@@ -41,6 +44,13 @@
  @param delegate handles the changes
  */
 - (void)setUserDefaultsDelegate:(id<UserDefaultsControllerDelegateProtocol>)delegate;
+
+/*!
+ @abstract Set the delegate for listing available plugins and setting the plugin
+ to use.
+ @param delegate
+ */
+- (void)setPluginControllerDelegate:(id<PluginControllerDelegateProtocol>)delegate;
 
 - (IBAction)showPluginHelp:(id)sender;
 

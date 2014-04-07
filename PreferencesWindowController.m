@@ -40,6 +40,11 @@
 	userDefaultsDelegate = delegate;
 }
 
+- (void)setPluginControllerDelegate:(id<PluginControllerDelegateProtocol>)delegate
+{
+	pluginControllerDelegate = delegate;
+}
+
 #pragma mark - Event handling
 - (void)awakeFromNib
 {
