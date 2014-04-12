@@ -7,7 +7,6 @@
 //
 
 #import "DataController.h"
-#import "MtgoxAPI.h"
 
 @implementation DataController
 
