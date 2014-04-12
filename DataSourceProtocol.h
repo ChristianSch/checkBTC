@@ -10,7 +10,7 @@
 
 /*!
  @header DataSource Callback Protocol
- This protocol provides the necessarcy selectors to obtain the needed data by an API
+ This protocol provides the necessary selectors to obtain the needed data by an API
  implementation.
  @author Christian Schulze
  @copyright Christian Schulze, andinfinity
