@@ -64,4 +64,5 @@
 @property (strong) IBOutlet NSPopover *popover;
 @property (weak) IBOutlet NSPopUpButton *marketplaces;
 @property (weak) IBOutlet NSTextField *formatting;
+@property (strong) IBOutlet NSArrayController *arrayController;
 @end
