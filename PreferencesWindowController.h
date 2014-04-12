@@ -20,7 +20,7 @@
  */
 @interface PreferencesWindowController : NSWindowController
 {
-	__weak NSPopUpButton *_marketplaces;
+	NSArrayController *_arrayController;
 	__weak NSPopUpButton *_currencies;
 	__weak NSTextField *_refreshRate;
 	__weak NSTextField *_formatting;

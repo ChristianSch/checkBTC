@@ -8,6 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="PreferencesWindowController">
             <connections>
                 <outlet property="PluginHelpPopoverController" destination="i3s-co-b1q" id="WWt-yH-mqR"/>
+                <outlet property="arrayController" destination="BEJ-O2-2O8" id="JtP-A0-r90"/>
                 <outlet property="currencies" destination="Tuy-IN-LDX" id="krt-qP-LNy"/>
                 <outlet property="formatting" destination="Dj0-VR-Nhi" id="THv-Sk-TUn"/>
                 <outlet property="marketplaces" destination="iIF-ri-12M" id="Igm-KK-az3"/>
@@ -312,6 +313,9 @@
                                                                 </items>
                                                             </menu>
                                                         </popUpButtonCell>
+                                                        <connections>
+                                                            <binding destination="BEJ-O2-2O8" name="content" keyPath="arrangedObjects" id="YqK-Oj-kYC"/>
+                                                        </connections>
                                                     </popUpButton>
                                                     <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lgv-3z-SHZ">
                                                         <rect key="frame" x="279" y="19" width="25" height="25"/>
@@ -395,5 +399,6 @@
                 </textField>
             </subviews>
         </customView>
+        <arrayController id="BEJ-O2-2O8"/>
     </objects>
 </document>
