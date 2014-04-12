@@ -17,12 +17,9 @@
 
 /*!
  List all available bundles that comply to the datasource protocol as a dictionary.
- @return dictionary
- @discussion
- Dictionary format:
-	{ BundleName : BundlePath }
+ @return array
 */
-- (NSDictionary*)availableBundles;
+- (NSArray*)availableBundles;
 
 /*!
  Load the bundle found at `path` as the plugin to use.

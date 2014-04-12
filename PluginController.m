@@ -26,15 +26,18 @@
 	return self;
 }
 
-- (NSDictionary*)availableBundles
+- (NSArray*)availableBundles
 {
+	id instance;
+	
 	appBundle = [NSBundle mainBundle];
 	bundlePaths = [appBundle pathsForResourcesOfType:@"bundle"
 										 inDirectory:@"Resources/APIControllerBundles"];
 	
-	NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-	// NSMutableArray *instances = [[NSMutableArray alloc] init];
+	NSMutableArray *bundleNames = [[NSMutableArray alloc] init];
 	NSBundle *currBundle;
+	
+	NSLog(@"bundle count: %lu", (unsigned long)[bundlePaths count]);
 	
 	for (int i = 0; i < [bundlePaths count]; i++)
 	{
@@ -54,7 +57,7 @@
 		}
 	}
 	
-	return dict;
+	return bundleNames;
 }
 
 - (void)loadBundleAsPlugin:(NSString*)path

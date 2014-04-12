@@ -25,7 +25,7 @@
  Dictionary format:
  { BundleName : BundlePath }
  */
-- (NSDictionary*)availableBundles;
+- (NSArray*)availableBundles;
 
 /*!
  Load the bundle found at `path` as the plugin to use.
