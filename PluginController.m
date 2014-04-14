@@ -74,29 +74,54 @@
 
 - (BOOL)plugInClassIsValid:(Class)plugInClass
 {
+	BOOL isValid = YES;
+	
     if([plugInClass
         conformsToProtocol:@protocol(DataSourceProtocol)])
     {
-		/* methods complying to protocol version 0.2.2 */
-        if([plugInClass instancesRespondToSelector:
-			@selector(avgForCurrency:)] &&
-		   [plugInClass instancesRespondToSelector:
-			@selector(currencySymbol:)] &&
-		   [plugInClass instancesRespondToSelector:
-			@selector(currencies)] &&
-		   [plugInClass instancesRespondToSelector:
-			@selector(dataURLForCurrency:)] &&
-		   [plugInClass instancesRespondToSelector:
-			@selector(handleData:)] &&
-		   [plugInClass instancesRespondToSelector:
-			@selector(protocolVersion)] &&
-		   [plugInClass instancesRespondToSelector:
-			@selector(metadata)])
-		{
-			return YES;
+		/* methods complying to protocol version 0.3 */
+        if (![plugInClass instancesRespondToSelector:
+			  @selector(protocolVersion)]) {
+			NSLog(@"bundle does not respond to @protocolVersion!");
+			isValid = NO;
+			
+		} else if(![plugInClass respondsToSelector:
+					@selector(metadata)]) {
+			NSLog(@"bundle does not respond to @metadata!");
+			isValid = NO;
+			
+		} else if (![plugInClass instancesRespondToSelector:
+					 @selector(handleData:)]) {
+			NSLog(@"bundle does not respond to @handleData!");
+			isValid = NO;
+			
+		} else if (![plugInClass instancesRespondToSelector:
+					 @selector(dataURLForCurrency:)]) {
+			NSLog(@"bundle does not respond to @dataURLForCurrency!");
+			isValid = NO;
+			
+		} else if (![plugInClass instancesRespondToSelector:
+					 @selector(avgForCurrency:)]) {
+			NSLog(@"bundle does not respond to @avgForCurrency!");
+			isValid = NO;
+			
+		} else if (![plugInClass instancesRespondToSelector:
+					 @selector(protocolVersion)]) {
+			NSLog(@"bundle does not respond to @procotolVersion!");
+			isValid = NO;
+			
+		} else if (![plugInClass instancesRespondToSelector:
+					 @selector(currencySymbol:)]) {
+			NSLog(@"bundle does not respond to @currencySymbol!");
+			isValid = NO;
+			
+		} else if (![plugInClass instancesRespondToSelector:
+					 @selector(currencies)]) {
+			NSLog(@"bundle does not respond to currencies!");
+			isValid =  NO;
 		}
 	}
 	
-	return NO;
+	return isValid;
 }
 @end
