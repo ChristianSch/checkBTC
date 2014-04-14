@@ -28,7 +28,7 @@
 - (NSNumber *)protocolVersion;
 
 /*!
- Metadata about the data source.
+ Metadata about the data source
  @return data
  @discussion
  Metadata format:
