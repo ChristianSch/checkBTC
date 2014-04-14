@@ -13,6 +13,7 @@
 
 @synthesize pluginInstance;
 
+#pragma mark - lifecycle
 - (id)init
 {
 	self = [super init];
@@ -24,6 +25,8 @@
 	
 	return self;
 }
+
+#pragma mark - interface methods
 
 - (NSArray*)availableBundles
 {
@@ -92,6 +95,8 @@
 	NSLog(@"No such bundle: %@", name);
 	return nil;
 }
+
+#pragma mark - internal methods
 
 - (BOOL)plugInClassIsValid:(Class)plugInClass
 {
