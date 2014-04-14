@@ -34,8 +34,6 @@
 	NSMutableArray *bundleNames = [[NSMutableArray alloc] init];
 	NSBundle *currBundle;
 	
-	NSLog(@"bundle count: %lu", (unsigned long)[bundlePaths count]);
-	
 	for (int i = 0; i < [bundlePaths count]; i++)
 	{
 		currBundle = [NSBundle bundleWithPath:bundlePaths[i]];

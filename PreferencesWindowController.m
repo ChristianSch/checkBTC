@@ -64,12 +64,9 @@
 	
 	if (pluginControllerDelegate == nil) NSLog(@"no such plugin delegate!");
 	
-	NSLog(@"%lu marketplaces!", (unsigned long)[marketplaces count]);
-	
 	for (int i = 0; i < [marketplaces count]; i++)
 	{
 		[_arrayController addObject:marketplaces[i]];
-		NSLog(@"%@", marketplaces[i]);
 	}
 	
 	[[self window] makeKeyAndOrderFront:sender];
@@ -146,7 +143,6 @@
 {
 	NSString *pluginDir = [[[NSBundle mainBundle] bundlePath]
 						   stringByAppendingString:@"/Contents/Resources/Resources/APIControllerBundles/"];
-	NSLog(@"%@", pluginDir);
 	
 	NSURL * dirURL = [[NSURL alloc] initFileURLWithPath:pluginDir];
 	[[NSWorkspace sharedWorkspace] openURL: dirURL];
