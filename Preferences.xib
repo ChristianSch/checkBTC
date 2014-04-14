@@ -388,7 +388,7 @@
                         <action selector="showPluginFolderInFinder:" target="-2" id="sJD-2h-gce"/>
                     </connections>
                 </button>
-                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VdJ-9h-X0o">
+                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VdJ-9h-X0o">
                     <rect key="frame" x="18" y="49" width="234" height="60"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="To add plugins move them to the plugin folder. For more information click $doc$." id="cF5-kS-U41">
