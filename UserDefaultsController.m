@@ -55,7 +55,8 @@
 	// >>> refresh rate <<<
 	double refreshRate = [self dataRefreshRate];
 	if (refreshRate < 10.0)
-		[userDefaults setObject:REFRESHRATEDEF forKey:refreshRateKey];
+		[userDefaults setObject:defaultUserDefaults[refreshRateKey]
+						 forKey:refreshRateKey];
 	
 	// >>> animate visualization of data <<<
 	if ([userDefaults objectForKey:animationKey] == nil)
@@ -91,7 +92,7 @@
 
 #pragma mark - interface selectors
 
-- (void) initiateUserDefaultsWithDefaultSettings
+- (void)initiateUserDefaultsWithDefaultSettings
 {
 	/* TODO */
 }
