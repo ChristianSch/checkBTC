@@ -7,7 +7,6 @@
 //
 
 #import "PluginController.h"
-
 #import "DataSourceProtocol.h"
 
 @implementation PluginController
