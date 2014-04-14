@@ -27,8 +27,6 @@
 
 - (NSArray*)availableBundles
 {
-	id instance;
-	
 	appBundle = [NSBundle mainBundle];
 	bundlePaths = [appBundle pathsForResourcesOfType:@"bundle"
 										 inDirectory:@"Resources/APIControllerBundles"];
@@ -46,8 +44,7 @@
 		{
 			if ([self plugInClassIsValid:[currBundle principalClass]])
 			{
-				[dict setObject:bundlePaths[i] forKey:[[[currBundle principalClass] metadata]
-												   objectForKey:@"name"]];
+				[bundleNames addObject:[[currBundle principalClass] metadata][@"name"]];
 				
 			} else {
 				NSLog(@"%@ is not a valid bundle", currBundle);
