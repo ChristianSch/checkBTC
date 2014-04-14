@@ -19,7 +19,7 @@
  */
 
 #define currencyKey @"currency"
-#define animationKey @"animate"
+#define animationKey @"animatePriceChanges"
 #define refreshRateKey @"refreshRate"
 #define startAtLoginKey @"startAtLogin"
 
