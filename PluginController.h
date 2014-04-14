@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "DataSourceProtocol.h"
+#import "PluginControllerDelegateProtocol.h"
 
 @interface PluginController : NSObject<PluginControllerDelegateProtocol>
 {

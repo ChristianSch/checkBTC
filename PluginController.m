@@ -59,7 +59,7 @@
 - (void)loadBundleAsPlugin:(NSString*)path
 {
 	NSBundle *bundle = [NSBundle bundleWithPath:path];
-
+	
 	if ([self plugInClassIsValid:[bundle principalClass]])
 	{
 		pluginInstance = [[[bundle principalClass] alloc] init];
