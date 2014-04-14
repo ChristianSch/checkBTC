@@ -22,7 +22,7 @@
  */
 @protocol DataSourceProtocol <NSObject>
 /*!
- Protocol version formatted like 0.1
+ Version of the protocol specification
  @return version
  */
 - (NSNumber *)protocolVersion;
