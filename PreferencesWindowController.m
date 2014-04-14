@@ -70,8 +70,8 @@
 	{
 		[_arrayController addObject:marketplaces[i]];
 		NSLog(@"%@", marketplaces[i]);
-}
-
+	}
+	
 	[[self window] makeKeyAndOrderFront:sender];
 }
 
@@ -144,7 +144,11 @@
 
 - (IBAction)showPluginFolderInFinder:(id)sender
 {
-	NSURL * dirURL = [[NSURL alloc] initFileURLWithPath:@"/Applications"];
+	NSString *pluginDir = [[[NSBundle mainBundle] bundlePath]
+						   stringByAppendingString:@"/Contents/Resources/Resources/APIControllerBundles/"];
+	NSLog(@"%@", pluginDir);
+	
+	NSURL * dirURL = [[NSURL alloc] initFileURLWithPath:pluginDir];
 	[[NSWorkspace sharedWorkspace] openURL: dirURL];
 }
 @end
