@@ -26,7 +26,7 @@
 	if (self != nil) {
 		launchAtLoginController = [[LaunchAtLoginController alloc] init];
 		userDefaults = [NSUserDefaults standardUserDefaults];
-		[self checkIntegrityOfSettings];
+		[self validateUserDefaults];
 	}
 	
 	return self;
@@ -35,7 +35,7 @@
 /*!
  @abstract Check every key value pair of integrity/validity. (only at start)
  */
-- (void) checkIntegrityOfSettings
+- (void)validateUserDefaults
 {
 	// >>> login item <<<
 	/* If the user deleted the app from the login list, then this should not be

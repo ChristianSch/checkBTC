@@ -34,4 +34,9 @@
  */
 - (void)initiateUserDefaultsWithDefaultSettings;
 
+/*!
+ Validate saved user defaults. If any setting is not valid, the default value will be set.
+ */
+- (void)validateUserDefaults;
+
 @end
