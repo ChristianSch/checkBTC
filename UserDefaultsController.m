@@ -24,6 +24,8 @@
 	self = [super init];
 	
 	if (self != nil) {
+		defaultUserDefaults = defaultSettings;
+		
 		launchAtLoginController = [[LaunchAtLoginController alloc] init];
 		userDefaults = [NSUserDefaults standardUserDefaults];
 		[self validateUserDefaults];

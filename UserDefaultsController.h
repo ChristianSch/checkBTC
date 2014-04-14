@@ -23,9 +23,20 @@
 #define refreshRateKey @"refreshRate"
 #define startAtLoginKey @"startAtLogin"
 
+/*
+ * Note: the plugin is not specified because a fallback (means default) will be chosen
+ * according to the currency.
+ */
+#define defaultSettings @{ currencyKey: @"EUR",\
+	refreshRateKey: @60,\
+	animationKey: @YES,\
+	startAtLoginKey: @YES\
+}
+
 @interface UserDefaultsController : NSObject<UserDefaultsControllerDelegateProtocol>
 {
 	NSUserDefaults *userDefaults;
+	const NSDictionary *defaultUserDefaults;
 	LaunchAtLoginController *launchAtLoginController;
 }
 
