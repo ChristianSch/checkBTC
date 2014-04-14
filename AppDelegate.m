@@ -42,7 +42,7 @@
 {
 	[[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
 	[window orderFrontRegardless];
-	[[preferencesWindowController window] makeKeyAndOrderFront:self];
+	[preferencesWindowController windowMakeKeyAndOrderFront:self];
 }
 
 @end

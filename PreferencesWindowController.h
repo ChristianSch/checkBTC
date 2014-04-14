@@ -52,6 +52,8 @@
  */
 - (void)setPluginControllerDelegate:(id<PluginControllerDelegateProtocol>)delegate;
 
+- (void)windowMakeKeyAndOrderFront:(id)sender;
+
 - (IBAction)showPluginHelp:(id)sender;
 
 - (IBAction)showPluginFolderInFinder:(id)sender;

@@ -46,7 +46,7 @@
 }
 
 #pragma mark - Event handling
-- (void)awakeFromNib
+- (void)windowMakeKeyAndOrderFront:(id)sender
 {
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	NSNumber *rate = [defaults objectForKey:@"refreshRate"];
@@ -58,7 +58,23 @@
 	
 	if (curr != nil)
 		[_currencies selectItemWithTitle:curr];
+	
+	/* fill pop up button with available marketplaces */
+	NSArray *marketplaces = [pluginControllerDelegate availableBundles];
+	
+	if (pluginControllerDelegate == nil) NSLog(@"no such plugin delegate!");
+	
+	NSLog(@"%lu marketplaces!", (unsigned long)[marketplaces count]);
+	
+	for (int i = 0; i < [marketplaces count]; i++)
+	{
+		[_arrayController addObject:marketplaces[i]];
+		NSLog(@"%@", marketplaces[i]);
 }
+
+	[[self window] makeKeyAndOrderFront:sender];
+}
+
 
 #pragma mark - API to user defaults
 
