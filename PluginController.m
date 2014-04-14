@@ -67,6 +67,32 @@
 	}
 }
 
+- (NSString*)pathForBundleName:(NSString*)name
+{
+	NSBundle *currBundle;
+
+	for (int i = 0; i < [bundlePaths count]; i++)
+	{
+		currBundle = [NSBundle bundleWithPath:bundlePaths[i]];
+		
+		if (currBundle)
+		{
+			@try {
+				if ([name isEqualToString:[[currBundle principalClass] metadata][@"name"]])
+				{
+					return bundlePaths[i];
+				}
+			}
+			@catch (NSException * e) {
+				NSLog(@"Exception: %@", e);
+			}
+		}
+	}
+	
+	NSLog(@"No such bundle: %@", name);
+	return nil;
+}
+
 - (BOOL)plugInClassIsValid:(Class)plugInClass
 {
 	BOOL isValid = YES;
