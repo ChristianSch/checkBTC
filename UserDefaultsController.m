@@ -24,9 +24,11 @@
 	self = [super init];
 	
 	if (self != nil) {
+		defaultUserDefaults = defaultSettings;
+		
 		launchAtLoginController = [[LaunchAtLoginController alloc] init];
 		userDefaults = [NSUserDefaults standardUserDefaults];
-		[self checkIntegrityOfSettings];
+		[self validateUserDefaults];
 	}
 	
 	return self;
@@ -35,7 +37,7 @@
 /*!
  @abstract Check every key value pair of integrity/validity. (only at start)
  */
-- (void) checkIntegrityOfSettings
+- (void)validateUserDefaults
 {
 	// >>> login item <<<
 	/* If the user deleted the app from the login list, then this should not be
@@ -53,7 +55,8 @@
 	// >>> refresh rate <<<
 	double refreshRate = [self dataRefreshRate];
 	if (refreshRate < 10.0)
-		[userDefaults setObject:REFRESHRATEDEF forKey:refreshRateKey];
+		[userDefaults setObject:defaultUserDefaults[refreshRateKey]
+						 forKey:refreshRateKey];
 	
 	// >>> animate visualization of data <<<
 	if ([userDefaults objectForKey:animationKey] == nil)
@@ -89,7 +92,7 @@
 
 #pragma mark - interface selectors
 
-- (void) initiateUserDefaultsWithDefaultSettings
+- (void)initiateUserDefaultsWithDefaultSettings
 {
 	/* TODO */
 }
