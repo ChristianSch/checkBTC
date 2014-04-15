@@ -7,6 +7,7 @@
 //
 
 #import "DataController.h"
+#import "UserDefaultAccessKeys.h"
 
 @implementation DataController
 
@@ -47,9 +48,11 @@
 		
 		/* Set up the timer that causes the refresh of the course */
 		NSDate *fireDate = [NSDate dateWithTimeIntervalSinceNow:1.0];
+		NSNumber *refreshRate = [_userDefaultsControllerDelegate
+								 userDefaultForKey:refreshRateKey];
+		
 		theTimer = [[NSTimer alloc] initWithFireDate:fireDate
-											interval:[_userDefaultsControllerDelegate
-													  dataRefreshRate]
+											interval:[refreshRate doubleValue]
 											  target:self
 											selector:@selector(workerMethod:)
 											userInfo:nil
@@ -104,7 +107,8 @@
 {
 	if (_userDefaultsControllerDelegate != nil)
 	{
-		NSString *currency = [_userDefaultsControllerDelegate currency];
+		NSString *currency = [_userDefaultsControllerDelegate
+							  userDefaultForKey:currencyKey];
 		/* TODO: this should be executed as a callback to received data */
 		NSURL *url = [dataSource dataURLForCurrency:currency];
 		[connectionController makeConnectionWithURL:url];
@@ -126,7 +130,8 @@
 			return;
 		}
 		
-		NSString *currency = [_userDefaultsControllerDelegate currency];
+		NSString *currency = [_userDefaultsControllerDelegate
+							  userDefaultForKey:currencyKey];
 		NSNumber *avg = [dataSource avgForCurrency:currency];
 		
 		if (avg != nil && currency != nil)
@@ -143,7 +148,7 @@
 				[_displayDataCallbackDelegate
 				 respondsToSelector:@selector(setTextWithDescAnimation:)])
 			{
-				if ([_userDefaultsControllerDelegate animateVisualRepresentation])
+				if ([_userDefaultsControllerDelegate userDefaultForKey:animationKey])
 				{
 					if ([self->lastAvg isGreaterThan:avg])
 					{

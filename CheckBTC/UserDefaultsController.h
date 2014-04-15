@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "UserDefaultsControllerDelegateProtocol.h"
 #import "LaunchAtLoginController.h"
+#import "UserDefaultAccessKeys.h"
 
 /*!
  @header Control saving and retrieving user defaults
@@ -17,11 +18,6 @@
  @version 0.2
  @updated 23.02.14
  */
-
-#define currencyKey @"currency"
-#define animationKey @"animatePriceChanges"
-#define refreshRateKey @"refreshRate"
-#define startAtLoginKey @"startAtLogin"
 
 /*
  * Note: the plugin is not specified because a fallback (means default) will be chosen

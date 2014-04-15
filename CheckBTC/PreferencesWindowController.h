@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "UserDefaultsControllerDelegateProtocol.h"
 #import "PluginControllerDelegateProtocol.h"
+#import "UserDefaultAccessKeys.h"
 
 /*!
  @header PreferencesWindowController

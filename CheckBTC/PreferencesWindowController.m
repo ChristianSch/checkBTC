@@ -48,10 +48,9 @@
 #pragma mark - Event handling
 - (void)windowMakeKeyAndOrderFront:(id)sender
 {
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSNumber *rate = [defaults objectForKey:@"refreshRate"];
-	NSString *curr = [defaults stringForKey:@"currency"];
-	self.startAtLogin = [defaults boolForKey:@"startAtLogin"];
+	NSNumber *rate = [userDefaultsDelegate userDefaultForKey:refreshRateKey];
+	NSString *curr = [userDefaultsDelegate userDefaultForKey:currencyKey];
+	self.startAtLogin = (BOOL) [userDefaultsDelegate userDefaultForKey:startAtLoginKey];
 	
 	if (rate != nil)
 		[_refreshRate setStringValue:[rate stringValue]];
