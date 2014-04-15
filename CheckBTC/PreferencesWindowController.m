@@ -80,16 +80,18 @@
 	{
 		NSString *currency = [[[self currencies] selectedItem] title];
 		NSNumber *rRate = @([[self refreshRate] doubleValue]);
-		// TODO: validate values
 		
 		/* Make up the dictionary */
 		NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-		[dict setValue:currency forKey:@"currency"];
-		[dict setValue:rRate forKey:@"refreshRate"];
-		[dict setValue:[[NSNumber alloc] initWithBool:[self startAtLogin]]
-				forKey:@"startAtLogin"];
 		
-		[userDefaultsDelegate setUserDefaultsWithDict:dict];
+		[dict setValue:currency forKey:currencyKey];
+		[dict setValue:rRate forKey:refreshRateKey];
+		[dict setValue:[[NSNumber alloc] initWithBool:[self startAtLogin]]
+				forKey:startAtLoginKey];
+		[dict setValue:[[NSNumber alloc] initWithBool:[self animatePriceChanges]]
+				forKey:animationKey];
+		
+		[userDefaultsDelegate userDefaultsWithDict:dict];
 		
 	} else {
 		NSLog(@"No user defaults delegate! No settings saved.");

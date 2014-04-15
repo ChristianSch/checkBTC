@@ -24,43 +24,26 @@
 	self = [super init];
 	
 	if (self != nil) {
-		defaultUserDefaults = defaultSettings;
-		
 		launchAtLoginController = [[LaunchAtLoginController alloc] init];
 		userDefaults = [NSUserDefaults standardUserDefaults];
+		
 		[self validateUserDefaults];
 	}
 	
 	return self;
 }
 
-/*!
- @abstract Check every key value pair of integrity/validity. (only at start)
- */
 - (void)validateUserDefaults
 {
+	NSString *defaultPrefsFile = [[NSBundle mainBundle] pathForResource:@"standardUserDefaults" ofType:@"plist"];
+	NSDictionary *defaultPreferences = [NSDictionary dictionaryWithContentsOfFile:defaultPrefsFile];
+	[userDefaults registerDefaults:defaultPreferences];
+	
 	// >>> login item <<<
 	/* If the user deleted the app from the login list, then this should not be
 	 checked in preferences. Check whether this changed or not. Update the user
 	 defaults accordingly. */
 	[userDefaults setBool:[self doesStartAtLogin] forKey:startAtLoginKey];
-	
-	/* Check if currency and refreshRate were set. If not set defaults. */
-	// >>> currency <<<
-	NSString *_currency = [self currency];
-	/* note: currency should be validated by api! */
-	if (_currency == nil || [_currency length] != 3)
-		[userDefaults setObject:CURRENCYDEF forKey:currencyKey];
-	
-	// >>> refresh rate <<<
-	double refreshRate = [self dataRefreshRate];
-	if (refreshRate < 10.0)
-		[userDefaults setObject:defaultUserDefaults[refreshRateKey]
-						 forKey:refreshRateKey];
-	
-	// >>> animate visualization of data <<<
-	if ([userDefaults objectForKey:animationKey] == nil)
-		[userDefaults setObject:@1 forKey:animationKey];
 }
 
 -(BOOL)doesStartAtLogin
@@ -85,14 +68,12 @@
 	return [userDefaults objectForKey:currencyKey];
 }
 
-- (void)setUserDefaultsWithDict:(NSDictionary*)dict
+- (void)userDefaultsWithDict:(NSDictionary*)dict
 {
 	/* TODO */
 }
 
-#pragma mark - interface selectors
-
-- (void)initiateUserDefaultsWithDefaultSettings
+- (id)userDefaultForKey:(NSString*)key
 {
 	/* TODO */
 }
