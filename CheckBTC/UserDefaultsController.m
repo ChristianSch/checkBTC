@@ -15,7 +15,7 @@
 
 /* 
  TODO
-	* provide user defaults with file
+	* provide user defaults with file (bundle)
 		* restore user defaults from file, not programmaticly
  */
 
