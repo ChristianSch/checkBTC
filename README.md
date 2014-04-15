@@ -19,9 +19,13 @@ Initial release.
 TODO
 ====
 * Version 1.1
-	* fix kraken plugin
 	* saving of chosen plugin
 	* setting the bundle when changed in preferences
+	* inverse text color when highlighted (statusBarItem)
+	* test plugins with all available currencies
+	* fallback plugin when chosen plugin does not exist
+		* search for plugin which can handle the currency the user set as default
+		* display popover for notice
 
 * Version 1.1.1
 	* custom about window (the default is such an ugly one)
