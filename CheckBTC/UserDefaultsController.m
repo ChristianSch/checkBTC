@@ -70,12 +70,14 @@
 
 - (void)userDefaultsWithDict:(NSDictionary*)dict
 {
-	/* TODO */
+	for( NSString *aKey in dict )
+	{
+		[userDefaults setObject:dict[aKey] forKey:aKey];
+	}
 }
 
 - (id)userDefaultForKey:(NSString*)key
 {
-	/* TODO */
+	return [userDefaults objectForKey:key];
 }
-
 @end
