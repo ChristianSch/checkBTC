@@ -136,6 +136,7 @@
 		
 		if (avg != nil && currency != nil)
 		{
+			self->lastAvg = avg;
 			NSString *displayTitle = [NSString stringWithFormat:@"XBT: %@ %@",
 									  [self formatNumber:avg],
 									  [dataSource currencySymbol:currency]];
@@ -170,7 +171,6 @@
 				[_displayDataCallbackDelegate setText:displayTitle];
 			}
 			
-			self->lastAvg = avg;
 		}
 	} else {
 		NSLog(@"No userDefaultsControllerDelegate");
