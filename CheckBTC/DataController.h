@@ -18,7 +18,7 @@
  @author Christian Schulze
  @copyright Christian Schulze, andinfinity
  @version 0.1
- @updated 23.02.14
+ @updated 15.04.14
  */
 @interface DataController : NSObject<AIConnectionControllerDelegateProtocol>
 {
