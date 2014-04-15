@@ -22,6 +22,7 @@
 @interface PreferencesWindowController : NSWindowController
 {
 	NSArrayController *_arrayController;
+	__weak NSPopUpButton *_bundlePopup;
 	__weak NSPopUpButton *_currencies;
 	__weak NSTextField *_refreshRate;
 	__weak NSTextField *_formatting;
@@ -69,4 +70,5 @@
 @property (weak) IBOutlet NSPopUpButton *marketplaces;
 @property (weak) IBOutlet NSTextField *formatting;
 @property (strong) IBOutlet NSArrayController *arrayController;
+@property (weak) IBOutlet NSPopUpButton *bundlePopup;
 @end

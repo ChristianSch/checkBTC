@@ -59,13 +59,30 @@
 		[_currencies selectItemWithTitle:curr];
 	
 	/* fill pop up button with available marketplaces */
-	NSArray *marketplaces = [pluginControllerDelegate availableBundles];
-	
-	if (pluginControllerDelegate == nil) NSLog(@"no such plugin delegate!");
-	
-	for (int i = 0; i < [marketplaces count]; i++)
+	if (pluginControllerDelegate)
 	{
-		[_arrayController addObject:marketplaces[i]];
+		NSArray *availableBundles = [pluginControllerDelegate availableBundles];
+		
+		if ([availableBundles count] > 0)
+		{
+			[_currencies setEnabled:YES];
+			[_bundlePopup setEnabled:YES];
+			
+			for (int i = 0; i < [availableBundles count]; i++)
+			{
+				if (![[_arrayController content] containsObject:availableBundles[i]])
+				{
+					[_arrayController addObject:availableBundles[i]];
+				}
+			}
+			
+		} else {
+			[_currencies setEnabled:NO];
+			[_bundlePopup setEnabled:NO];
+		}
+		
+	} else {
+		NSLog(@"no such plugin delegate!");
 	}
 	
 	[[self window] makeKeyAndOrderFront:sender];

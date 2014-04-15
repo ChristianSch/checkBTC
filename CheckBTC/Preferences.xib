@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="PluginHelpPopoverController" destination="i3s-co-b1q" id="WWt-yH-mqR"/>
                 <outlet property="arrayController" destination="BEJ-O2-2O8" id="JtP-A0-r90"/>
+                <outlet property="bundlePopup" destination="iIF-ri-12M" id="mHR-WP-8VV"/>
                 <outlet property="currencies" destination="Tuy-IN-LDX" id="krt-qP-LNy"/>
                 <outlet property="marketplaces" destination="iIF-ri-12M" id="Igm-KK-az3"/>
                 <outlet property="popover" destination="KFZ-LG-jEX" id="pAg-S3-O0g"/>
@@ -148,7 +149,7 @@
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
                                                         <connections>
-                                                            <binding destination="-2" name="value" keyPath="startAtLogin" id="Bos-zf-dH6"/>
+                                                            <binding destination="-2" name="value" keyPath="self.startAtLogin" id="dAz-Lf-5b4"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
