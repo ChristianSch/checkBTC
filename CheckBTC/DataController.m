@@ -181,10 +181,7 @@
 
 - (NSString*)formatNumber:(NSNumber*)number
 {
-	/*
-	 TODO: does it work? (plugins have to be implemented)
-	 */
-	NSNumberFormatter * formatter =  [[NSNumberFormatter alloc] init];
+	NSNumberFormatter *formatter =  [[NSNumberFormatter alloc] init];
 	[formatter setNumberStyle:(NSNumberFormatterStyle) kCFNumberFormatterDecimalStyle];
 	[formatter setMaximumFractionDigits:4];
 	[formatter setLocale:[NSLocale currentLocale]];
