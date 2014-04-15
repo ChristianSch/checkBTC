@@ -101,38 +101,6 @@
 	[[self window] orderOut:self];
 }
 
-// just backup code from appDelegate. ignore
-- (void)savePreferences:(NSNotification *)notif
-{
-	BOOL changed = NO;
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSString *curr = [notif userInfo][@"currency"];
-	NSString *rate = [notif userInfo][@"refreshRate"];
-	BOOL startAtLogin = [[[notif userInfo] objectForKey:@"startAtLogin"] boolValue];
-	
-	if (![curr isEqualToString:[defaults stringForKey:@"currency"]])
-	{
-		[defaults removeObjectForKey:@"currency"];
-		[defaults setObject:curr forKey:@"currency"];
-		
-		changed = YES;
-		
-	} else if ([rate doubleValue] != [[defaults objectForKey:@"refreshRate"] doubleValue])
-	{
-		[defaults removeObjectForKey:@"refreshRate"];
-		[defaults setObject:rate forKey:@"refreshRate"];
-		
-		changed = YES;
-		
-	} else if (startAtLogin) {
-		[defaults setBool:YES forKey:@"startAtLogin"];
-	}
-	
-	/* TODO: really save them */
-	// placeholder:
-	if (changed) NSLog(@"New preferences will be ignored due to missing implementaitons");
-}
-
 - (IBAction)showPluginHelp:(id)sender
 {
 	[[self popover] showRelativeToRect:[sender bounds]
