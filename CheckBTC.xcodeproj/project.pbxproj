@@ -93,6 +93,7 @@
 		174E9B8018B72ABC006A61EE /* UserDefaultsControllerDelegateProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDefaultsControllerDelegateProtocol.h; sourceTree = "<group>"; };
 		1765257018C7164000CFD79B /* PluginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PluginController.h; sourceTree = "<group>"; };
 		1765257118C7164000CFD79B /* PluginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PluginController.m; sourceTree = "<group>"; };
+		1767DB7818FDA70F004DCA3B /* UserDefaultAccessKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDefaultAccessKeys.h; sourceTree = "<group>"; };
 		1777925918561CFF008D6F0B /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		17BAD14D18B64F0B00CEEED4 /* AIConnectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIConnectionController.h; sourceTree = "<group>"; };
 		17BAD14E18B64F0B00CEEED4 /* AIConnectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIConnectionController.m; sourceTree = "<group>"; };
@@ -174,6 +175,7 @@
 				1736F64A1852264500B422E1 /* Preferences.xib */,
 				1736F619184FEA6900B422E1 /* AppDelegate.h */,
 				1736F61A184FEA6900B422E1 /* AppDelegate.m */,
+				1767DB7818FDA70F004DCA3B /* UserDefaultAccessKeys.h */,
 				174E9B7F18B72972006A61EE /* Controllers */,
 				174E9B7E18B7295E006A61EE /* Protocols */,
 				17E93F26185B2B86007C3092 /* CheckBTC.entitlements */,
