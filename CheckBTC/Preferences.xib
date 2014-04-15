@@ -123,6 +123,9 @@
                                                         <buttonCell key="cell" type="check" title="Animate price changes" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ZsP-eg-77A">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
+                                                            <connections>
+                                                                <binding destination="-2" name="value" keyPath="self.animatePriceChanges" id="tOJ-mk-7Xt"/>
+                                                            </connections>
                                                         </buttonCell>
                                                     </button>
                                                 </subviews>

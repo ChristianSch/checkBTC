@@ -61,6 +61,7 @@
 
 @property (weak) IBOutlet NSPopUpButton *currencies;
 @property (weak) IBOutlet NSTextField *refreshRate;
+@property BOOL animatePriceChanges;
 @property BOOL startAtLogin;
 
 @property (strong) IBOutlet NSViewController *PluginHelpPopoverController;
