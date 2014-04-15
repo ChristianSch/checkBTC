@@ -13,30 +13,25 @@
 This provides necessary selectors to work with the user default controller
  @author Christian Schulze
  @copyright Christian Schulze, andinfinity
- @version 0.2
- @updated 21.02.14
+ @version 0.3
+ @updated 15.04.14
  */
 @protocol UserDefaultsControllerDelegateProtocol <NSObject>
 
 /*!
- @abstract At which refresh rate data should be retrieved.
- */
-- (double)dataRefreshRate;
-
-/*!
- @abstract Whether displaying of the data be animated or not.
- */
-- (BOOL)animateVisualRepresentation;
-
-/*!
- @abstract The currency the user wants to be used.+
- */
-- (NSString*)currency;
-
-/*!
- @abstract Set user defaults with values from dictionary
+ Set user defaults with values from dictionary
+ 
  @param dict that holds the new values
  */
-- (void)setUserDefaultsWithDict:(NSDictionary*)dict;
+- (void)userDefaultsWithDict:(NSDictionary*)dict;
+
+/*!
+ Get value set for key `key`.
+ 
+ @param key as specified in `UserDefaultsAccessKeys.h"
+ 
+ @return default value for `key`
+ */
+- (id)userDefaultForKey:(NSString*)key;
 
 @end

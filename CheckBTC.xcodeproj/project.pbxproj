@@ -28,6 +28,7 @@
 		174E9B7C18B72247006A61EE /* DataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 174E9B7B18B72247006A61EE /* DataController.m */; };
 		175AF84418F950F800CF307A /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = 17C0798318F8190300670C26 /* Resources */; };
 		1765257218C7164000CFD79B /* PluginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1765257118C7164000CFD79B /* PluginController.m */; };
+		1767DB7718FDA553004DCA3B /* StandardUserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1767DB7618FDA553004DCA3B /* StandardUserDefaults.plist */; };
 		1777925A18561CFF008D6F0B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1777925918561CFF008D6F0B /* MainMenu.xib */; };
 		17BAD14F18B64F0B00CEEED4 /* AIConnectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17BAD14E18B64F0B00CEEED4 /* AIConnectionController.m */; };
 		17C43DAB18B7DB3F00B2DF87 /* LaunchAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C43DAA18B7DB3F00B2DF87 /* LaunchAtLoginController.m */; };
@@ -93,6 +94,8 @@
 		174E9B8018B72ABC006A61EE /* UserDefaultsControllerDelegateProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDefaultsControllerDelegateProtocol.h; sourceTree = "<group>"; };
 		1765257018C7164000CFD79B /* PluginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PluginController.h; sourceTree = "<group>"; };
 		1765257118C7164000CFD79B /* PluginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PluginController.m; sourceTree = "<group>"; };
+		1767DB7618FDA553004DCA3B /* StandardUserDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = StandardUserDefaults.plist; path = CheckBTC/StandardUserDefaults.plist; sourceTree = "<group>"; };
+		1767DB7818FDA70F004DCA3B /* UserDefaultAccessKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDefaultAccessKeys.h; sourceTree = "<group>"; };
 		1777925918561CFF008D6F0B /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		17BAD14D18B64F0B00CEEED4 /* AIConnectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIConnectionController.h; sourceTree = "<group>"; };
 		17BAD14E18B64F0B00CEEED4 /* AIConnectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIConnectionController.m; sourceTree = "<group>"; };
@@ -129,6 +132,7 @@
 		1736F5FB184FEA6800B422E1 = {
 			isa = PBXGroup;
 			children = (
+				1767DB7618FDA553004DCA3B /* StandardUserDefaults.plist */,
 				17C0798318F8190300670C26 /* Resources */,
 				1736F60D184FEA6900B422E1 /* CheckBTC */,
 				1736F62B184FEA6900B422E1 /* CheckBTCTests */,
@@ -174,6 +178,7 @@
 				1736F64A1852264500B422E1 /* Preferences.xib */,
 				1736F619184FEA6900B422E1 /* AppDelegate.h */,
 				1736F61A184FEA6900B422E1 /* AppDelegate.m */,
+				1767DB7818FDA70F004DCA3B /* UserDefaultAccessKeys.h */,
 				174E9B7F18B72972006A61EE /* Controllers */,
 				174E9B7E18B7295E006A61EE /* Protocols */,
 				17E93F26185B2B86007C3092 /* CheckBTC.entitlements */,
@@ -337,6 +342,7 @@
 				1736F612184FEA6900B422E1 /* InfoPlist.strings in Resources */,
 				1736F620184FEA6900B422E1 /* Images.xcassets in Resources */,
 				1736F618184FEA6900B422E1 /* Credits.rtf in Resources */,
+				1767DB7718FDA553004DCA3B /* StandardUserDefaults.plist in Resources */,
 				1777925A18561CFF008D6F0B /* MainMenu.xib in Resources */,
 				1736F64B1852264500B422E1 /* Preferences.xib in Resources */,
 				175AF84418F950F800CF307A /* Resources in Resources */,

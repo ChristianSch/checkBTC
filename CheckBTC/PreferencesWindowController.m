@@ -48,10 +48,9 @@
 #pragma mark - Event handling
 - (void)windowMakeKeyAndOrderFront:(id)sender
 {
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSNumber *rate = [defaults objectForKey:@"refreshRate"];
-	NSString *curr = [defaults stringForKey:@"currency"];
-	self.startAtLogin = [defaults boolForKey:@"startAtLogin"];
+	NSNumber *rate = [userDefaultsDelegate userDefaultForKey:refreshRateKey];
+	NSString *curr = [userDefaultsDelegate userDefaultForKey:currencyKey];
+	self.startAtLogin = (BOOL) [userDefaultsDelegate userDefaultForKey:startAtLoginKey];
 	
 	if (rate != nil)
 		[_refreshRate setStringValue:[rate stringValue]];
@@ -60,13 +59,30 @@
 		[_currencies selectItemWithTitle:curr];
 	
 	/* fill pop up button with available marketplaces */
-	NSArray *marketplaces = [pluginControllerDelegate availableBundles];
-	
-	if (pluginControllerDelegate == nil) NSLog(@"no such plugin delegate!");
-	
-	for (int i = 0; i < [marketplaces count]; i++)
+	if (pluginControllerDelegate)
 	{
-		[_arrayController addObject:marketplaces[i]];
+		NSArray *availableBundles = [pluginControllerDelegate availableBundles];
+		
+		if ([availableBundles count] > 0)
+		{
+			[_currencies setEnabled:YES];
+			[_bundlePopup setEnabled:YES];
+			
+			for (int i = 0; i < [availableBundles count]; i++)
+			{
+				if (![[_arrayController content] containsObject:availableBundles[i]])
+				{
+					[_arrayController addObject:availableBundles[i]];
+				}
+			}
+			
+		} else {
+			[_currencies setEnabled:NO];
+			[_bundlePopup setEnabled:NO];
+		}
+		
+	} else {
+		NSLog(@"no such plugin delegate!");
 	}
 	
 	[[self window] makeKeyAndOrderFront:sender];
@@ -81,16 +97,18 @@
 	{
 		NSString *currency = [[[self currencies] selectedItem] title];
 		NSNumber *rRate = @([[self refreshRate] doubleValue]);
-		// TODO: validate values
 		
 		/* Make up the dictionary */
 		NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-		[dict setValue:currency forKey:@"currency"];
-		[dict setValue:rRate forKey:@"refreshRate"];
-		[dict setValue:[[NSNumber alloc] initWithBool:[self startAtLogin]]
-				forKey:@"startAtLogin"];
 		
-		[userDefaultsDelegate setUserDefaultsWithDict:dict];
+		[dict setValue:currency forKey:currencyKey];
+		[dict setValue:rRate forKey:refreshRateKey];
+		[dict setValue:[[NSNumber alloc] initWithBool:[self startAtLogin]]
+				forKey:startAtLoginKey];
+		[dict setValue:[[NSNumber alloc] initWithBool:[self animatePriceChanges]]
+				forKey:animationKey];
+		
+		[userDefaultsDelegate userDefaultsWithDict:dict];
 		
 	} else {
 		NSLog(@"No user defaults delegate! No settings saved.");
@@ -98,38 +116,6 @@
 	
 	/* Hide window */
 	[[self window] orderOut:self];
-}
-
-// just backup code from appDelegate. ignore
-- (void)savePreferences:(NSNotification *)notif
-{
-	BOOL changed = NO;
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSString *curr = [notif userInfo][@"currency"];
-	NSString *rate = [notif userInfo][@"refreshRate"];
-	BOOL startAtLogin = [[[notif userInfo] objectForKey:@"startAtLogin"] boolValue];
-	
-	if (![curr isEqualToString:[defaults stringForKey:@"currency"]])
-	{
-		[defaults removeObjectForKey:@"currency"];
-		[defaults setObject:curr forKey:@"currency"];
-		
-		changed = YES;
-		
-	} else if ([rate doubleValue] != [[defaults objectForKey:@"refreshRate"] doubleValue])
-	{
-		[defaults removeObjectForKey:@"refreshRate"];
-		[defaults setObject:rate forKey:@"refreshRate"];
-		
-		changed = YES;
-		
-	} else if (startAtLogin) {
-		[defaults setBool:YES forKey:@"startAtLogin"];
-	}
-	
-	/* TODO: really save them */
-	// placeholder:
-	if (changed) NSLog(@"New preferences will be ignored due to missing implementaitons");
 }
 
 - (IBAction)showPluginHelp:(id)sender

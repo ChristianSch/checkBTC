@@ -28,7 +28,7 @@
 		[preferencesWindowController setUserDefaultsDelegate:userDefaultsController];
 		[preferencesWindowController setPluginControllerDelegate:pluginController];
 		
-		NSString *bundlePath = [pluginController pathForBundleName:[pluginController availableBundles][1]];
+		NSString *bundlePath = [pluginController pathForBundleName:[pluginController availableBundles][0]];
 		[pluginController loadBundleAsPlugin:bundlePath];
 		[dataController setDataSource:[pluginController pluginInstance]];
 	}
