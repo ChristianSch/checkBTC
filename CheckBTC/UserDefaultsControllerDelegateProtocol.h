@@ -20,14 +20,14 @@ This provides necessary selectors to work with the user default controller
 
 /*!
  Set user defaults with values from dictionary
-
+ 
  @param dict that holds the new values
  */
 - (void)userDefaultsWithDict:(NSDictionary*)dict;
 
 /*!
  Get value set for key `key`.
-
+ 
  @param key as specified in `UserDefaultsAccessKeys.h"
  
  @return default value for `key`
