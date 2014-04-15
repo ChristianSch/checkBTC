@@ -131,8 +131,7 @@
 		
 		if (avg != nil && currency != nil)
 		{
-			// btc sign: B⃦
-			NSString *displayTitle = [NSString stringWithFormat:@"BTC: %@ %@",
+			NSString *displayTitle = [NSString stringWithFormat:@"XBT: %@ %@",
 									  [self formatNumber:avg],
 									  [dataSource currencySymbol:currency]];
 			
@@ -157,12 +156,12 @@
 					}
 					
 				} else {
-					/* this one is requires, thus this is the fall back */
+					/* this one is required, thus this is the fall back */
 					[_displayDataCallbackDelegate setText:displayTitle];
 				}
 				
 			} else {
-				/* this one is requires, thus this is the fall back */
+				/* this one is required, thus this is the fall back */
 				[_displayDataCallbackDelegate setText:displayTitle];
 			}
 			
