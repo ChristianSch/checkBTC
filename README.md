@@ -21,8 +21,10 @@ TODO
 * Version 1.1
 	* saving of chosen plugin
 	* setting the bundle when changed in preferences
-	* inverse text color when highlighted (statusBarItem)
+	* set chosen plugin in bundles popup
+	* invert text color when highlighted (statusBarItem)
 	* test plugins with all available currencies
+		* unit tests?
 	* fallback plugin when chosen plugin does not exist
 		* search for plugin which can handle the currency the user set as default
 		* display popover for notice
