@@ -93,8 +93,6 @@
 
 - (IBAction)savePrefs:(id)sender
 {
-	NSString *oldBundle = [userDefaultsDelegate userDefaultForKey:bundleKey];
-	
 	if (userDefaultsDelegate != nil)
 	{
 		NSString *currency = [[[self currencies] selectedItem] title];
@@ -109,18 +107,8 @@
 				forKey:startAtLoginKey];
 		[dict setValue:[[NSNumber alloc] initWithBool:[self animatePriceChanges]]
 				forKey:animationKey];
-		NSString *newBundle = [[_bundlePopup selectedItem] title];
-		[dict setValue:newBundle forKey:bundleKey];
 		
 		[userDefaultsDelegate userDefaultsWithDict:dict];
-		
-		if ([pluginControllerDelegate isValidBundle:newBundle]
-			 && !([oldBundle isEqualTo:newBundle]))
-		{
-			[pluginControllerDelegate
-			 loadBundleAsPluginWithPath:[pluginControllerDelegate
-								 pathForBundleName:newBundle]];
-		}
 		
 	} else {
 		NSLog(@"No user defaults delegate! No settings saved.");
