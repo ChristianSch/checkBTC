@@ -19,15 +19,29 @@ Initial release.
 TODO
 ====
 * Version 1.1
-	* saving of chosen plugin
-	* setting the bundle when changed in preferences
+	* drag n drop area instead of "open plugin folder in finder"
 	* set chosen plugin in bundles popup
 	* invert text color when highlighted (statusBarItem)
 	* test plugins with all available currencies
 		* unit tests?
+	* init datasource according to user defaults
 	* fallback plugin when chosen plugin does not exist
 		* search for plugin which can handle the currency the user set as default
 		* display popover for notice
+
+/*!
+ Set data source with bundle set in user defaults. If nothing is provided there,
+ call @setFallbackDataSource:
+ */
+- (void)initDataSource;
+
+/*!
+ Try to find a data source that can handle the currency set in user defaults.
+ 
+ @discussion If no data source can be found matching the criteria display a warning
+ popover and try to use a data source that provides $ support.
+ */
+- (void)setFallbackDataSource;
 
 * Version 1.1.1
 	* custom about window (the default is such an ugly one)
