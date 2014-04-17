@@ -6,18 +6,9 @@
 //  Copyright (c) 2014 Christian Schulze. All rights reserved.
 //
 
-#define CURRENCYDEF @"EUR"
-#define REFRESHRATEDEF @90.0
-
 #import "UserDefaultsController.h"
 
 @implementation UserDefaultsController
-
-/* 
- TODO
-	* provide user defaults with file (bundle)
-		* restore user defaults from file, not programmaticly
- */
 
 - (id) init
 {

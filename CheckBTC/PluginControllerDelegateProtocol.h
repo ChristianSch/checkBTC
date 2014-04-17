@@ -13,8 +13,8 @@
  Neccessary selectors for communication with the plugin controller.
  @author Christian Schulze
  @copyright Christian Schulze, andinfinity
- @version 0.1
- @updated 07. 04. 2014
+ @version 0.2
+ @updated 16.04.2014
  */
 @protocol PluginControllerDelegateProtocol <NSObject>
 
@@ -28,9 +28,35 @@
 - (NSArray*)availableBundles;
 
 /*!
+ Return path for the bundle named `name`.
+ 
+ @param name of the bundle
+ @discussion
+ Imagine a situation where there are two different plugins with the same name. Since
+ the same name indicates that they both use the same exchange for data aquisition.
+ So two different plugins with the same name are not a problem at all. The plugin
+ controller will return the path for the first one found. The data should be the same
+ since the plugins are pretty simple and have no variation in functionallity. Additionally
+ the plugins are validated.
+ 
+ `name` will be compared with the `name` in the dictionary returned by the @metadata
+ method.
+ */
+- (NSString*)pathForBundleName:(NSString*)name;
+
+/*!
  Load the bundle found at `path` as the plugin to use.
  @param path to bundle
  */
-- (void)loadBundleAsPlugin:(NSString*)path;
+- (void)loadBundleAsPluginWithPath:(NSString*)path;
+
+/*!
+ Checks if bundle `name` is a plugin.
+ 
+ @param name of bundle
+ 
+ @return `name` is a valid bundle name
+ */
+- (BOOL)isValidBundle:(NSString*)name;
 
 @end

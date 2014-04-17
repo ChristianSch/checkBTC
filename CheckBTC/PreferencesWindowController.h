@@ -48,16 +48,31 @@
 - (void)setUserDefaultsDelegate:(id<UserDefaultsControllerDelegateProtocol>)delegate;
 
 /*!
- @abstract Set the delegate for listing available plugins and setting the plugin
+ Set the delegate for listing available plugins and setting the plugin
  to use.
  @param delegate
  */
 - (void)setPluginControllerDelegate:(id<PluginControllerDelegateProtocol>)delegate;
 
+/*!
+ Open the window
+ 
+ @param sender
+ */
 - (void)windowMakeKeyAndOrderFront:(id)sender;
 
+/*!
+ Show plugin help popover
+ 
+ @param sender
+ */
 - (IBAction)showPluginHelp:(id)sender;
 
+/*!
+ Open plugin folder in Finder.
+ 
+ @param sender
+ */
 - (IBAction)showPluginFolderInFinder:(id)sender;
 
 @property (weak) IBOutlet NSPopUpButton *currencies;

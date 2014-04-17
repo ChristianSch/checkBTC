@@ -57,7 +57,7 @@
 	return bundleNames;
 }
 
-- (void)loadBundleAsPlugin:(NSString*)path
+- (void)loadBundleAsPluginWithPath:(NSString*)path
 {
 	NSBundle *bundle = [NSBundle bundleWithPath:path];
 	
@@ -70,10 +70,18 @@
 	}
 }
 
+- (BOOL)isValidBundle:(NSString*)name
+{
+	if ([self pathForBundleName:name] != nil)
+		return YES;
+	
+	return NO;
+}
+
 - (NSString*)pathForBundleName:(NSString*)name
 {
 	NSBundle *currBundle;
-
+	
 	for (int i = 0; i < [bundlePaths count]; i++)
 	{
 		currBundle = [NSBundle bundleWithPath:bundlePaths[i]];
@@ -102,11 +110,11 @@
 {
 	BOOL isValid = YES;
 	
-    if([plugInClass
-        conformsToProtocol:@protocol(DataSourceProtocol)])
-    {
+	if([plugInClass
+		conformsToProtocol:@protocol(DataSourceProtocol)])
+	{
 		/* methods complying to protocol version 0.3 */
-        if (![plugInClass instancesRespondToSelector:
+		if (![plugInClass instancesRespondToSelector:
 			  @selector(protocolVersion)]) {
 			NSLog(@"bundle does not respond to @protocolVersion!");
 			isValid = NO;
