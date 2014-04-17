@@ -33,5 +33,13 @@
  */
 - (void)loadBundleAsPluginWithPath:(NSString*)path;
 
+/*!
+ Checks if bundle `name` is a plugin.
+ 
+ @param name of bundle
+ 
+ @return `name` is a valid bundle name
+ */
+- (BOOL)isValidBundle:(NSString*)name;
 
 @end

@@ -70,6 +70,14 @@
 	}
 }
 
+- (BOOL)isValidBundle:(NSString*)name
+{
+	if ([self pathForBundleName:name] != nil)
+		return YES;
+	
+	return NO;
+}
+
 - (NSString*)pathForBundleName:(NSString*)name
 {
 	NSBundle *currBundle;
