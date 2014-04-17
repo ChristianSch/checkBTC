@@ -57,7 +57,7 @@
 	return bundleNames;
 }
 
-- (void)loadBundleAsPlugin:(NSString*)path
+- (void)loadBundleAsPluginWithPath:(NSString*)path
 {
 	NSBundle *bundle = [NSBundle bundleWithPath:path];
 	

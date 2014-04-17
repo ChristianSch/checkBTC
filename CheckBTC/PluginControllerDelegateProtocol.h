@@ -13,8 +13,8 @@
  Neccessary selectors for communication with the plugin controller.
  @author Christian Schulze
  @copyright Christian Schulze, andinfinity
- @version 0.1
- @updated 07. 04. 2014
+ @version 0.2
+ @updated 16.04.2014
  */
 @protocol PluginControllerDelegateProtocol <NSObject>
 
@@ -31,6 +31,7 @@
  Load the bundle found at `path` as the plugin to use.
  @param path to bundle
  */
-- (void)loadBundleAsPlugin:(NSString*)path;
+- (void)loadBundleAsPluginWithPath:(NSString*)path;
+
 
 @end
