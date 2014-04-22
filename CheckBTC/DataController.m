@@ -59,6 +59,8 @@
 											 repeats:YES];
 		runLoop = [NSRunLoop currentRunLoop];
 		[runLoop addTimer:theTimer forMode:NSDefaultRunLoopMode];
+		
+		lastAvg = @0;
 	}
 	
 	return self;
@@ -76,7 +78,7 @@
 {
 	if (_displayDataCallbackDelegate != nil)
 	{
-		[_displayDataCallbackDelegate setTextFromError:error];
+		[_displayDataCallbackDelegate errorWithText:error];
 		
 	} else {
 		NSLog(@"No such delegate");
@@ -136,7 +138,6 @@
 		
 		if (avg != nil && currency != nil)
 		{
-			self->lastAvg = avg;
 			NSString *displayTitle = [NSString stringWithFormat:@"XBT: %@ %@",
 									  [self formatNumber:avg],
 									  [dataSource currencySymbol:currency]];
@@ -144,33 +145,35 @@
 			/* these needs to be checked because those selectors are declared as optional
 			 in the protocol */
 			if ([_displayDataCallbackDelegate
-				 respondsToSelector:@selector(setTextWithAscAnimation:)]
+				 respondsToSelector:@selector(increasingAnimationWithText:)]
 				&&
 				[_displayDataCallbackDelegate
-				 respondsToSelector:@selector(setTextWithDescAnimation:)])
+				 respondsToSelector:@selector(decreasingAnimationWithText:)])
 			{
 				if ([_userDefaultsControllerDelegate userDefaultForKey:animationKey])
 				{
-					if ([self->lastAvg isGreaterThan:avg])
+					if ([avg isGreaterThan:lastAvg])
 					{
 						[_displayDataCallbackDelegate
-						 setTextWithAscAnimation:displayTitle];
+						 increasingAnimationWithText:displayTitle];
 						
-					} else {
+					} else if ([avg isLessThan:lastAvg])
+					{
 						[_displayDataCallbackDelegate
-						 setTextWithDescAnimation:displayTitle];
+						 decreasingAnimationWithText:displayTitle];
 					}
 					
 				} else {
 					/* this one is required, thus this is the fall back */
-					[_displayDataCallbackDelegate setText:displayTitle];
+					[_displayDataCallbackDelegate text:displayTitle];
 				}
 				
 			} else {
 				/* this one is required, thus this is the fall back */
-				[_displayDataCallbackDelegate setText:displayTitle];
+				[_displayDataCallbackDelegate text:displayTitle];
 			}
 			
+			lastAvg = avg;
 		}
 	} else {
 		NSLog(@"No userDefaultsControllerDelegate");
