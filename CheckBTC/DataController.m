@@ -59,6 +59,8 @@
 											 repeats:YES];
 		runLoop = [NSRunLoop currentRunLoop];
 		[runLoop addTimer:theTimer forMode:NSDefaultRunLoopMode];
+		
+		lastAvg = @0;
 	}
 	
 	return self;
@@ -136,7 +138,6 @@
 		
 		if (avg != nil && currency != nil)
 		{
-			self->lastAvg = avg;
 			NSString *displayTitle = [NSString stringWithFormat:@"XBT: %@ %@",
 									  [self formatNumber:avg],
 									  [dataSource currencySymbol:currency]];
@@ -156,7 +157,8 @@
 						[_displayDataCallbackDelegate
 						 increasingAnimationWithText:displayTitle];
 						
-					} else {
+					} else if ([avg isLessThan:lastAvg])
+					{
 						[_displayDataCallbackDelegate
 						 decreasingAnimationWithText:displayTitle];
 					}
@@ -171,6 +173,7 @@
 				[_displayDataCallbackDelegate text:displayTitle];
 			}
 			
+			lastAvg = avg;
 		}
 	} else {
 		NSLog(@"No userDefaultsControllerDelegate");
