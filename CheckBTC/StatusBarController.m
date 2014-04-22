@@ -27,7 +27,7 @@
 	return self;
 }
 
-- (void)setTextFromError:(NSError*)error
+- (void)errorWithText:(NSError *)error
 {
 	if ([error code] == NSURLErrorNotConnectedToInternet)
 	{
@@ -79,17 +79,17 @@
 
 #pragma mark - update contents of the status item
 
-- (void)setTextWithDescAnimation:(NSString *)text
+- (void)decreasingAnimationWithText:(NSString *)text
 {
 	[itemController defaultRedToBlackAnimationWithNSString:text];
 }
 
-- (void)setTextWithAscAnimation:(NSString *)text
+- (void)increasingAnimationWithText:(NSString *)text
 {
 	[itemController defaultGreenToBlackAnimationWithNSString:text];
 }
 
-- (void)setText:(NSString *)text
+- (void)text:(NSString *)text
 {
 	[itemController setText:text];
 }

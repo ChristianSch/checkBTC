@@ -34,8 +34,8 @@
 
 #pragma mark - update contents of the status item
 
-- (void)setTextWithDescAnimation:(NSString *)text;
-- (void)setTextWithAscAnimation:(NSString *)text;
-- (void)setText:(NSString *)text;
+- (void)decreasingAnimationWithText:(NSString *)text;
+- (void)increasingAnimationWithText:(NSString *)text;
+- (void)text:(NSString *)text;
 
 @end
