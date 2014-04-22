@@ -14,13 +14,13 @@
  the DataController and the data display delegate that handles the visual presentation.
  @author Christian Schulze
  @copyright Christian Schulze, andinfinity
- @version 0.2
- @updated 21.02.14
+ @version 0.3
+ @updated 22.04.14
  */
 @protocol DisplayDataCallbackProtocol <NSObject>
 
 /*!
- @abstract Display parts, the whole or a sum of the data
+ Display parts, the whole or a sum of the data
  @param text to display
  */
 - (void)text:(NSString *)text;
@@ -28,26 +28,27 @@
 @optional
 
 /*!
- @abstract Set text visualizing that the value decreased
- @param text to set
+ * Set text visualizing that the value decreased
+ * @param text to set
  */
 - (void)decreasingAnimationWithText:(NSString *)text;
  
 /*!
- @abstract Set text visualizing that the value increased
- @param text to set
+ * Set text visualizing that the value increased
+ *
+ * @param text to set
  */
 - (void)increasingAnimationWithText:(NSString *)text;
 
 /*!
- @abstract Display parts, the whole, or a sum of the data with animation of changes (if any)
- @param text to display
+ * Display parts, the whole, or a sum of the data with animation of changes (if any)
+ * @param text to display
  */
 - (void)animationWithText:(NSString *)text;
 
 /*!
- @abstract Display parts or the whole of the error in case the data could not be obtained
- @param text to display
+ * Display parts or the whole of the error in case the data could not be obtained
+ * @param text to display
  */
 - (void)errorWithText:(NSError*)error;
 
