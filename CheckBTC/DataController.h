@@ -25,6 +25,7 @@
 	NSTimer *theTimer;
 	NSRunLoop *runLoop;
 	NSNumber *lastAvg;
+	NSDictionary *oldUserDefaults;
 	
 	/* controllers */
 	AIConnectionController *connectionController;
