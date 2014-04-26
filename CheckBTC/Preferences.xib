@@ -159,7 +159,7 @@
                                     </subviews>
                                 </view>
                             </tabViewItem>
-                            <tabViewItem label="Data" identifier="2" id="yI8-zY-AQm">
+                            <tabViewItem label="Plugins" identifier="2" id="yI8-zY-AQm">
                                 <view key="view" id="zaR-fs-LOj">
                                     <rect key="frame" x="10" y="33" width="337" height="220"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

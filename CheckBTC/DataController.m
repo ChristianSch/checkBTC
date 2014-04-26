@@ -30,6 +30,7 @@
 		theTimer = nil;
 		runLoop = nil;
 		lastAvg = @0;
+		oldUserDefaults = nil;
 	}
 	
 	return self;
@@ -191,4 +192,10 @@
 	
 	return [formatter stringFromNumber:number];
 }
+
+- (BOOL)userDefaultsChanged
+{
+	return NO;
+}
+
 @end
