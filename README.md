@@ -28,6 +28,7 @@ TODO
 	* fallback plugin when chosen plugin does not exist
 		* search for plugin which can handle the currency the user set as default
 		* display popover for notice
+	* plugin version strings
 
 /*!
  Set data source with bundle set in user defaults. If nothing is provided there,
