@@ -47,6 +47,20 @@
  */
 - (void)setDisplayDataCallbackDelegate:(id<DisplayDataCallbackProtocol>)delegate;
 
+/*!
+ Set data source with bundle set in user defaults. If nothing is provided there,
+ call @setFallbackDataSource:
+ */
+- (void)initDataSource;
+
+/*!
+ Try to find a data source that can handle the currency set in user defaults.
+ 
+ @discussion If no data source can be found matching the criteria display a warning
+ popover and try to use a data source that provides $ support.
+ */
+- (void)setFallbackDataSource;
+
 @property (nonatomic, assign) id<UserDefaultsControllerDelegateProtocol>
 userDefaultsControllerDelegate;
 
