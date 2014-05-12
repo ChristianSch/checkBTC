@@ -80,7 +80,6 @@
 @property BOOL animatePriceChanges;
 @property BOOL startAtLogin;
 
-@property (strong) IBOutlet NSViewController *PluginHelpPopoverController;
 @property (strong) IBOutlet NSPopover *popover;
 @property (weak) IBOutlet NSPopUpButton *marketplaces;
 @property (weak) IBOutlet NSTextField *formatting;

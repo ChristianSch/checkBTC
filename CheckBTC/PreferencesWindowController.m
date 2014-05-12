@@ -10,8 +10,6 @@
 
 @implementation PreferencesWindowController
 
-@synthesize PluginHelpPopoverController;
-
 #pragma mark - Lifecycle
 -(id)init
 {
@@ -118,19 +116,10 @@
 	[[self window] orderOut:self];
 }
 
-- (IBAction)showPluginHelp:(id)sender
 {
-	[[self popover] showRelativeToRect:[sender bounds]
-								ofView:sender
-						 preferredEdge:NSMaxYEdge];
-}
-
-- (IBAction)showPluginFolderInFinder:(id)sender
-{
-	NSString *pluginDir = [[[NSBundle mainBundle] bundlePath]
-						   stringByAppendingString:@"/Contents/Resources/Resources/APIControllerBundles/"];
+	}
 	
-	NSURL * dirURL = [[NSURL alloc] initFileURLWithPath:pluginDir];
-	[[NSWorkspace sharedWorkspace] openURL: dirURL];
+{
+	
 }
 @end
