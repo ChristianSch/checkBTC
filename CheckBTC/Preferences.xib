@@ -47,7 +47,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <box autoresizesSubviews="NO" fixedFrame="YES" title="Updates" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="jdt-XW-YDo">
-                                            <rect key="frame" x="6" y="-320" width="324" height="100"/>
+                                            <rect key="frame" x="6" y="-100" width="324" height="100"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <view key="contentView">
                                                 <rect key="frame" x="1" y="1" width="322" height="84"/>
@@ -109,7 +109,7 @@
                                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </box>
                                         <box autoresizesSubviews="NO" appearanceType="aqua" fixedFrame="YES" title="Accessibility" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="gH3-q0-v7F">
-                                            <rect key="frame" x="7" y="-378" width="325" height="54"/>
+                                            <rect key="frame" x="7" y="-158" width="325" height="54"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <view key="contentView">
                                                 <rect key="frame" x="1" y="1" width="323" height="38"/>
@@ -132,7 +132,7 @@
                                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </box>
                                         <box autoresizesSubviews="NO" appearanceType="aqua" fixedFrame="YES" title="Start at login" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="yFb-cE-NMh">
-                                            <rect key="frame" x="7" y="-436" width="325" height="54"/>
+                                            <rect key="frame" x="7" y="-216" width="325" height="54"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <view key="contentView">
                                                 <rect key="frame" x="1" y="1" width="323" height="38"/>
