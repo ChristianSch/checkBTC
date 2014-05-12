@@ -49,6 +49,7 @@
 	NSNumber *rate = [userDefaultsDelegate userDefaultForKey:refreshRateKey];
 	NSString *curr = [userDefaultsDelegate userDefaultForKey:currencyKey];
 	self.startAtLogin = (BOOL) [userDefaultsDelegate userDefaultForKey:startAtLoginKey];
+	NSString *bundle = [pluginControllerDelegate bundleInUse];
 	
 	if (rate != nil)
 		[_refreshRate setStringValue:[rate stringValue]];
@@ -73,6 +74,10 @@
 					[_arrayController addObject:availableBundles[i]];
 				}
 			}
+			
+			/* select the bundle set in the user defaults */
+			if (bundle != nil)
+				[_bundlePopup selectItemWithTitle:bundle];
 			
 		} else {
 			[_currencies setEnabled:NO];
