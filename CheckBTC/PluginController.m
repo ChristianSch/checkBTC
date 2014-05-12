@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 X. All rights reserved.
 //
 
+#define BUNDLES_SUBDIR @"Resources/APIControllerBundles"
+
 #import "PluginController.h"
 #import "DataSourceProtocol.h"
 
@@ -32,7 +34,7 @@
 {
 	appBundle = [NSBundle mainBundle];
 	bundlePaths = [appBundle pathsForResourcesOfType:@"bundle"
-										 inDirectory:@"Resources/APIControllerBundles"];
+										 inDirectory:BUNDLES_SUBDIR];
 	
 	NSMutableArray *bundleNames = [[NSMutableArray alloc] init];
 	NSBundle *currBundle;
