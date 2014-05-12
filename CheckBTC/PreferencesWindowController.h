@@ -62,13 +62,6 @@
 - (void)windowMakeKeyAndOrderFront:(id)sender;
 
 /*!
- Open plugin folder in Finder.
- 
- @param sender
- */
-- (IBAction)showPluginFolderInFinder:(id)sender;
-
-/*!
  Open a "open file" dialog.
  */
 - (IBAction)showOpenFileDialog:(id)sender;
