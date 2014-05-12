@@ -70,7 +70,20 @@
 	}
 }
 
-- (BOOL)isValidBundle:(NSString*)name
+- (BOOL)fileIsValidBundle:(NSString*)path
+{
+	NSBundle *bundle = [NSBundle bundleWithPath:path];
+	
+	if (bundle != nil)
+	{
+		return [self plugInClassIsValid:[bundle principalClass]];
+		
+	} else {
+		return NO;
+	}
+}
+
+- (BOOL)bundleExistsWithName:(NSString*)name
 {
 	if ([self pathForBundleName:name] != nil)
 		return YES;
