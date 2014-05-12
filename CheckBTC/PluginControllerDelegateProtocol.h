@@ -66,7 +66,7 @@
  
  @return `name` is a valid bundle name
  */
-- (BOOL)isValidBundle:(NSString*)name;
+- (BOOL)bundleExistsWithName:(NSString*)name;
 
 /*!
  Returns the name of the bundle that is used for data retrieval.
