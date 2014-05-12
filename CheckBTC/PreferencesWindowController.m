@@ -142,7 +142,7 @@
     {
         // Get an array containing the full filenames of all
         // files and directories selected.
-        NSArray* files = [openDlg filenames];
+        NSArray* files = [openDlg URLs];
 		
         // Loop through all the files and process them.
         for( int i = 0; i < [files count]; i++ )
