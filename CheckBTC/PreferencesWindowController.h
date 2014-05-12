@@ -62,13 +62,6 @@
 - (void)windowMakeKeyAndOrderFront:(id)sender;
 
 /*!
- Show plugin help popover
- 
- @param sender
- */
-- (IBAction)showPluginHelp:(id)sender;
-
-/*!
  Open plugin folder in Finder.
  
  @param sender
