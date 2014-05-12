@@ -51,7 +51,16 @@
 - (void)loadBundleAsPluginWithPath:(NSString*)path;
 
 /*!
- Checks if bundle `name` is a plugin.
+ Check if file at `path` is a valid bundle.
+ 
+ @param path of file to validate
+ 
+ @return file is valid plugin
+ */
+- (BOOL)fileIsValidBundle:(NSString*)path;
+
+/*!
+ Checks if there exists a plugin with name `name`.
  
  @param name of bundle
  
