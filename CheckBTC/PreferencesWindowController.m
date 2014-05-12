@@ -122,8 +122,8 @@
 }
 
 {
-	}
-	
+}
+
 - (IBAction)showOpenFileDialog:(id)sender
 {
 	NSOpenPanel* openDlg = [NSOpenPanel openPanel];
@@ -156,7 +156,7 @@
 			
             // Do something with the filename.
         }
-}
+    }
 }
 
 @end
