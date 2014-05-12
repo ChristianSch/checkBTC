@@ -13,7 +13,7 @@
  Neccessary selectors for communication with the plugin controller.
  @author Christian Schulze
  @copyright Christian Schulze, andinfinity
- @version 0.4
+ @version 0.3
  @updated 12.05.2014
  */
 @protocol PluginControllerDelegateProtocol <NSObject>
