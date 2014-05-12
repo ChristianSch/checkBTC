@@ -119,7 +119,39 @@
 {
 	}
 	
+- (IBAction)showOpenFileDialog:(id)sender
 {
+	NSOpenPanel* openDlg = [NSOpenPanel openPanel];
 	
+    // Enable the selection of files in the dialog.
+    [openDlg setCanChooseFiles:YES];
+	
+    // Enable the selection of directories in the dialog.
+    [openDlg setCanChooseDirectories:YES];
+	
+	NSArray* fileTypes = @[@"XBT"];
+	[openDlg setAllowedFileTypes:fileTypes];
+	
+	// Change "Open" dialog button to "Select"
+	[openDlg setPrompt:@"Select"];
+	
+    // Display the dialog.  If the OK button was pressed,
+    // process the files.
+    if ( [openDlg runModal] == NSOKButton )
+    {
+        // Get an array containing the full filenames of all
+        // files and directories selected.
+        NSArray* files = [openDlg filenames];
+		
+        // Loop through all the files and process them.
+        for( int i = 0; i < [files count]; i++ )
+        {
+            NSString* fileName = [files objectAtIndex:i];
+            NSLog(@"file chosen:%@", fileName);
+			
+            // Do something with the filename.
+        }
 }
+}
+
 @end

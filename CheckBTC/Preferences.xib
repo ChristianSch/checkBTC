@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1070" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
@@ -7,11 +7,9 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PreferencesWindowController">
             <connections>
-                <outlet property="PluginHelpPopoverController" destination="i3s-co-b1q" id="WWt-yH-mqR"/>
                 <outlet property="arrayController" destination="BEJ-O2-2O8" id="JtP-A0-r90"/>
                 <outlet property="bundlePopup" destination="iIF-ri-12M" id="mHR-WP-8VV"/>
                 <outlet property="currencies" destination="Tuy-IN-LDX" id="krt-qP-LNy"/>
-                <outlet property="popover" destination="KFZ-LG-jEX" id="pAg-S3-O0g"/>
                 <outlet property="refreshRate" destination="erd-uF-oq2" id="Fqw-WB-JLp"/>
                 <outlet property="window" destination="1" id="m5i-Or-jhw"/>
             </connections>
@@ -45,11 +43,11 @@
                         <tabViewItems>
                             <tabViewItem label="General" identifier="1" id="Bhz-2j-B6c">
                                 <view key="view" ambiguous="YES" id="Iom-yQ-No2">
-                                    <rect key="frame" x="10" y="33" width="132" height="0.0"/>
+                                    <rect key="frame" x="10" y="33" width="143" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <box autoresizesSubviews="NO" fixedFrame="YES" title="Updates" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="jdt-XW-YDo">
-                                            <rect key="frame" x="6" y="-100" width="324" height="100"/>
+                                            <rect key="frame" x="6" y="-320" width="324" height="100"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <view key="contentView">
                                                 <rect key="frame" x="1" y="1" width="322" height="84"/>
@@ -111,7 +109,7 @@
                                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </box>
                                         <box autoresizesSubviews="NO" appearanceType="aqua" fixedFrame="YES" title="Accessibility" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="gH3-q0-v7F">
-                                            <rect key="frame" x="7" y="-158" width="325" height="54"/>
+                                            <rect key="frame" x="7" y="-378" width="325" height="54"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <view key="contentView">
                                                 <rect key="frame" x="1" y="1" width="323" height="38"/>
@@ -134,7 +132,7 @@
                                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </box>
                                         <box autoresizesSubviews="NO" appearanceType="aqua" fixedFrame="YES" title="Start at login" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="yFb-cE-NMh">
-                                            <rect key="frame" x="7" y="-216" width="325" height="54"/>
+                                            <rect key="frame" x="7" y="-436" width="325" height="54"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <view key="contentView">
                                                 <rect key="frame" x="1" y="1" width="323" height="38"/>
@@ -165,7 +163,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <box autoresizesSubviews="NO" fixedFrame="YES" title="Price" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="6Dj-Ye-kqj">
-                                            <rect key="frame" x="6" y="47" width="322" height="93"/>
+                                            <rect key="frame" x="6" y="30" width="322" height="93"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <view key="contentView">
                                                 <rect key="frame" x="1" y="1" width="320" height="77"/>
@@ -267,22 +265,14 @@
                                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </box>
                                         <box autoresizesSubviews="NO" fixedFrame="YES" title="Marketplace" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="GHQ-6D-QgT">
-                                            <rect key="frame" x="6" y="144" width="322" height="76"/>
+                                            <rect key="frame" x="6" y="127" width="322" height="93"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <view key="contentView">
-                                                <rect key="frame" x="1" y="1" width="320" height="60"/>
+                                                <rect key="frame" x="1" y="1" width="320" height="77"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K6b-Vz-EPd">
-                                                        <rect key="frame" x="279" y="19" width="25" height="25"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="BIK-L6-ILY">
-                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                            <font key="font" metaFont="system"/>
-                                                        </buttonCell>
-                                                    </button>
                                                     <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iIF-ri-12M">
-                                                        <rect key="frame" x="16" y="19" width="215" height="26"/>
+                                                        <rect key="frame" x="16" y="43" width="215" height="26"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="xwX-Yv-OOp">
                                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -298,23 +288,15 @@
                                                             <binding destination="BEJ-O2-2O8" name="content" keyPath="arrangedObjects" id="YqK-Oj-kYC"/>
                                                         </connections>
                                                     </popUpButton>
-                                                    <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lgv-3z-SHZ">
-                                                        <rect key="frame" x="279" y="19" width="25" height="25"/>
+                                                    <button appearanceType="aqua" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nEt-jw-eRI">
+                                                        <rect key="frame" x="164" y="7" width="144" height="32"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qtE-cD-fRE">
-                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                            <font key="font" metaFont="system"/>
-                                                        </buttonCell>
-                                                    </button>
-                                                    <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c5h-5t-3aj">
-                                                        <rect key="frame" x="279" y="19" width="25" height="25"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FdK-AK-Hzh">
+                                                        <buttonCell key="cell" type="push" title="Add plugin" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="chd-TJ-5u0">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
                                                         <connections>
-                                                            <action selector="showPluginHelp:" target="-2" id="8Rh-Cv-YOo"/>
+                                                            <action selector="showOpenFileDialog:" target="-2" id="6Bp-95-kQE"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -343,43 +325,7 @@
                 <font key="font" metaFont="system"/>
             </buttonCell>
         </button>
-        <viewController id="i3s-co-b1q" userLabel="Popover View Controller">
-            <connections>
-                <outlet property="view" destination="e4C-8t-puX" id="4Zc-No-PCv"/>
-            </connections>
-        </viewController>
-        <popover behavior="t" id="KFZ-LG-jEX">
-            <connections>
-                <outlet property="contentViewController" destination="i3s-co-b1q" id="WPK-Wu-Rm9"/>
-            </connections>
-        </popover>
         <userDefaultsController representsSharedInstance="YES" id="PWq-jc-FeQ"/>
-        <customView id="e4C-8t-puX">
-            <rect key="frame" x="0.0" y="0.0" width="270" height="129"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <subviews>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kgx-Dh-Ub7">
-                    <rect key="frame" x="55" y="13" width="161" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="push" title="Open Plugin Folder" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5SE-o7-jTE">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="showPluginFolderInFinder:" target="-2" id="sJD-2h-gce"/>
-                    </connections>
-                </button>
-                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VdJ-9h-X0o">
-                    <rect key="frame" x="18" y="49" width="234" height="60"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="To add plugins move them to the plugin folder. For more information click …" id="cF5-kS-U41">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-            </subviews>
-        </customView>
         <arrayController id="BEJ-O2-2O8"/>
     </objects>
 </document>

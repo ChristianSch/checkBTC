@@ -75,6 +75,11 @@
  */
 - (IBAction)showPluginFolderInFinder:(id)sender;
 
+/*!
+ Open a "open file" dialog.
+ */
+- (IBAction)showOpenFileDialog:(id)sender;
+
 @property (weak) IBOutlet NSPopUpButton *currencies;
 @property (weak) IBOutlet NSTextField *refreshRate;
 @property BOOL animatePriceChanges;
