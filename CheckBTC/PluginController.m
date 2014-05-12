@@ -104,6 +104,11 @@
 	return nil;
 }
 
+- (NSString*)bundleInUse
+{
+	return [[pluginInstance class] metadata][@"name"];
+}
+
 #pragma mark - internal methods
 
 - (BOOL)plugInClassIsValid:(Class)plugInClass

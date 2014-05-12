@@ -13,8 +13,8 @@
  Neccessary selectors for communication with the plugin controller.
  @author Christian Schulze
  @copyright Christian Schulze, andinfinity
- @version 0.2
- @updated 16.04.2014
+ @version 0.3
+ @updated 12.05.2014
  */
 @protocol PluginControllerDelegateProtocol <NSObject>
 
@@ -58,5 +58,12 @@
  @return `name` is a valid bundle name
  */
 - (BOOL)isValidBundle:(NSString*)name;
+
+/*!
+ Returns the name of the bundle that is used for data retrieval.
+ 
+ @return Name of Bundle
+ */
+- (NSString*)bundleInUse;
 
 @end
