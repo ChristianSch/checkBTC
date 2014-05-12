@@ -130,11 +130,11 @@
     // Enable the selection of directories in the dialog.
     [openDlg setCanChooseDirectories:YES];
 	
-	NSArray* fileTypes = @[@"XBT"];
+	NSArray* fileTypes = @[@"bundle"];
 	[openDlg setAllowedFileTypes:fileTypes];
 	
-	// Change "Open" dialog button to "Select"
-	[openDlg setPrompt:@"Select"];
+	// Change "Open" dialog button to "Add"
+	[openDlg setPrompt:@"Add"];
 	
     // Display the dialog.  If the OK button was pressed,
     // process the files.
@@ -147,10 +147,18 @@
         // Loop through all the files and process them.
         for( int i = 0; i < [files count]; i++ )
         {
-            NSString* fileName = [files objectAtIndex:i];
-            NSLog(@"file chosen:%@", fileName);
+            NSURL* fileName = [files objectAtIndex:i];
 			
-            // Do something with the filename.
+			if ([pluginControllerDelegate fileIsValidBundle:[fileName path]])
+			{
+				NSError *error = nil;
+				BOOL success = [pluginControllerDelegate
+								addBundleToResourcesDirectory:[fileName path]
+								withError:&error];
+				
+				if (success != YES)
+					[NSApp presentError:error];
+			}
         }
     }
 }

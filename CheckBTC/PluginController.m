@@ -85,6 +85,28 @@
 	}
 }
 
+- (BOOL)addBundleToResourcesDirectory:(NSString*)path
+							withError:(NSError * __autoreleasing *)error
+{
+	NSFileManager *fileManager = [NSFileManager defaultManager];
+	NSString *destinationPath = [[appBundle resourcePath]
+								 stringByAppendingPathComponent:BUNDLES_SUBDIR];
+								 
+	destinationPath = [destinationPath
+					   stringByAppendingPathComponent:[path lastPathComponent]];
+	
+	if ([fileManager fileExistsAtPath:destinationPath])
+	{
+		/* File exists. Remove old bundle … */
+		if (![fileManager removeItemAtPath:destinationPath error:error])
+		{
+			return NO;
+		}
+	}
+	
+	return [fileManager copyItemAtPath:path toPath:destinationPath error:error];
+}
+
 - (BOOL)bundleExistsWithName:(NSString*)name
 {
 	if ([self pathForBundleName:name] != nil)

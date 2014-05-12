@@ -60,6 +60,16 @@
 - (BOOL)fileIsValidBundle:(NSString*)path;
 
 /*!
+ Copy bundle to the resources directory of the app
+ 
+ @param path to bundle
+ 
+ @return sucess
+ */
+- (BOOL)addBundleToResourcesDirectory:(NSString*)path
+							withError:(NSError *__autoreleasing*)error;
+
+/*!
  Checks if there exists a plugin with name `name`.
  
  @param name of bundle
