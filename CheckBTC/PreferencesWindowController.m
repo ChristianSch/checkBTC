@@ -91,7 +91,6 @@
 	[[self window] makeKeyAndOrderFront:sender];
 }
 
-
 #pragma mark - API to user defaults
 
 - (IBAction)savePrefs:(id)sender
@@ -119,9 +118,6 @@
 	
 	/* Hide window */
 	[[self window] orderOut:self];
-}
-
-{
 }
 
 - (IBAction)showOpenFileDialog:(id)sender
