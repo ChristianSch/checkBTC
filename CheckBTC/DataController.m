@@ -17,8 +17,7 @@
 {
 	self = [super init];
 	
-	if (self != nil)
-	{
+	if (self != nil) {
 		/* init controllers and delegates */
 		connectionController = [[AIConnectionController alloc] init];
 		[connectionController setCallbackDelegate:self];
@@ -40,8 +39,7 @@
 {
 	self = [super init];
 	
-	if (self != nil)
-	{
+	if (self != nil) {
 		/* init controllers and delegates */
 		connectionController = [[AIConnectionController alloc] init];
 		[connectionController setCallbackDelegate:self];
@@ -77,8 +75,7 @@
 
 - (void)didFailWithError:(NSError *)error
 {
-	if (_displayDataCallbackDelegate != nil)
-	{
+	if (_displayDataCallbackDelegate != nil) {
 		[_displayDataCallbackDelegate errorWithText:error];
 		
 	} else {
@@ -106,10 +103,9 @@
 	theTimer = newTimer;
 }
 
-- (void)workerMethod:(NSTimer*)theTimer
+- (void)workerMethod:(NSTimer *)theTimer
 {
-	if (_userDefaultsControllerDelegate != nil)
-	{
+	if (_userDefaultsControllerDelegate != nil) {
 		NSString *currency = [_userDefaultsControllerDelegate
 							  userDefaultForKey:currencyKey];
 		/* TODO: this should be executed as a callback to received data */
@@ -125,10 +121,8 @@
 
 - (void)updateDisplay
 {
-	if (_userDefaultsControllerDelegate != nil)
-	{
-		if (_displayDataCallbackDelegate == nil)
-		{
+	if (_userDefaultsControllerDelegate != nil) {
+		if (_displayDataCallbackDelegate == nil) {
 			NSLog(@"No displayDataCallbackDelegate");
 			return;
 		}
@@ -137,8 +131,7 @@
 							  userDefaultForKey:currencyKey];
 		NSNumber *avg = [dataSource avgForCurrency:currency];
 		
-		if (avg != nil && currency != nil)
-		{
+		if (avg != nil && currency != nil) {
 			NSString *displayTitle = [NSString stringWithFormat:@"XBT: %@ %@",
 									  [self formatNumber:avg],
 									  [dataSource currencySymbol:currency]];
@@ -149,17 +142,13 @@
 				 respondsToSelector:@selector(increasingAnimationWithText:)]
 				&&
 				[_displayDataCallbackDelegate
-				 respondsToSelector:@selector(decreasingAnimationWithText:)])
-			{
-				if ([_userDefaultsControllerDelegate userDefaultForKey:animationKey])
-				{
-					if ([avg isGreaterThan:lastAvg])
-					{
+				 respondsToSelector:@selector(decreasingAnimationWithText:)]) {
+				if ([_userDefaultsControllerDelegate userDefaultForKey:animationKey]) {
+					if ([avg isGreaterThan:lastAvg]) {
 						[_displayDataCallbackDelegate
 						 increasingAnimationWithText:displayTitle];
 						
-					} else if ([avg isLessThan:lastAvg])
-					{
+					} else if ([avg isLessThan:lastAvg]) {
 						[_displayDataCallbackDelegate
 						 decreasingAnimationWithText:displayTitle];
 					}
@@ -183,7 +172,7 @@
 
 #pragma mark - helper methods
 
-- (NSString*)formatNumber:(NSNumber*)number
+- (NSString *)formatNumber:(NSNumber *)number
 {
 	NSNumberFormatter *formatter =  [[NSNumberFormatter alloc] init];
 	[formatter setNumberStyle:(NSNumberFormatterStyle) kCFNumberFormatterDecimalStyle];

@@ -20,8 +20,7 @@
 {
 	self = [super init];
 	
-	if (self != Nil)
-	{
+	if (self != Nil) {
 		appBundle = [NSBundle mainBundle];
 	}
 	
@@ -30,7 +29,7 @@
 
 #pragma mark - interface methods
 
-- (NSArray*)availableBundles
+- (NSArray *)availableBundles
 {
 	appBundle = [NSBundle mainBundle];
 	bundlePaths = [appBundle pathsForResourcesOfType:@"bundle"
@@ -39,32 +38,28 @@
 	NSMutableArray *bundleNames = [[NSMutableArray alloc] init];
 	NSBundle *currBundle;
 	
-	for (int i = 0; i < [bundlePaths count]; i++)
-	{
+	for (int i = 0; i < [bundlePaths count]; i++) {
 		currBundle = [NSBundle bundleWithPath:bundlePaths[i]];
 		
-		if (currBundle)
-		{
-			if ([self plugInClassIsValid:[currBundle principalClass]])
-			{
+		if (currBundle) {
+			
+			if ([self plugInClassIsValid:[currBundle principalClass]]) {
 				[bundleNames addObject:[[currBundle principalClass] metadata][@"name"]];
 				
 			} else {
 				NSLog(@"%@ is not a valid bundle", currBundle);
 			}
-			
 		}
 	}
 	
 	return bundleNames;
 }
 
-- (void)loadBundleAsPluginWithPath:(NSString*)path
+- (void)loadBundleAsPluginWithPath:(NSString *)path
 {
 	NSBundle *bundle = [NSBundle bundleWithPath:path];
 	
-	if ([self plugInClassIsValid:[bundle principalClass]])
-	{
+	if ([self plugInClassIsValid:[bundle principalClass]]) {
 		pluginInstance = [[[bundle principalClass] alloc] init];
 		
 	} else {
@@ -72,12 +67,11 @@
 	}
 }
 
-- (BOOL)fileIsValidBundle:(NSString*)path
+- (BOOL)fileIsValidBundle:(NSString *)path
 {
 	NSBundle *bundle = [NSBundle bundleWithPath:path];
 	
-	if (bundle != nil)
-	{
+	if (bundle != nil) {
 		return [self plugInClassIsValid:[bundle principalClass]];
 		
 	} else {
@@ -85,7 +79,7 @@
 	}
 }
 
-- (BOOL)addBundleToResourcesDirectory:(NSString*)path
+- (BOOL)addBundleToResourcesDirectory:(NSString *)path
 							withError:(NSError * __autoreleasing *)error
 {
 	NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -95,11 +89,9 @@
 	destinationPath = [destinationPath
 					   stringByAppendingPathComponent:[path lastPathComponent]];
 	
-	if ([fileManager fileExistsAtPath:destinationPath])
-	{
+	if ([fileManager fileExistsAtPath:destinationPath]) {
 		/* File exists. Remove old bundle … */
-		if (![fileManager removeItemAtPath:destinationPath error:error])
-		{
+		if (![fileManager removeItemAtPath:destinationPath error:error]) {
 			return NO;
 		}
 	}
@@ -107,41 +99,41 @@
 	return [fileManager copyItemAtPath:path toPath:destinationPath error:error];
 }
 
-- (BOOL)bundleExistsWithName:(NSString*)name
+- (BOOL)bundleExistsWithName:(NSString *)name
 {
-	if ([self pathForBundleName:name] != nil)
+	if ([self pathForBundleName:name] != nil) {
 		return YES;
+	}
 	
 	return NO;
 }
 
-- (NSString*)pathForBundleName:(NSString*)name
+- (NSString *)pathForBundleName:(NSString *)name
 {
 	NSBundle *currBundle;
 	
-	for (int i = 0; i < [bundlePaths count]; i++)
-	{
+	for (int i = 0; i < [bundlePaths count]; i++) {
 		currBundle = [NSBundle bundleWithPath:bundlePaths[i]];
 		
-		if (currBundle)
-		{
+		if (currBundle) {
 			@try {
-				if ([name isEqualToString:[[currBundle principalClass] metadata][@"name"]])
-				{
+				if ([name isEqualToString:[[currBundle principalClass] metadata][@"name"]]) {
 					return bundlePaths[i];
 				}
 			}
-			@catch (NSException * e) {
+			
+			@catch (NSException *e) {
 				NSLog(@"Exception: %@", e);
 			}
 		}
 	}
 	
 	NSLog(@"No such bundle: %@", name);
+	
 	return nil;
 }
 
-- (NSString*)bundleInUse
+- (NSString *)bundleInUse
 {
 	return [[pluginInstance class] metadata][@"name"];
 }
@@ -152,17 +144,16 @@
 {
 	BOOL isValid = YES;
 	
-	if([plugInClass
-		conformsToProtocol:@protocol(DataSourceProtocol)])
-	{
+	if ([plugInClass
+		conformsToProtocol:@protocol(DataSourceProtocol)]) {
 		/* methods complying to protocol version 0.3 */
 		if (![plugInClass instancesRespondToSelector:
 			  @selector(protocolVersion)]) {
 			NSLog(@"bundle does not respond to @protocolVersion!");
 			isValid = NO;
 			
-		} else if(![plugInClass respondsToSelector:
-					@selector(metadata)]) {
+		} else if (![plugInClass respondsToSelector:
+					 @selector(metadata)]) {
 			NSLog(@"bundle does not respond to @metadata!");
 			isValid = NO;
 			
@@ -200,4 +191,5 @@
 	
 	return isValid;
 }
+
 @end

@@ -15,15 +15,16 @@
 {
 	self = [super init];
 	
-	if (self != nil)
+	if (self != nil) {
 		defaultColor = [NSColor blackColor];
+	}
 	
 	return self;
 }
 
 #pragma mark - Lifecycle of statusBarItem
 
-- (void)initStatusBarItem:(NSMenu*)appMenu
+- (void)initStatusBarItem:(NSMenu *)appMenu
 {
 	menu = appMenu;
 	menuItem = [[NSStatusBar systemStatusBar]
@@ -33,7 +34,7 @@
 	[menuItem setHighlightMode:YES];
 }
 
-- (void)initStatusBarItemWithNSString:(NSMenu*)appMenu textToSet:(NSString *)text
+- (void)initStatusBarItemWithNSString:(NSMenu *)appMenu textToSet:(NSString *)text
 {
 	menu = appMenu;
 	menuItem = [[NSStatusBar systemStatusBar]
@@ -52,7 +53,7 @@
 	[menuItem setHighlightMode:YES];
 }
 
-- (void)initStatusBarItemWithNSStringAndNSColor:(NSMenu*)appMenu
+- (void)initStatusBarItemWithNSStringAndNSColor:(NSMenu *)appMenu
 									   textToSet:(NSString *)text
 									  colorToSet:(NSColor *)color
 {
@@ -137,6 +138,7 @@
 }
 
 #pragma mark - Getters
+
 - (NSColor *)color
 {
 	NSDictionary *attributes = [[menuItem attributedTitle]
@@ -148,11 +150,12 @@
 }
 
 #pragma mark - Animation
+
 - (void)animateTransitionFromToNSColor:(NSColor *)targetColor
 							  animSteps:(int)steps
 						   animDuration:(float)duration
 {
-	NSTimeInterval aFrameRate = duration/steps;
+	NSTimeInterval aFrameRate = duration / steps;
 	
 	/* Set color space to RGB to prevent exceptions */
 	NSColor *fColor = [[self color] colorUsingColorSpace:[NSColorSpace
@@ -172,8 +175,8 @@
 	float blueStep = blueDiff / steps;
 	
 	int i = 0;
-	while (i < steps)
-	{
+	
+	while (i < steps) {
 		[frameArray addObject:[NSColor
 						   colorWithCalibratedRed:[fColor redComponent] + i * redStep
 						   green:[fColor greenComponent] + i * greenStep
@@ -202,8 +205,7 @@
 {
 	NSUInteger frameCnt = [frames count];
 	
-	if (execCount < frameCnt)
-	{
+	if (execCount < frameCnt) {
 		NSColor *col = [frames objectAtIndex:self->execCount];
 		[self setColor:col];
 		execCount++;
@@ -252,4 +254,5 @@
 	[self setText:text];
 	[self defaultGreenToBlackAnimation];
 }
+
 @end

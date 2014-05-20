@@ -30,10 +30,13 @@ static NSString *const StartAtLoginKey = @"launchAtLogin";
 {
     NSArray *listSnapshot;
 }
-@property(assign) LSSharedFileListRef loginItems;
+
+@property (assign) LSSharedFileListRef loginItems;
+
 @end
 
 @implementation LaunchAtLoginController
+
 @synthesize loginItems;
 
 #pragma mark Change Observing
@@ -47,64 +50,70 @@ void sharedFileListDidChange(LSSharedFileListRef inList, void *context)
 
 #pragma mark Initialization
 
-- (id) init
+- (id)init
 {
     self = [super init];
     loginItems = LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL);
     LSSharedFileListAddObserver(loginItems, CFRunLoopGetMain(),
         (CFStringRef)NSDefaultRunLoopMode, sharedFileListDidChange, (voidPtr)CFBridgingRetain(self));
+	
     return self;
 }
 
-- (void) dealloc
+- (void)dealloc
 {
     LSSharedFileListRemoveObserver(loginItems, CFRunLoopGetMain(),
         (CFStringRef)NSDefaultRunLoopMode, sharedFileListDidChange, (__bridge void *)(self));
     CFRelease(loginItems);
     
-    if(listSnapshot)
-    {
+    if (listSnapshot) {
         CFRelease((__bridge CFTypeRef)(listSnapshot));
     }
 }
 
 #pragma mark Launch List Control
 
-- (LSSharedFileListItemRef) findItemWithURL: (NSURL*) wantedURL inFileList: (LSSharedFileListRef) fileList
+- (LSSharedFileListItemRef)findItemWithURL:(NSURL *)wantedURL inFileList:(LSSharedFileListRef)fileList
 {
-    if (wantedURL == NULL || fileList == NULL)
+    if (wantedURL == NULL || fileList == NULL) {
         return NULL;
+	}
 
-    if(listSnapshot)
-    {
+    if (listSnapshot) {
         CFRelease((__bridge CFTypeRef)(listSnapshot));
     }
+	
     listSnapshot = (__bridge NSArray *)(LSSharedFileListCopySnapshot(fileList, NULL));
+	
     for (id itemObject in listSnapshot) {
         LSSharedFileListItemRef item = (__bridge LSSharedFileListItemRef) itemObject;
         UInt32 resolutionFlags = kLSSharedFileListNoUserInteraction | kLSSharedFileListDoNotMountVolumes;
         CFURLRef currentItemURL = NULL;
         LSSharedFileListItemResolve(item, resolutionFlags, &currentItemURL, NULL);
-        if (currentItemURL && CFEqual(currentItemURL, (__bridge CFTypeRef)(wantedURL)))
-        {
+		
+        if (currentItemURL && CFEqual(currentItemURL, (__bridge CFTypeRef)(wantedURL))) {
             CFRelease(currentItemURL);
+			
             return item;
         }
-        if (currentItemURL)
+		
+        if (currentItemURL) {
             CFRelease(currentItemURL);
+		}
     }
 
     return NULL;
 }
 
-- (BOOL) willLaunchAtLogin: (NSURL*) itemURL
+- (BOOL)willLaunchAtLogin:(NSURL *)itemURL
 {
     return !![self findItemWithURL:itemURL inFileList:loginItems];
 }
 
-- (void) setLaunchAtLogin: (BOOL) enabled forURL: (NSURL*) itemURL
+- (void)setLaunchAtLogin:(BOOL)enabled forURL:(NSURL *)itemURL
 {
     LSSharedFileListItemRef appItem = [self findItemWithURL:itemURL inFileList:loginItems];
+	
     if (enabled && !appItem) {
         LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst,
             NULL, NULL, (__bridge CFURLRef)itemURL, NULL, NULL);
@@ -114,19 +123,19 @@ void sharedFileListDidChange(LSSharedFileListRef inList, void *context)
 
 #pragma mark Basic Interface
 
-- (NSURL*) appURL
+- (NSURL *)appURL
 {
     return [NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]];
 }
 
-- (void) setLaunchAtLogin: (BOOL) enabled
+- (void)setLaunchAtLogin:(BOOL)enabled
 {
     [self willChangeValueForKey:StartAtLoginKey];
     [self setLaunchAtLogin:enabled forURL:[self appURL]];
     [self didChangeValueForKey:StartAtLoginKey];
 }
 
-- (BOOL) launchAtLogin
+- (BOOL)launchAtLogin
 {
     return [self willLaunchAtLogin:[self appURL]];
 }

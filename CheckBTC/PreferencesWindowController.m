@@ -11,9 +11,11 @@
 @implementation PreferencesWindowController
 
 #pragma mark - Lifecycle
--(id)init
+
+- (id)init
 {
 	self = [super initWithWindowNibName:@"Preferences"];
+	
 	if (self) {
 		[self loadWindow];
 	}
@@ -33,6 +35,7 @@
 }
 
 #pragma mark - delegates
+
 - (void)setUserDefaultsDelegate:(id<UserDefaultsControllerDelegateProtocol>)delegate
 {
 	userDefaultsDelegate = delegate;
@@ -44,6 +47,7 @@
 }
 
 #pragma mark - Event handling
+
 - (void)windowMakeKeyAndOrderFront:(id)sender
 {
 	NSNumber *rate = [userDefaultsDelegate userDefaultForKey:refreshRateKey];
@@ -51,33 +55,32 @@
 	self.startAtLogin = (BOOL) [userDefaultsDelegate userDefaultForKey:startAtLoginKey];
 	NSString *bundle = [pluginControllerDelegate bundleInUse];
 	
-	if (rate != nil)
+	if (rate != nil) {
 		[_refreshRate setStringValue:[rate stringValue]];
+	}
 	
-	if (curr != nil)
+	if (curr != nil) {
 		[_currencies selectItemWithTitle:curr];
+	}
 	
 	/* fill pop up button with available marketplaces */
-	if (pluginControllerDelegate)
-	{
+	if (pluginControllerDelegate) {
 		NSArray *availableBundles = [pluginControllerDelegate availableBundles];
 		
-		if ([availableBundles count] > 0)
-		{
+		if ([availableBundles count] > 0) {
 			[_currencies setEnabled:YES];
 			[_bundlePopup setEnabled:YES];
 			
-			for (int i = 0; i < [availableBundles count]; i++)
-			{
-				if (![[_arrayController content] containsObject:availableBundles[i]])
-				{
+			for (int i = 0; i < [availableBundles count]; i++) {
+				if (![[_arrayController content] containsObject:availableBundles[i]]) {
 					[_arrayController addObject:availableBundles[i]];
 				}
 			}
 			
 			/* select the bundle set in the user defaults */
-			if (bundle != nil)
+			if (bundle != nil) {
 				[_bundlePopup selectItemWithTitle:bundle];
+			}
 			
 		} else {
 			[_currencies setEnabled:NO];
@@ -95,8 +98,7 @@
 
 - (IBAction)savePrefs:(id)sender
 {
-	if (userDefaultsDelegate != nil)
-	{
+	if (userDefaultsDelegate != nil) {
 		NSString *currency = [[[self currencies] selectedItem] title];
 		NSNumber *rRate = @([[self refreshRate] doubleValue]);
 		
@@ -122,7 +124,7 @@
 
 - (IBAction)showOpenFileDialog:(id)sender
 {
-	NSOpenPanel* openDlg = [NSOpenPanel openPanel];
+	NSOpenPanel *openDlg = [NSOpenPanel openPanel];
 	
     // Enable the selection of files in the dialog.
     [openDlg setCanChooseFiles:YES];
@@ -130,7 +132,7 @@
     // Enable the selection of directories in the dialog.
     [openDlg setCanChooseDirectories:YES];
 	
-	NSArray* fileTypes = @[@"bundle"];
+	NSArray *fileTypes = @[@"bundle"];
 	[openDlg setAllowedFileTypes:fileTypes];
 	
 	// Change "Open" dialog button to "Add"
@@ -138,26 +140,24 @@
 	
     // Display the dialog.  If the OK button was pressed,
     // process the files.
-    if ( [openDlg runModal] == NSOKButton )
-    {
+    if ( [openDlg runModal] == NSOKButton ) {
         // Get an array containing the full filenames of all
         // files and directories selected.
-        NSArray* files = [openDlg URLs];
+        NSArray *files = [openDlg URLs];
 		
         // Loop through all the files and process them.
-        for( int i = 0; i < [files count]; i++ )
-        {
-            NSURL* fileName = [files objectAtIndex:i];
+		for (int i = 0; i < [files count]; i++) {
+            NSURL *fileName = [files objectAtIndex:i];
 			
-			if ([pluginControllerDelegate fileIsValidBundle:[fileName path]])
-			{
+			if ([pluginControllerDelegate fileIsValidBundle:[fileName path]]) {
 				NSError *error = nil;
 				BOOL success = [pluginControllerDelegate
 								addBundleToResourcesDirectory:[fileName path]
 								withError:&error];
 				
-				if (success != YES)
+				if (success != YES) {
 					[NSApp presentError:error];
+				}
 			}
         }
     }

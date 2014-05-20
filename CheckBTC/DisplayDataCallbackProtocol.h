@@ -50,6 +50,6 @@
  * Display parts or the whole of the error in case the data could not be obtained
  * @param text to display
  */
-- (void)errorWithText:(NSError*)error;
+- (void)errorWithText:(NSError *)error;
 
 @end

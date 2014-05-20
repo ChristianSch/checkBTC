@@ -10,12 +10,12 @@
 #import "DataSourceProtocol.h"
 #import "PluginControllerDelegateProtocol.h"
 
-@interface PluginController : NSObject<PluginControllerDelegateProtocol>
+@interface PluginController : NSObject <PluginControllerDelegateProtocol>
 {
 	NSBundle *appBundle;
 	NSArray *bundlePaths;
 }
 
-@property (nonatomic,readonly) id<DataSourceProtocol> pluginInstance;
+@property (nonatomic, readonly) id<DataSourceProtocol> pluginInstance;
 
 @end

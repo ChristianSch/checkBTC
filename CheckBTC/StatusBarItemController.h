@@ -22,7 +22,7 @@
 	NSTimer *animationTimer;
 }
 
-- (StatusBarItemController *) init;
+- (StatusBarItemController *)init;
 
 /*!
  @abstract Initiate the status bar item without any text
@@ -33,14 +33,14 @@
  @abstract Initiate the status bar item with the given text using the default color
  @param text Text to set
  */
-- (void)initStatusBarItemWithNSString:(NSMenu*)appMenu textToSet:(NSString *)text;
+- (void)initStatusBarItemWithNSString:(NSMenu *)appMenu textToSet:(NSString *)text;
 
 /*!
  @abstract Initiate status bar item with text and color
  @param text Text to set
  @param color Color to set the text in
  */
-- (void)initStatusBarItemWithNSStringAndNSColor:(NSMenu*)appMenu textToSet:(NSString *)text colorToSet:(NSColor *)color;
+- (void)initStatusBarItemWithNSStringAndNSColor:(NSMenu *)appMenu textToSet:(NSString *)text colorToSet:(NSColor *)color;
 
 /*!
  @abstract Set the text displayed in the status bar. The used color is the default color

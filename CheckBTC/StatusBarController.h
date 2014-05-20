@@ -18,7 +18,7 @@
  @version 0.2
  @updated 23.02.14
  */
-@interface StatusBarController : NSObject<DisplayDataCallbackProtocol>
+@interface StatusBarController : NSObject <DisplayDataCallbackProtocol>
 {
 	NSMenu *_appMenu;
 	StatusBarItemController *itemController;

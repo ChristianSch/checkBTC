@@ -76,4 +76,5 @@
 @property (weak) IBOutlet NSTextField *formatting;
 @property (strong) IBOutlet NSArrayController *arrayController;
 @property (weak) IBOutlet NSPopUpButton *bundlePopup;
+
 @end

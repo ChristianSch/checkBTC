@@ -31,6 +31,7 @@
 }
 
 #pragma mark - window management
+
 - (IBAction)showAbout:(id)sender
 {
 	[NSApp orderFrontStandardAboutPanel:self];

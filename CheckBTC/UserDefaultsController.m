@@ -10,7 +10,7 @@
 
 @implementation UserDefaultsController
 
-- (id) init
+- (id)init
 {
 	self = [super init];
 	
@@ -37,7 +37,7 @@
 	[userDefaults setBool:[self doesStartAtLogin] forKey:startAtLoginKey];
 }
 
--(BOOL)doesStartAtLogin
+- (BOOL)doesStartAtLogin
 {
 	return [launchAtLoginController launchAtLogin];
 }
@@ -54,21 +54,21 @@
 	return (BOOL) [[userDefaults objectForKey:animationKey] integerValue];
 }
 
-- (NSString*)currency
+- (NSString *)currency
 {
 	return [userDefaults objectForKey:currencyKey];
 }
 
-- (void)userDefaultsWithDict:(NSDictionary*)dict
+- (void)userDefaultsWithDict:(NSDictionary *)dict
 {
-	for( NSString *aKey in dict )
-	{
+	for (NSString *aKey in dict) {
 		[userDefaults setObject:dict[aKey] forKey:aKey];
 	}
 }
 
-- (id)userDefaultForKey:(NSString*)key
+- (id)userDefaultForKey:(NSString *)key
 {
 	return [userDefaults objectForKey:key];
 }
+
 @end

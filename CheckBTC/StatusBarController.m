@@ -29,8 +29,7 @@
 
 - (void)errorWithText:(NSError *)error
 {
-	if ([error code] == NSURLErrorNotConnectedToInternet)
-	{
+	if ([error code] == NSURLErrorNotConnectedToInternet) {
 		[self showWarningWithMessage:@"No internet connection"];
 		
 		// regular
@@ -49,11 +48,10 @@
 {
 	NSMenuItem *item = [_appMenu itemWithTag:1337];
 	
-	if ([_appMenu itemWithTag:1337] == nil)
-	{
+	if ([_appMenu itemWithTag:1337] == nil) {
 		/* Set up the image */
 		NSImage *warningImage = [NSImage imageNamed:NSImageNameCaution];
-		[warningImage setScalesWhenResized: YES];
+		[warningImage setScalesWhenResized:YES];
 		[warningImage setSize: NSMakeSize(16, 16)];
 		
 		/* add to menu */
@@ -93,6 +91,5 @@
 {
 	[itemController setText:text];
 }
-
 
 @end

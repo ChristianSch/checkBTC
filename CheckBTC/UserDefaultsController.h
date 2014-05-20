@@ -18,8 +18,7 @@
  @version 0.2
  @updated 23.02.14
  */
-
-@interface UserDefaultsController : NSObject<UserDefaultsControllerDelegateProtocol>
+@interface UserDefaultsController : NSObject <UserDefaultsControllerDelegateProtocol>
 {
 	NSUserDefaults *userDefaults;
 	LaunchAtLoginController *launchAtLoginController;

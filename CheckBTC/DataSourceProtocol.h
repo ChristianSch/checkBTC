@@ -43,28 +43,28 @@
  @abstract Analyze the retrieved data
  @param data retrieved data
  */
-- (void)handleData:(NSData*)data;
+- (void)handleData:(NSData *)data;
 
 /*!
  @abstract Provide the URL to request data for the currency from
  @param currency
  @return URL to retrieve data from
  */
-- (NSURL *)dataURLForCurrency:(NSString*)currency;
+- (NSURL *)dataURLForCurrency:(NSString *)currency;
 
 /*!
  @abstract Get average value for a given currency
  @param currency
  @return average
  */
-- (NSNumber*)avgForCurrency:(NSString*)currency;
+- (NSNumber *)avgForCurrency:(NSString *)currency;
 
 /*!
  @abstract Get symbolic representation of a currency
  @param currency
  @return string representation of symbol
  */
-- (NSString*)currencySymbol:(NSString*)currency;
+- (NSString *)currencySymbol:(NSString *)currency;
 
 /*!
  Supported currencies.

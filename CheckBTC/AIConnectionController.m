@@ -15,8 +15,7 @@
 - (void)setDelegate:(id)delegate
 {
 	if ([[delegate class]
-		 conformsToProtocol:@protocol(AIConnectionControllerDelegateProtocol)])
-	{
+		 conformsToProtocol:@protocol(AIConnectionControllerDelegateProtocol)]) {
 		_callbackDelegate = delegate;
 		
 	} else {
@@ -29,7 +28,7 @@
 
 - (void)makeConnectionWithReqest:(NSURLRequest *)request
 {
-	NSURLConnection* connection = [[NSURLConnection alloc]
+	NSURLConnection *connection = [[NSURLConnection alloc]
 								   initWithRequest:request
 								   delegate:self];
 	[connection start];
@@ -42,20 +41,19 @@
 
 # pragma mark - connection handling
 
--(void)connection:(NSURLConnection*)connection didReceiveResponse:(NSURLResponse*)response
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
     _data = [[NSMutableData alloc] init];
 }
 
--(void)connection:(NSURLConnection*)connection didReceiveData:(NSData*)data
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     [_data appendData:data];
 }
 
--(void)connection:(NSURLConnection*)connection didFailWithError:(NSError*)error
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    if (_callbackDelegate != nil)
-	{
+    if (_callbackDelegate != nil) {
 		[_callbackDelegate didFailWithError:error];
 		
 	} else {
@@ -63,14 +61,14 @@
 	}
 }
 
--(void)connectionDidFinishLoading:(NSURLConnection*)connection
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-	if (_callbackDelegate != nil)
-	{
+	if (_callbackDelegate != nil) {
 		[_callbackDelegate didFinishLoading:_data];
 		
 	} else {
 		NSLog(@"No callback delegate! (didFinishLoading)");
 	}
 }
+
 @end

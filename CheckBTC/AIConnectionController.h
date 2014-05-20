@@ -40,4 +40,5 @@
  @param url URL to retrieve the content from
  */
 - (void)makeConnectionWithURL:(NSURL *)url;
+
 @end

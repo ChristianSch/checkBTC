@@ -25,7 +25,7 @@
  Dictionary format:
  { BundleName : BundlePath }
  */
-- (NSArray*)availableBundles;
+- (NSArray *)availableBundles;
 
 /*!
  Return path for the bundle named `name`.
@@ -42,13 +42,13 @@
  `name` will be compared with the `name` in the dictionary returned by the @metadata
  method.
  */
-- (NSString*)pathForBundleName:(NSString*)name;
+- (NSString *)pathForBundleName:(NSString *)name;
 
 /*!
  Load the bundle found at `path` as the plugin to use.
  @param path to bundle
  */
-- (void)loadBundleAsPluginWithPath:(NSString*)path;
+- (void)loadBundleAsPluginWithPath:(NSString *)path;
 
 /*!
  Check if file at `path` is a valid bundle.
@@ -57,7 +57,7 @@
  
  @return file is valid plugin
  */
-- (BOOL)fileIsValidBundle:(NSString*)path;
+- (BOOL)fileIsValidBundle:(NSString *)path;
 
 /*!
  Copy bundle to the resources directory of the app
@@ -66,7 +66,7 @@
  
  @return sucess
  */
-- (BOOL)addBundleToResourcesDirectory:(NSString*)path
+- (BOOL)addBundleToResourcesDirectory:(NSString *)path
 							withError:(NSError *__autoreleasing*)error;
 
 /*!
@@ -76,13 +76,13 @@
  
  @return `name` is a valid bundle name
  */
-- (BOOL)bundleExistsWithName:(NSString*)name;
+- (BOOL)bundleExistsWithName:(NSString *)name;
 
 /*!
  Returns the name of the bundle that is used for data retrieval.
  
  @return Name of Bundle
  */
-- (NSString*)bundleInUse;
+- (NSString *)bundleInUse;
 
 @end

@@ -23,7 +23,7 @@ This provides necessary selectors to work with the user default controller
  
  @param dict that holds the new values
  */
-- (void)userDefaultsWithDict:(NSDictionary*)dict;
+- (void)userDefaultsWithDict:(NSDictionary *)dict;
 
 /*!
  Get value set for key `key`.
@@ -32,6 +32,6 @@ This provides necessary selectors to work with the user default controller
  
  @return default value for `key`
  */
-- (id)userDefaultForKey:(NSString*)key;
+- (id)userDefaultForKey:(NSString *)key;
 
 @end
