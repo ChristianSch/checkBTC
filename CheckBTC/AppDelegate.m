@@ -14,6 +14,8 @@
 {
 	@autoreleasepool
 	{
+		NSNotificationCenter *notifCenter = [NSNotificationCenter defaultCenter];
+		
 		// >>> set up controllers <<<
 		userDefaultsController = [[UserDefaultsController alloc] init];
 		preferencesWindowController = [[PreferencesWindowController alloc] init];
