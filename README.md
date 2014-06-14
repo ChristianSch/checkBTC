@@ -3,6 +3,12 @@ checkBTC
 
 Display the current market price of Bitcoins in the status bar of OS X. 
 
+PLEASE NOTE: This project will be discontinued as of 14th June 2014. The upcoming release of OS X 10.10 Yosemite introduces a way better user experience for this type of apps. The today extensions for the notification center are a much better way of displaying bitcoin prices (even for several marketplaces at once). So I stop developing CheckBTC at this point. If you want to use the code or continue this project, please go ahead and do so.
+
+I'll merge the development branch with the master branch. If you want to continue development please note the following: the open tickets could be seen as a todo list. My next step would be to introduce a notification system that notificates every component that depends on the exchange plugins on plugin changes.
+
+Just ask if anything remains unclear.
+
 Changelog
 =========
 Version 1.1
